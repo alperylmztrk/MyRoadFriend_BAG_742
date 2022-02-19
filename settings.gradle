@@ -1,0 +1,2 @@
+include ':app'
+rootProject.name = "MyRoadFriend_BAG_742"
