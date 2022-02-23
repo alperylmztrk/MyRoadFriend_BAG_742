@@ -1,3 +1,19 @@
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
     <string name="app_name">MyRoadFriend_BAG_742</string>
+    <string name="login">LOGIN</string>
+    <string name="email">Email</string>
+    <string name="password">Password</string>
+    <string name="btnLogin">Logın</string>
+    <string name="textBelowBtnLogin" tools:ignore="StringEscaping">Don't have an account? Sign Up</string>
+    <string name="register">REGISTER</string>
+    <string name="name">Name</string>
+    <string name="surname">Surname</string>
+    <string name="username">Username</string>
+    <string name="driver">Driver</string>
+    <string name="passenger">Passenger</string>
+    <string name="signUpBtn">Sıgn Up</string>
+    <string name="textBelowBtnSignUp">Already have an account? Sign In</string>
+    <string name="my_road_friend">My Road Friend</string>
+    <string name="welcome">Welcome</string>
+    <string name="btnRegister">Regıster</string>
 </resources>

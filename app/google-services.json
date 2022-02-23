@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "400223763031",
+    "project_id": "myroadfriend-38d76",
+    "storage_bucket": "myroadfriend-38d76.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:400223763031:android:6bc911ae959c61d87b8112",
+        "android_client_info": {
+          "package_name": "yilmazturk.alper.myroadfriend_bag_742"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "400223763031-7ivf5cs2ph7o96usg4pkrt3vj885th56.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "yilmazturk.alper.myroadfriend_bag_742",
+            "certificate_hash": "4eb5aed5c20148592e5f69a806f517dbe8f498ef"
+          }
+        },
+        {
+          "client_id": "400223763031-mba7oihpldag351vgbg47p16nvs05ken.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBzUA-aK82pWY2lrmKXGDxPe3Zx9pIX85Y"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "400223763031-mba7oihpldag351vgbg47p16nvs05ken.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
