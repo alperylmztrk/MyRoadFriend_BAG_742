@@ -1,0 +1,1247 @@
+{
+    "universities": [
+        {
+            "id": "1",
+            "name": "Abdullah Gül University",
+            "city": "Kayseri",
+            "latLng": "38.73725187966619, 35.473491082299596"
+        },
+        {
+            "id": "2",
+            "name": "Acıbadem Mehmet Ali Aydınlar University",
+            "city": "İstanbul",
+            "latLng": "40.978527413288475, 29.11032431159854"
+        },
+        {
+            "id": "3",
+            "name": "Adıyaman University",
+            "city": "Adıyaman",
+            "latLng": "37.744400857113774, 38.231366197496804"
+        },
+        {
+            "id": "4",
+            "name": "Afyonkarahisar University of Health Sciences",
+            "city": "Afyonkarahisar",
+            "latLng": "38.78486960432895, 30.467714020117867"
+        },
+        {
+            "id": "5",
+            "name": "Afyon Kocatepe University",
+            "city": "Afyonkarahisar",
+            "latLng": "38.812325798751075, 30.535034782301878"
+        },
+        {
+            "id": "6",
+            "name": "Ağrı İbrahim Çeçen University",
+            "city": "Ağrı",
+            "latLng": "39.72193816675569, 42.99245300315171"
+        },
+        {
+            "id": "7",
+            "name": "Akdeniz University",
+            "city": "Antalya",
+            "latLng": "36.89467934488996, 30.655352997585258"
+        },
+        {
+            "id": "8",
+            "name": "Aksaray University",
+            "city": "Aksaray",
+            "latLng": "38.32526544864949, 33.97759871112236"
+        },
+        {
+            "id": "9",
+            "name": "Alanya Alaaddin Keykubat University",
+            "city": "Antalya",
+            "latLng": "36.52638245636401, 32.08338472887345"
+        },
+        {
+            "id": "10",
+            "name": "Altınbaş University",
+            "city": "İstanbul",
+            "latLng": "41.05734842111805, 28.820435997712035"
+        },
+        {
+            "id": "11",
+            "name": "Amasya University",
+            "city": "Amasya",
+            "latLng": "40.653818762662816, 35.80572883559199"
+        },
+        {
+            "id": "12",
+            "name": "Anatolian University",
+            "city": "Eskişehir",
+            "latLng": "39.789691931660414, 30.50064796883714"
+        },
+        {
+            "id": "13",
+            "name": "Ankara Science University",
+            "city": "Ankara",
+            "latLng": "39.952402773388016, 32.771898597677385"
+        },
+        {
+            "id": "14",
+            "name": "Ankara Hacı Bayram Veli University",
+            "city": "Ankara",
+            "latLng": "39.91779767792208, 32.84265353143982"
+        },
+        {
+            "id": "15",
+            "name": "Ankara University of Music and Fine Arts",
+            "city": "Ankara",
+            "latLng": "39.857025887283896, 32.845473159610904"
+        },
+        {
+            "id": "16",
+            "name": "Ankara Social Sciences University",
+            "city": "Ankara",
+            "latLng": "39.942739596326675, 32.85640702057381"
+        },
+        {
+            "id": "17",
+            "name": "Ankara University",
+            "city": "Ankara",
+            "latLng": "39.93486459119388, 32.83386595885034"
+        },
+        {
+            "id": "18",
+            "name": "Ankara Yıldırım Beyazıt University (Çubuk)",
+            "city": "Ankara",
+            "latLng": "40.133265475752054, 32.94348824191816"
+        },
+        {
+            "id": "19",
+            "name": "Antalya Akev University",
+            "city": "Antalya",
+            "latLng": "36.88581190506011, 30.999387297585088"
+        },
+        {
+            "id": "20",
+            "name": "Antalya Science University",
+            "city": "Antalya",
+            "latLng": "37.05186297989757, 30.620926268754783"
+        },
+        {
+            "id": "21",
+            "name": "Artvin Çoruh University",
+            "city": "Artvin",
+            "latLng": "41.19853361237467, 41.84965187953215"
+        },
+        {
+            "id": "22",
+            "name": "Ataşehir Adıgüzel Vocational School",
+            "city": "İstanbul",
+            "latLng": "40.99543228376084, 29.142264618499883"
+        },
+        {
+            "id": "23",
+            "name": "Atatürk University",
+            "city": "Erzurum",
+            "latLng": "39.89951452623857, 41.244144168840585"
+        },
+        {
+            "id": "24",
+            "name": "Atılım University",
+            "city": "Ankara",
+            "latLng": "39.81573487392517, 32.72386689121711"
+        },
+        {
+            "id": "25",
+            "name": "Aydın Adnan Menderes University",
+            "city": "Aydın",
+            "latLng": "37.85297767464586, 27.854340668247133"
+        },
+        {
+            "id": "26",
+            "name": "Bahçeşehir University",
+            "city": "İstanbul",
+            "latLng": "41.042160572199755, 29.009253200040142"
+        },
+        {
+            "id": "27",
+            "name": "Balıkesir University",
+            "city": "Balıkesir",
+            "latLng": "39.5410532220876, 28.008675392677862"
+        },
+        {
+            "id": "28",
+            "name": "Bandırma Onyedi Eylül University",
+            "city": "Balıkesir",
+            "latLng": "40.33747661338674, 27.935968511184058"
+        },
+        {
+            "id": "29",
+            "name": "Bartin University",
+            "city": "Bartin",
+            "latLng": "41.60066641677864, 32.345851676470616"
+        },
+        {
+            "id": "30",
+            "name": "Başkent University",
+            "city": "Ankara",
+            "latLng": "39.8876903441573, 32.65436714839771"
+        },
+        {
+            "id": "31",
+            "name": "Batman University",
+            "city": "Batman",
+            "latLng": "37.78730154414434, 41.062805253781825"
+        },
+        {
+            "id": "32",
+            "name": "Bayburt University",
+            "city": "Bayburt",
+            "latLng": "40.25015399386127, 40.230150600831855"
+        },
+        {
+            "id": "33",
+            "name": "Beykent University",
+            "city": "İstanbul",
+            "latLng": "41.018713368515776, 28.62713514895319"
+        },
+        {
+            "id": "34",
+            "name": "Beykoz University",
+            "city": "İstanbul",
+            "latLng": "41.09595546256178, 29.092074202713068"
+        },
+        {
+            "id": "35",
+            "name": "Bezmialem Vakıf University",
+            "city": "İstanbul",
+            "latLng": "41.0188224276543, 28.935096573622705"
+        },
+        {
+            "id": "36",
+            "name": "Bilecik Sheikh Edebali University",
+            "city": "Bilecik",
+            "latLng": "40.19239742211694, 29.969657648045946"
+        },
+        {
+            "id": "37",
+            "name": "Bingol University",
+            "city": "Bingol",
+            "latLng": "38.898380379367865, 40.487860562894305"
+        },
+        {
+            "id": "38",
+            "name": "Biruni University",
+            "city": "İstanbul",
+            "latLng": "41.003567947713975, 28.91996219919866"
+        },
+        {
+            "id": "39",
+            "name": "Bitlis Eren University",
+            "city": "Bitlis",
+            "latLng": "38.47876036068689, 42.16338432277735"
+        },
+        {
+            "id": "40",
+            "name": "Boğaziçi University",
+            "city": "İstanbul",
+            "latLng": "41.08016322482282, 29.05038283782389"
+        },
+        {
+            "id": "41",
+            "name": "Burdur Mehmet Akif Ersoy University",
+            "city": "Burdur",
+            "latLng": "37.69093949146251, 30.34318499864621"
+        },
+        {
+            "id": "42",
+            "name": "Bursa Technical University",
+            "city": "Bursa",
+            "latLng": "40.187391226657, 29.130010738727158"
+        },
+        {
+            "id": "43",
+            "name": "Çanakkale Onsekiz Mart University",
+            "city": "Çanakkale",
+            "latLng": "40.11344301449954, 26.420463008061414"
+        },
+        {
+            "id": "44",
+            "name": "Çankaya University",
+            "city": "Ankara",
+            "latLng": "39.819979214388965, 32.56527076663929"
+        },
+        {
+            "id": "45",
+            "name": "Çankırı Karatekin University",
+            "city": "Çankırı",
+            "latLng": "40.618140279342256, 33.622859697698246"
+        },
+        {
+            "id": "46",
+            "name": "Çukurova University",
+            "city": "Adana",
+            "latLng": "37.06033885774674, 35.35501070639879"
+        },
+        {
+            "id": "47",
+            "name": "Demiroğlu Science University",
+            "city": "İstanbul",
+            "latLng": "41.06911040798897, 29.01235857913896"
+        },
+        {
+            "id": "48",
+            "name": "Dicle University",
+            "city": "Diyarbakır",
+            "latLng": "37.92034203016976, 40.26579518325765"
+        },
+        {
+            "id": "49",
+            "name": "Doğuş University",
+            "city": "İstanbul",
+            "latLng": "41.00163114632171, 29.17594883386387"
+        },
+        {
+            "id": "50",
+            "name": "Dokuz Eylül University",
+            "city": "İzmir",
+            "latLng": "38.43068447163886, 27.136917114207844"
+        },
+        {
+            "id": "51",
+            "name": "Düzce University",
+            "city": "Düzce",
+            "latLng": "40.903737426620005, 31.17509675297933"
+        },
+        {
+            "id": "52",
+            "name": "Ege University",
+            "city": "İzmir",
+            "latLng": "38.457461934211615, 27.22821650310266"
+        },
+        {
+            "id": "53",
+            "name": "Erciyes University",
+            "city": "Kayseri",
+            "latLng": "38.71018259993471, 35.53379745269886"
+        },
+        {
+            "id": "54",
+            "name": "Eskişehir Osmangazi University",
+            "city": "Eskişehir",
+            "latLng": "39.751669082294136, 30.49000034000094"
+        },
+        {
+            "id": "55",
+            "name": "Eskişehir Technical University",
+            "city": "Eskişehir",
+            "latLng": "39.81602567142048, 30.52981315243068"
+        },
+        {
+            "id": "56",
+            "name": "Fatih Sultan Mehmet Vakıf University",
+            "city": "İstanbul",
+            "latLng": "41.01624455004452, 28.953097335146037"
+        },
+        {
+            "id": "57",
+            "name": "Fenerbahçe University",
+            "city": "İstanbul",
+            "latLng": "40.9941880123225, 29.12105670332337"
+        },
+        {
+            "id": "58",
+            "name": "Fırat University",
+            "city": "Elazığ",
+            "latLng": "38.67775670646449, 39.20196406973121"
+        },
+        {
+            "id": "59",
+            "name": "Galatasaray University",
+            "city": "İstanbul",
+            "latLng": "41.04599045957866, 29.01989111927071"
+        },
+        {
+            "id": "60",
+            "name": "Gaziantep University",
+            "city": "Gaziantep",
+            "latLng": "37.03500964811435, 37.31351879470549"
+        },
+        {
+            "id": "61",
+            "name": "Gazi University",
+            "city": "Ankara",
+            "latLng": "39.93963607338374, 32.82230042236987"
+        },
+        {
+            "id": "62",
+            "name": "Gebze Technical University",
+            "city": "Kocaeli",
+            "latLng": "40.807979641278806, 29.359459654756268"
+        },
+        {
+            "id": "63",
+            "name": "Giresun University",
+            "city": "Giresun",
+            "latLng": "40.915525610498605, 38.32198086232533"
+        },
+        {
+            "id": "64",
+            "name": "Gümüşhane University",
+            "city": "Gümüşhane",
+            "latLng": "40.43638069981901, 39.5144323044638"
+        },
+        {
+            "id": "66",
+            "name": "Hacettepe University",
+            "city": "Ankara",
+            "latLng": "39.929946880241744, 32.866471925322145"
+        },
+        {
+            "id": "67",
+            "name": "Hakkari University",
+            "city": "Hakkari",
+            "latLng": "37.561124142200306, 43.72319503419349"
+        },
+        {
+            "id": "68",
+            "name": "Haliç University",
+            "city": "İstanbul",
+            "latLng": "41.086231822480165, 28.95298746631712"
+        },
+        {
+            "id": "69",
+            "name": "Hasan Kalyoncu University",
+            "city": "Gaziantep",
+            "latLng": "37.00747451571704, 37.436509368647556"
+        },
+        {
+            "id": "70",
+            "name": "Hatay Mustafa Kemal University",
+            "city": "Hatay",
+            "latLng": "36.33331495529396, 36.19683938798768"
+        },
+        {
+            "id": "71",
+            "name": "Hitit University",
+            "city": "Çorum",
+            "latLng": "40.570895200165914, 34.98106737819073"
+        },
+        {
+            "id": "72",
+            "name": "Iğdır University",
+            "city": "Iğdır",
+            "latLng": "39.814830124579004, 44.07685025766798"
+        },
+        {
+            "id": "73",
+            "name": "Isparta University of Applied Sciences",
+            "city": "Isparta",
+            "latLng": "37.77887409867016, 30.54671271622613"
+        },
+        {
+            "id": "74",
+            "name": "Işık University",
+            "city": "İstanbul",
+            "latLng": "41.16889909247527, 29.5639944600472"
+        },
+        {
+            "id": "75",
+            "name": "İbn Haldun University",
+            "city": "İstanbul",
+            "latLng": "41.13853193461394, 28.796880063515964"
+        },
+        {
+            "id": "76",
+            "name": "İnönü University",
+            "city": "Malatya",
+            "latLng": "38.33029705118058, 38.4399545264937"
+        },
+        {
+            "id": "77",
+            "name": "İskenderun Technical University",
+            "city": "Hatay",
+            "latLng": "36.57752656082283, 36.15428596494162"
+        },
+        {
+            "id": "78",
+            "name": "İstanbul 29 May University",
+            "city": "İstanbul",
+            "latLng": "41.03092260565262, 29.098963621421856"
+        },
+        {
+            "id": "79",
+            "name": "İstanbul Aydın University",
+            "city": "İstanbul",
+            "latLng": "40.990517308428416, 28.797161075716357"
+        },
+        {
+            "id": "80",
+            "name": "İstanbul Ayvansaray University",
+            "city": "İstanbul",
+            "latLng": "40.99488371312638, 28.91742932157686"
+        },
+        {
+            "id": "81",
+            "name": "İstanbul Bilgi University",
+            "city": "İstanbul",
+            "latLng": "41.066800685317865, 28.945861319765825"
+        },
+        {
+            "id": "82",
+            "name": "İstanbul Esenyurt University",
+            "city": "İstanbul",
+            "latLng": "41.020417006214764, 28.68710280338919"
+        },
+        {
+            "id": "83",
+            "name": "İstanbul Gedik University",
+            "city": "İstanbul",
+            "latLng": "40.901545438897465, 29.21938196040447"
+        },
+        {
+            "id": "84",
+            "name": "İstanbul Gelişim University",
+            "city": "İstanbul",
+            "latLng": "40.998024202650235, 28.698970592941542"
+        },
+        {
+            "id": "85",
+            "name": "İstanbul Kent University",
+            "city": "İstanbul",
+            "latLng": "41.03340110663955, 28.984121485098267"
+        },
+        {
+            "id": "86",
+            "name": "İstanbul Medeniyet University",
+            "city": "İstanbul",
+            "latLng": "40.99496896198188, 29.064419710089975"
+        },
+        {
+            "id": "87",
+            "name": "İstanbul Medipol University",
+            "city": "İstanbul",
+            "latLng": "41.0911118627107, 29.091533011229746"
+        },
+        {
+            "id": "88",
+            "name": "İstanbul Okan University",
+            "city": "İstanbul",
+            "latLng": "40.951855226432954, 29.392114779282196"
+        },
+        {
+            "id": "89",
+            "name": "İstanbul Rumeli University",
+            "city": "İstanbul",
+            "latLng": "41.07871991228876, 28.270094294114934"
+        },
+        {
+            "id": "90",
+            "name": "İstanbul Sabahattin Zaim University",
+            "city": "İstanbul",
+            "latLng": "41.0325502208124, 28.785062965987073"
+        },
+        {
+            "id": "91",
+            "name": "İstanbul Vocational School of Health and Social Sciences",
+            "city": "İstanbul",
+            "latLng": "41.00622505608122, 28.984787300254307"
+        },
+        {
+            "id": "92",
+            "name": "İstanbul Technical University",
+            "city": "İstanbul",
+            "latLng": "41.10560115156808, 29.025342675831354"
+        },
+        {
+            "id": "93",
+            "name": "İstanbul Commerce University",
+            "city": "İstanbul",
+            "latLng": "41.058125603041724, 28.95116334437116"
+        },
+        {
+            "id": "94",
+            "name": "İstanbul University",
+            "city": "İstanbul",
+            "latLng": "41.01260504489782, 28.961826447167066"
+        },
+        {
+            "id": "95",
+            "name": "İstanbul University Cerrahpaşa",
+            "city": "İstanbul",
+            "latLng": "40.98944195727701, 28.72431793409298"
+        },
+        {
+            "id": "96",
+            "name": "İstinye University",
+            "city": "İstanbul",
+            "latLng": "41.01477284486846, 28.9061409830433"
+        },
+        {
+            "id": "97",
+            "name": "İzmir University of Economics",
+            "city": "İzmir",
+            "latLng": "38.38829315686539, 27.045076232124625"
+        },
+        {
+            "id": "98",
+            "name": "İzmir Concept Vocational School",
+            "city": "İzmir",
+            "latLng": "38.423370566790716, 27.15125044803281"
+        },
+        {
+            "id": "99",
+            "name": "İzmir Tınaztepe University",
+            "city": "İzmir",
+            "latLng": "38.404688089304926, 27.19911359407164"
+        },
+        {
+            "id": "100",
+            "name": "İzmir Institute of Technology",
+            "city": "İzmir",
+            "latLng": "38.319093204385766, 26.6431970849844"
+        },
+        {
+            "id": "101",
+            "name": "Kadir Has University",
+            "city": "İstanbul",
+            "latLng": "41.024949932747404, 28.958973680804263"
+        },
+        {
+            "id": "102",
+            "name": "Kahramanmaraş İstiklal University",
+            "city": "Kahramanmaraş",
+            "latLng": "37.573418623968756, 36.93369698372893"
+        },
+        {
+            "id": "103",
+            "name": "Kahramanmaraş Sütçü İmam University",
+            "city": "Kahramanmaraş",
+            "latLng": "37.58580721470931, 36.81932638105283"
+        },
+        {
+            "id": "104",
+            "name": "Cappadocia University",
+            "city": "Nevşehir",
+            "latLng": "38.5841117413639, 34.898563680072144"
+        },
+        {
+            "id": "105",
+            "name": "Karabük University",
+            "city": "Karabük",
+            "latLng": "41.21066504823752, 32.655507843796"
+        },
+        {
+            "id": "106",
+            "name": "Karadeniz Technical University",
+            "city": "Trabzon",
+            "latLng": "40.99767665294537, 39.771216473662165"
+        },
+        {
+            "id": "107",
+            "name": "Karamanoğlu Mehmetbey University",
+            "city": "Karaman",
+            "latLng": "37.177254431459986, 33.25397609574782"
+        },
+        {
+            "id": "108",
+            "name": "Kastamonu University",
+            "city": "Kastamonu",
+            "latLng": "41.43537755753249, 33.766635000341296"
+        },
+        {
+            "id": "109",
+            "name": "Kırıkkale University",
+            "city": "Kırıkkale",
+            "latLng": "39.8794238141107, 33.44585488052725"
+        },
+        {
+            "id": "110",
+            "name": "Kırklareli University",
+            "city": "Kırklareli",
+            "latLng": "41.795011127432936, 27.169016769852337"
+        },
+        {
+            "id": "111",
+            "name": "Kırşehir Ahi Evran University ",
+            "city": "Kırşehir",
+            "latLng": "39.14301478627616, 34.12478455032729"
+        },
+        {
+            "id": "112",
+            "name": "Kilis 7 Aralık University",
+            "city": "Kilis",
+            "latLng": "36.73150942727787, 37.103103521410006"
+        },
+        {
+            "id": "113",
+            "name": "Kocaeli Health and Technology University",
+            "city": "Kocaeli",
+            "latLng": "40.69834768318502, 29.884440466045817"
+        },
+        {
+            "id": "114",
+            "name": "Kocaeli University",
+            "city": "Kocaeli",
+            "latLng": "40.82218311854687, 29.92165462926172"
+        },
+        {
+            "id": "115",
+            "name": "Koç University",
+            "city": "İstanbul",
+            "latLng": "41.20543628257205, 29.072420230278034"
+        },
+        {
+            "id": "116",
+            "name": "Konya Food and Agriculture University",
+            "city": "Konya",
+            "latLng": "37.874995996359864, 32.473589455131695"
+        },
+        {
+            "id": "117",
+            "name": "Konya Technical University",
+            "city": "Konya",
+            "latLng": "38.00757001166362, 32.51871504028754"
+        },
+        {
+            "id": "118",
+            "name": "KTO Karatay University",
+            "city": "Konya",
+            "latLng": "37.86574454981895, 32.5369957628508"
+        },
+        {
+            "id": "119",
+            "name": "Kütahya Dumlupınar University",
+            "city": "Kütahya",
+            "latLng": "39.478709534689486, 29.89770393040494"
+        },
+        {
+            "id": "120",
+            "name": "Kütahya University of Health Sciences",
+            "city": "Kütahya",
+            "latLng": "39.478435222362684, 29.90156886084178"
+        },
+        {
+            "id": "121",
+            "name": "Maltepe University",
+            "city": "İstanbul",
+            "latLng": "40.95970174768478, 29.187765486049102"
+        },
+        {
+            "id": "122",
+            "name": "Manisa Celal Bayar University",
+            "city": "Manisa",
+            "latLng": "38.674391483386884, 27.309822198390783"
+        },
+        {
+            "id": "123",
+            "name": "Mardin Artuklu University",
+            "city": "Mardin",
+            "latLng": "37.33525173135274, 40.70670563080149"
+        },
+        {
+            "id": "124",
+            "name": "Marmara University",
+            "city": "İstanbul",
+            "latLng": "40.987029084635985, 29.052807706881996"
+        },
+        {
+            "id": "125",
+            "name": "MEF University",
+            "city": "İstanbul",
+            "latLng": "41.10884292580646, 29.00859668824258"
+        },
+        {
+            "id": "126",
+            "name": "Mersin University",
+            "city": "Mersin",
+            "latLng": "36.787500740390726, 34.52472570252941"
+        },
+        {
+            "id": "127",
+            "name": "Muş Alparslan University",
+            "city": "Muş",
+            "latLng": "38.77022872019716, 41.42682586215629"
+        },
+        {
+            "id": "128",
+            "name": "Necmettin Erbakan University",
+            "city": "Konya",
+            "latLng": "37.85745664889514, 32.43121217136377"
+        },
+        {
+            "id": "129",
+            "name": "Nevşehir Haci Bektas Veli University",
+            "city": "Nevşehir",
+            "latLng": "38.675476372058704, 34.742117591027935"
+        },
+        {
+            "id": "130",
+            "name": "Niğde Ömer Halisdemir University",
+            "city": "Niğde",
+            "latLng": "37.94146013286086, 34.62433586638733"
+        },
+        {
+            "id": "131",
+            "name": "Nişantaşı University",
+            "city": "İstanbul",
+            "latLng": "41.119422337971685, 29.008970035024586"
+        },
+        {
+            "id": "132",
+            "name": "Nuh Naci Yazgan University",
+            "city": "Kayseri",
+            "latLng": "38.78573129178393, 35.40636024141851"
+        },
+        {
+            "id": "133",
+            "name": "Ondokuz Mayıs University",
+            "city": "Samsun",
+            "latLng": "41.37183481328022, 36.210957781841174"
+        },
+        {
+            "id": "134",
+            "name": "Ordu University",
+            "city": "Ordu",
+            "latLng": "40.97632932567316, 37.968731056625764"
+        },
+        {
+            "id": "135",
+            "name": "Osmaniye Korkut Ata University",
+            "city": "Osmaniye",
+            "latLng": "37.040847499445555, 36.22048603745334"
+        },
+        {
+            "id": "136",
+            "name": "Ostim Technical University",
+            "city": "Ankara",
+            "latLng": "39.968997586190255, 32.743781123815886"
+        },
+        {
+            "id": "137",
+            "name": "Özyeğin University",
+            "city": "İstanbul",
+            "latLng": "41.02938767020135, 29.25924435719173"
+        },
+        {
+            "id": "138",
+            "name": "Pamukkale University",
+            "city": "Denizli",
+            "latLng": "37.738163142186835, 29.10394232577372"
+        },
+        {
+            "id": "139",
+            "name": "Piri Reis University",
+            "city": "İstanbul",
+            "latLng": "40.81492814455906, 29.290391168349608"
+        },
+        {
+            "id": "140",
+            "name": "Recep Tayyip Erdogan University",
+            "city": "Rize",
+            "latLng": "41.03805973826608, 40.493245568424925"
+        },
+        {
+            "id": "141",
+            "name": "University of Health Sciences",
+            "city": "İstanbul",
+            "latLng": "41.00446987733065, 29.021280370171322"
+        },
+        {
+            "id": "142",
+            "name": "Sakarya University of Applied Sciences",
+            "city": "Sakarya",
+            "latLng": "40.74009045380217, 30.33219975088957"
+        },
+        {
+            "id": "143",
+            "name": "Sakarya University",
+            "city": "Sakarya",
+            "latLng": "40.74197671324383, 30.332177909483104"
+        },
+        {
+            "id": "144",
+            "name": "Samsun University",
+            "city": "Samsun",
+            "latLng": "41.23196327012006, 36.37004713289268"
+        },
+        {
+            "id": "145",
+            "name": "Selçuk University",
+            "city": "Konya",
+            "latLng": "38.02145487999048, 32.51187147182111"
+        },
+        {
+            "id": "146",
+            "name": "Siirt University",
+            "city": "Siirt",
+            "latLng": "37.93601066663114, 41.94039409911739"
+        },
+        {
+            "id": "147",
+            "name": "Sinop University",
+            "city": "Sinop",
+            "latLng": "42.00588367637089, 35.090159683214985"
+        },
+        {
+            "id": "148",
+            "name": "Sivas Cumhuriyet University",
+            "city": "Sivas",
+            "latLng": "39.70870402580854, 37.02026244686808"
+        },
+        {
+            "id": "149",
+            "name": "Şırnak University",
+            "city": "Şırnak",
+            "latLng": "37.50492941618913, 42.42831900748324"
+        },
+        {
+            "id": "150",
+            "name": "İstanbul Yeni Yüzyıl University",
+            "city": "İstanbul",
+            "latLng": "41.01639292342077, 28.906610342237514"
+        },
+        {
+            "id": "151",
+            "name": "TED University",
+            "city": "Ankara",
+            "latLng": "39.92336872786406, 32.86172151159847"
+        },
+        {
+            "id": "152",
+            "name": "Tekirdağ Namık Kemal University",
+            "city": "Tekirdağ",
+            "latLng": "40.993508371426344, 27.58409338741415"
+        },
+        {
+            "id": "153",
+            "name": "TOBB University of Economics and Technology",
+            "city": "Ankara",
+            "latLng": "39.92118303720784, 32.79831061774912"
+        },
+        {
+            "id": "154",
+            "name": "Tokat Gaziosmanpaşa University",
+            "city": "Tokat",
+            "latLng": "40.33109207775543, 36.47984388254843"
+        },
+        {
+            "id": "155",
+            "name": "Trakya University",
+            "city": "Edirne",
+            "latLng": "41.641235929859405, 26.615643688395767"
+        },
+        {
+            "id": "156",
+            "name": "Turkish-German University",
+            "city": "İstanbul",
+            "latLng": "41.14439142015925, 29.100868631095256"
+        },
+        {
+            "id": "157",
+            "name": "University of Turkish Aeronautical Association",
+            "city": "Ankara",
+            "latLng": "39.945546805189224, 32.68708375632028"
+        },
+        {
+            "id": "158",
+            "name": "Ufuk University",
+            "city": "Ankara",
+            "latLng": "39.826569144180056, 32.729724635547136"
+        },
+        {
+            "id": "159",
+            "name": "Uşak University",
+            "city": "Uşak",
+            "latLng": "38.671950935595284, 29.330213497656185"
+        },
+        {
+            "id": "160",
+            "name": "Üsküdar University",
+            "city": "İstanbul",
+            "latLng": "41.02496899249913, 29.038817573862758"
+        },
+        {
+            "id": "161",
+            "name": "Van Yüzüncü Yıl University",
+            "city": "Van",
+            "latLng": "38.56974737509842, 43.28885713498805"
+        },
+        {
+            "id": "162",
+            "name": "Yalova University",
+            "city": "Yalova",
+            "latLng": "40.65202872596613, 29.220628280518106"
+        },
+        {
+            "id": "163",
+            "name": "Yaşar University",
+            "city": "İzmir",
+            "latLng": "38.45477954396637, 27.202299185687384"
+        },
+        {
+            "id": "164",
+            "name": "Yeditepe University",
+            "city": "İstanbul",
+            "latLng": "40.97247371035234, 29.15254243978744"
+        },
+        {
+            "id": "165",
+            "name": "Higher Specialization University",
+            "city": "Ankara",
+            "latLng": "39.889984991125466, 32.800744336937974"
+        },
+        {
+            "id": "166",
+            "name": "Zonguldak Bülent Ecevit University",
+            "city": "Zonguldak",
+            "latLng": "41.45138076800587, 31.763040357755678"
+        },
+        {
+            "id": "167",
+            "name": "İhsan Doğramacı Bilkent University",
+            "city": "Ankara",
+            "latLng": "39.87460077984123, 32.74759227579099"
+        },
+        {
+            "id": "168",
+            "name": "Adana Alparslan Türkeş Science and Technology University",
+            "city": "Adana",
+            "latLng": "37.03921680498464, 35.385521299238036"
+        },
+        {
+            "id": "169",
+            "name": "Ardahan University",
+            "city": "Ardahan",
+            "latLng": "41.1314420070597, 42.78037518823803"
+        },
+        {
+            "id": "170",
+            "name": "Bolu Abant İzzet Baysal University",
+            "city": "Bolu",
+            "latLng": "40.714388737853376, 31.512973135774576"
+        },
+        {
+            "id": "171",
+            "name": "Bursa Uludağ University",
+            "city": "Bursa",
+            "latLng": "40.226509153704, 28.875956467005082"
+        },
+        {
+            "id": "172",
+            "name": "Erzincan Binali Yıldırım University",
+            "city": "Erzincan",
+            "latLng": "39.80383319907785, 39.37877669555299"
+        },
+        {
+            "id": "173",
+            "name": "Erzurum Technical University",
+            "city": "Erzurum",
+            "latLng": "39.91803309200616, 41.241065680465276"
+        },
+        {
+            "id": "174",
+            "name": "Gaziantep Islamic Science and Technology University",
+            "city": "Gaziantep",
+            "latLng": "36.97875327991214, 37.30005253991754"
+        },
+        {
+            "id": "175",
+            "name": "Harran University",
+            "city": "Şanlıurfa",
+            "latLng": "37.17235408749322, 39.00174569363137"
+        },
+        {
+            "id": "176",
+            "name": "İstanbul Medeniyet University",
+            "city": "İstanbul",
+            "latLng": "40.994976700311604, 29.06442731800876"
+        },
+        {
+            "id": "177",
+            "name": "İzmir Bakırçay University",
+            "city": "İzmir",
+            "latLng": "38.58197383533865, 26.96403357332796"
+        },
+        {
+            "id": "178",
+            "name": "İzmir Demokrasi University",
+            "city": "İzmir",
+            "latLng": "38.39358076396375, 27.073764196954325"
+        },
+        {
+            "id": "179",
+            "name": "İzmir Kâtip Çelebi University",
+            "city": "İzmir",
+            "latLng": "38.51248095057465, 27.031772796538995"
+        },
+        {
+            "id": "180",
+            "name": "Kafkas University",
+            "city": "Kars",
+            "latLng": "40.58385663588934, 43.06633984639397"
+        },
+        {
+            "id": "181",
+            "name": "Kayseri University",
+            "city": "Kayseri",
+            "latLng": "38.7121081818304, 35.552036681781665"
+        },
+        {
+            "id": "182",
+            "name": "Malatya Turgut Özal University",
+            "city": "Malatya",
+            "latLng": "38.46352355388883, 38.3551798357839"
+        },
+        {
+            "id": "183",
+            "name": "National Defence University",
+            "city": "İstanbul",
+            "latLng": "41.10047353028152, 29.014337388032622"
+        },
+        {
+            "id": "184",
+            "name": "Mimar Sinan Fine Arts University",
+            "city": "İstanbul",
+            "latLng": "41.030375117896625, 28.989092150755877"
+        },
+        {
+            "id": "185",
+            "name": "Muğla Sıtkı Koçman University",
+            "city": "Muğla",
+            "latLng": "37.16629431678389, 28.37669911931956"
+        },
+        {
+            "id": "186",
+            "name": "Munzur University",
+            "city": "Tunceli",
+            "latLng": "39.04580754934843, 39.51743481467914"
+        },
+        {
+            "id": "187",
+            "name": "Middle East Technical University",
+            "city": "Ankara",
+            "latLng": "39.88984120899355, 32.78008595602052"
+        },
+        {
+            "id": "188",
+            "name": "Sivas University of Science and Technology",
+            "city": "Sivas",
+            "latLng": "39.72417032263862, 37.045215531943235"
+        },
+        {
+            "id": "189",
+            "name": "Süleyman Demirel University",
+            "city": "Isparta",
+            "latLng": "37.82920689261024, 30.526327259820107"
+        },
+        {
+            "id": "190",
+            "name": "Tarsus University",
+            "city": "Mersin",
+            "latLng": "36.95513743834117, 34.84976936126118"
+        },
+        {
+            "id": "191",
+            "name": "Trabzon Univeristy",
+            "city": "Trabzon",
+            "latLng": "41.01034834124184, 39.60981071506727"
+        },
+        {
+            "id": "192",
+            "name": "Turkish Japanese Science and Technology University",
+            "city": "İstanbul",
+            "latLng": "40.92309578811216, 29.33223384990047"
+        },
+        {
+            "id": "193",
+            "name": "Yıldız Technical University",
+            "city": "İstanbul",
+            "latLng": "41.052087483631404, 29.010665651396874"
+        },
+        {
+            "id": "194",
+            "name": "Yozgat Bozok University",
+            "city": "Yozgat",
+            "latLng": "39.77652906484396, 34.80050490301752"
+        },
+        {
+            "id": "195",
+            "name": "Alanya Hamdullah Emin Pasa University",
+            "city": "Antalya",
+            "latLng": "36.548244984216204, 32.032129046374045"
+        },
+        {
+            "id": "196",
+            "name": "Ankara Medipol University",
+            "city": "Ankara",
+            "latLng": "39.9357304601128, 32.845413280941024"
+        },
+        {
+            "id": "197",
+            "name": "Avrasya University",
+            "city": "Trabzon",
+            "latLng": "40.987763071672354, 39.80511288966853"
+        },
+        {
+            "id": "198",
+            "name": "Çağ University",
+            "city": "Mersin",
+            "latLng": "36.975687980389274, 35.07698444895849"
+        },
+        {
+            "id": "199",
+            "name": "İstanbul Atlas University",
+            "city": "İstanbul",
+            "latLng": "41.09792972652909, 28.979658377894623"
+        },
+        {
+            "id": "200",
+            "name": "İstanbul Arel University",
+            "city": "İstanbul",
+            "latLng": "41.05519081362017, 28.500294065319284"
+        },
+        {
+            "id": "201",
+            "name": "İstanbul Kültür University",
+            "city": "İstanbul",
+            "latLng": "40.99129517385444, 28.832134841471905"
+        },
+        {
+            "id": "202",
+            "name": "İstanbul Health and Technology University",
+            "city": "İstanbul",
+            "latLng": "41.01034059680942, 28.90678878698106"
+        },
+        {
+            "id": "203",
+            "name": "İstanbul Şişli Vocational School",
+            "city": "İstanbul",
+            "latLng": "41.06792101660088, 29.00921312007007"
+        },
+
+        {
+            "id": "204",
+            "name": "Lokman Hekim University",
+            "city": "Ankara",
+            "latLng": "39.91121922159196, 32.7874129156355"
+        },
+        {
+            "id": "205",
+            "name": "Sabancı University",
+            "city": "İstanbul",
+            "latLng": "40.89100852675992, 29.378342205372302"
+        },
+        {
+            "id": "206",
+            "name": "Sanko University",
+            "city": "Gaziantep",
+            "latLng": "37.07186653978029, 37.36716217485836"
+        },
+        {
+            "id": "207",
+            "name": "Toros University",
+            "city": "Mersin",
+            "latLng": "36.79475288463405, 34.591589107023886"
+        },
+        {
+            "id": "208",
+            "name": "Ministry of Interior Gendarmerie and Coast Guard Academy",
+            "city": "Ankara",
+            "latLng": "39.83620520348524, 32.76099688605952"
+        }
+    ]
+}

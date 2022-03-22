@@ -2,7 +2,6 @@ package yilmazturk.alper.myroadfriend_bag_742;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.AppCompatEditText;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -17,14 +16,14 @@ import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
-import com.google.android.material.textfield.TextInputEditText;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
-import java.sql.SQLOutput;
+import yilmazturk.alper.myroadfriend_bag_742.Model.Driver;
+import yilmazturk.alper.myroadfriend_bag_742.Model.Passenger;
 
 public class RegisterActivity extends AppCompatActivity {
 
@@ -97,8 +96,16 @@ public class RegisterActivity extends AppCompatActivity {
                             String userID = firebaseUser.getUid();
 
                             database = FirebaseDatabase.getInstance().getReference();
-                            database.child("Users").child(userID).setValue(new User(name, surname, username, email, password, userType));
-                            startActivity(new Intent(RegisterActivity.this, HomeActivity.class));
+                            Driver driver=new Driver(name, surname, username, email, password, userType);
+                            Passenger passenger=new Passenger(name, surname, username, email, password, userType);
+                            if (userType.equals("Driver")){
+                                database.child("Users").child(userID).setValue(driver);
+                            }else{
+                                database.child("Users").child(userID).setValue(passenger);
+                            }
+                            //new Intent(RegisterActivity.this,PostTripActivity.class).putExtra("driver", (Serializable) driver);
+
+                            startActivity(new Intent(RegisterActivity.this, MainActivity.class));
 
                         } else {
                             Log.w(TAG, "createUserWithEmailAndPassword:failure", task.getException());

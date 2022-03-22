@@ -1,4 +1,4 @@
-package yilmazturk.alper.myroadfriend_bag_742;
+package yilmazturk.alper.myroadfriend_bag_742.Model;
 
 public class User {
 

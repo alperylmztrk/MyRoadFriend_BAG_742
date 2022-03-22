@@ -13,8 +13,13 @@
         <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
         <!-- Customize your theme here. -->
     </style>
+
     <style name="MyRadioButton" parent="Theme.AppCompat.Light">
 
         <item name="colorControlActivated">@color/myColorPrimaryVariant</item>
+    </style>
+
+    <style name="MySwitch" parent="Theme.MaterialComponents.DayNight">
+        <item name="colorSecondary">@color/myColorPrimary</item>
     </style>
 </resources>

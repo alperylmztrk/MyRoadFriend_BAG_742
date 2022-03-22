@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <dimen name="textSizeBelowBtn">11sp</dimen>
+    <dimen name="timeTxtSize">18sp</dimen>
 </resources>

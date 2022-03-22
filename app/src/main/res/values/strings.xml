@@ -4,7 +4,7 @@
     <string name="email">Email</string>
     <string name="password">Password</string>
     <string name="btnLogin">Logın</string>
-    <string name="textBelowBtnLogin" tools:ignore="StringEscaping">Don't have an account? Sign Up</string>
+    <string name="textBelowBtnLogin">Don\'t have an account? Sign Up</string>
     <string name="register">REGISTER</string>
     <string name="name">Name</string>
     <string name="surname">Surname</string>
@@ -16,4 +16,6 @@
     <string name="my_road_friend">My Road Friend</string>
     <string name="welcome">Welcome</string>
     <string name="btnRegister">Regıster</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>
