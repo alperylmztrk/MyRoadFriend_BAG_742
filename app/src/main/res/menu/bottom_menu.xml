@@ -9,6 +9,10 @@
         android:icon="@drawable/fill_selected_message"
         android:title="Messsages" />
     <item
+        android:id="@+id/placeholder"
+        android:title=""
+        android:enabled="false"/>
+    <item
         android:id="@+id/notifications"
         android:icon="@drawable/fill_selected_ring"
         android:title="Notifications" />

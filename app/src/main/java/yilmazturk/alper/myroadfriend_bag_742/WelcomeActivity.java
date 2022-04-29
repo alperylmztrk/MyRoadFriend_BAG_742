@@ -2,7 +2,9 @@ package yilmazturk.alper.myroadfriend_bag_742;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -14,6 +16,8 @@ public class WelcomeActivity extends AppCompatActivity {
 
     Button btnLogin, btnRegister;
     FirebaseUser user;
+    SharedPreferences sharedPref;
+    Boolean isAdmin;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,6 +26,9 @@ public class WelcomeActivity extends AppCompatActivity {
 
         btnLogin = findViewById(R.id.btnLoginMain);
         btnRegister = findViewById(R.id.btnRegisterMain);
+
+        sharedPref=WelcomeActivity.this.getSharedPreferences("MyRoadFriend",Context.MODE_PRIVATE);
+        isAdmin=sharedPref.getBoolean("isAdmin",false);
 
         btnLogin.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -46,8 +53,14 @@ public class WelcomeActivity extends AppCompatActivity {
         super.onStart();
 
         user = FirebaseAuth.getInstance().getCurrentUser();
-        if (user != null) {
+        //check the user is admin
+        if(isAdmin){
+            startActivity(new Intent(WelcomeActivity.this, AdminActivity.class));
+            finish();
+        }
+        else if (user != null) {
             startActivity(new Intent(WelcomeActivity.this, MainActivity.class));
+            finish();
         }
     }
 }

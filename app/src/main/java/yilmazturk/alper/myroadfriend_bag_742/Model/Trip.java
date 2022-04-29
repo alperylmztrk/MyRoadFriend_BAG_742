@@ -1,17 +1,15 @@
 package yilmazturk.alper.myroadfriend_bag_742.Model;
 
-import java.util.ArrayList;
-
 public class Trip {
 
-    private String tripID, userID;
+    private String tripID, driverID;
 
     public Trip() {
     }
 
     public Trip(String tripID, String userID) {
         this.tripID = tripID;
-        this.userID = userID;
+        this.driverID = userID;
     }
 
     public String getTripID() {
@@ -22,11 +20,11 @@ public class Trip {
         this.tripID = tripID;
     }
 
-    public String getUserID() {
-        return userID;
+    public String getDriverID() {
+        return driverID;
     }
 
-    public void setUserID(String userID) {
-        this.userID = userID;
+    public void setDriverID(String driverID) {
+        this.driverID = driverID;
     }
 }

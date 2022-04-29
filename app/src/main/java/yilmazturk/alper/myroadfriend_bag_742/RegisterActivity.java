@@ -35,7 +35,6 @@ public class RegisterActivity extends AppCompatActivity {
     Button btnSignUp;
     TextView textViewGoLogin;
     FirebaseAuth auth;
-    DatabaseReference database;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -68,6 +67,7 @@ public class RegisterActivity extends AppCompatActivity {
                 radioBtn = findViewById(selectedRadioBtnID);
                 String strUserType = radioBtn.getText().toString();
 
+
                 createAccount(strName, strSurname, strUsername, strEmail, strPassword, strUserType);
 
             }
@@ -92,21 +92,18 @@ public class RegisterActivity extends AppCompatActivity {
 
                         if (task.isSuccessful()) {
                             Log.d(TAG, "createUserWithEmailAndPassword:success");
+
                             FirebaseUser firebaseUser = auth.getCurrentUser();
                             String userID = firebaseUser.getUid();
+                            DatabaseReference database = FirebaseDatabase.getInstance().getReference();
 
-                            database = FirebaseDatabase.getInstance().getReference();
-                            Driver driver=new Driver(name, surname, username, email, password, userType);
-                            Passenger passenger=new Passenger(name, surname, username, email, password, userType);
-                            if (userType.equals("Driver")){
-                                database.child("Users").child(userID).setValue(driver);
-                            }else{
-                                database.child("Users").child(userID).setValue(passenger);
+                            if (userType.equals("Driver")) {
+                                database.child("Users").child(userID).setValue(new Driver(name, surname, username, email, password, userType));
+                            } else {
+                                database.child("Users").child(userID).setValue(new Passenger(name, surname, username, email, password, userType));
                             }
-                            //new Intent(RegisterActivity.this,PostTripActivity.class).putExtra("driver", (Serializable) driver);
-
                             startActivity(new Intent(RegisterActivity.this, MainActivity.class));
-
+                            finish();
                         } else {
                             Log.w(TAG, "createUserWithEmailAndPassword:failure", task.getException());
                             Toast.makeText(RegisterActivity.this, "Authentication failed.", Toast.LENGTH_SHORT).show();
@@ -114,6 +111,6 @@ public class RegisterActivity extends AppCompatActivity {
                         }
                     }
                 });
-
     }
+
 }

@@ -7,7 +7,7 @@
     tools:context=".PostTripActivity">
 
     <com.google.android.material.appbar.MaterialToolbar
-        android:id="@+id/topBar"
+        android:id="@+id/postTripTopBar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="?attr/colorPrimary"
@@ -20,22 +20,24 @@
         app:titleTextColor="@color/white" />
 
     <Spinner
-        android:id="@+id/uniSpinner"
+        android:id="@+id/postTripUniSpinner"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="30dp"
         android:spinnerMode="dialog"
-        app:layout_constraintTop_toBottomOf="@+id/topBar" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/postTripTopBar" />
 
     <TextView
         android:id="@+id/textView4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="5dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="30dp"
         android:text="Select the days and times you go to university"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/uniSpinner" />
+        app:layout_constraintTop_toBottomOf="@+id/postTripUniSpinner" />
 
     <TableLayout
         android:id="@+id/tableLayout2"

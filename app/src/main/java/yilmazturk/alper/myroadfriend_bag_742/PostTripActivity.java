@@ -17,11 +17,10 @@ import android.widget.TextView;
 import android.widget.TimePicker;
 import android.widget.Toast;
 
+import com.google.android.gms.maps.model.LatLng;
 import com.google.android.material.switchmaterial.SwitchMaterial;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
 import com.google.gson.Gson;
 
 import java.io.BufferedReader;
@@ -42,18 +41,17 @@ import yilmazturk.alper.myroadfriend_bag_742.Model.UniList;
 public class PostTripActivity extends AppCompatActivity implements View.OnClickListener, CompoundButton.OnCheckedChangeListener {
 
     Spinner spinnerUni;
-    int spinSelecPos;
+    int spinSelectPos;
     UniList uniList;
     List<String> spinnerData;
     ArrayAdapter<String> dataAdapter;
     SwitchMaterial switchMon, switchTue, switchWed, switchThu, switchFri;
     TextView monInTxt, monOutTxt, tueInTxt, tueOutTxt, wedInTxt, wedOutTxt, thuInTxt, thuOutTxt, friInTxt, friOutTxt;
     int hour, minute;
-    Button btnPost;
+    Button btnAddRoute, btnPost;
     FirebaseAuth auth;
     FirebaseUser firebaseUser;
-    DatabaseReference database;
-    String selUniID;
+    String selUniName;
 
     Driver driver;
 
@@ -66,11 +64,10 @@ public class PostTripActivity extends AppCompatActivity implements View.OnClickL
         auth = FirebaseAuth.getInstance();
         firebaseUser = auth.getCurrentUser();
         String userID = firebaseUser.getUid();
-        database = FirebaseDatabase.getInstance().getReference();
 
         driver = new Driver();
 
-        spinnerUni = findViewById(R.id.uniSpinner);
+        spinnerUni = findViewById(R.id.postTripUniSpinner);
         uniList = new UniList();
 
         try {
@@ -89,6 +86,9 @@ public class PostTripActivity extends AppCompatActivity implements View.OnClickL
         } catch (IOException e) {
             Log.e("jsonFile", "IOerror");
         }
+
+
+
 
         spinnerData = new ArrayList<>();
 
@@ -112,11 +112,11 @@ public class PostTripActivity extends AppCompatActivity implements View.OnClickL
         spinnerUni.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                spinSelecPos = position;
+                spinSelectPos = position;
                 for (int i = 0; i < uniList.getUniDetailList().size(); i++) {
                     if (spinnerData.get(position).equals(uniList.getUniDetailList().get(i).getName())) {
-                        selUniID = uniList.getUniDetailList().get(i).getId();
-                        Log.d("for", uniList.getUniDetailList().get(i).getName() + " Şehir: " + uniList.getUniDetailList().get(i).getCity());
+                        selUniName = uniList.getUniDetailList().get(i).getName();
+                        Log.d("for", uniList.getUniDetailList().get(i).getName() + " City: " + uniList.getUniDetailList().get(i).getCity());
 
                     }
                 }
@@ -145,6 +145,7 @@ public class PostTripActivity extends AppCompatActivity implements View.OnClickL
         friInTxt = findViewById(R.id.friCheckIn);
         friOutTxt = findViewById(R.id.friCheckOut);
 
+        btnAddRoute = findViewById(R.id.btnAddRoute);
         btnPost = findViewById(R.id.btnPost);
 
         switchMon.setOnCheckedChangeListener(this);
@@ -165,28 +166,36 @@ public class PostTripActivity extends AppCompatActivity implements View.OnClickL
         friInTxt.setOnClickListener(this);
         friOutTxt.setOnClickListener(this);
 
+        btnAddRoute.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(PostTripActivity.this, AddRouteActivity.class));
+            }
+        });
+
 
         btnPost.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (spinSelecPos == 0) {
+                if (spinSelectPos == 0) {
                     TextView errorText = (TextView) spinnerUni.getSelectedView();
                     errorText.setError("");
                     Toast.makeText(PostTripActivity.this, "Please select your university", Toast.LENGTH_SHORT).show();
                 } else {
-                    driver.postTrip(database, selUniID, days, userID, times);
+                    ArrayList<LatLng> markerPoints;
+                    markerPoints = AddRouteActivity.getMarkerPoints();
+                    Log.i("Post Route!!", "" + markerPoints);
+                    driver.postTrip(selUniName, userID, days, times, markerPoints);
                     startActivity(new Intent(PostTripActivity.this, MainActivity.class));
+                    finish();
                 }
             }
         });
-
 
     }
 
 
     ArrayList<String> days = new ArrayList<>();
-
-    Time monTime, tueTime, wedTime, thuTime, friTime;
     //0 for monTime 4 for friTime
     ArrayList<Time> times = new ArrayList<>();
 
@@ -341,17 +350,13 @@ public class PostTripActivity extends AppCompatActivity implements View.OnClickL
                         friOutTxt.setText(String.format(Locale.getDefault(), "%02d:%02d", hour, minute));
                         break;
                 }
-                monTime = new Time(monInTxt.getText().toString(), monOutTxt.getText().toString());
-                tueTime = new Time(tueInTxt.getText().toString(), tueOutTxt.getText().toString());
-                wedTime = new Time(wedInTxt.getText().toString(), wedOutTxt.getText().toString());
-                thuTime = new Time(thuInTxt.getText().toString(), thuOutTxt.getText().toString());
-                friTime = new Time(friInTxt.getText().toString(), friOutTxt.getText().toString());
 
-                times.add(0, monTime);
-                times.add(1, tueTime);
-                times.add(2, wedTime);
-                times.add(3, thuTime);
-                times.add(4, friTime);
+                times.add(0, new Time(monInTxt.getText().toString(), monOutTxt.getText().toString()));
+                times.add(1, new Time(tueInTxt.getText().toString(), tueOutTxt.getText().toString()));
+                times.add(2, new Time(wedInTxt.getText().toString(), wedOutTxt.getText().toString()));
+                times.add(3, new Time(thuInTxt.getText().toString(), thuOutTxt.getText().toString()));
+                times.add(4, new Time(friInTxt.getText().toString(), friOutTxt.getText().toString()));
+
                 Log.i("Timemon", times.get(0).getCheckIn() + " " + times.get(0).getCheckOut());
                 Log.i("Timetue", times.get(1).getCheckIn() + " " + times.get(1).getCheckOut());
                 Log.i("Timewed", times.get(2).getCheckIn() + " " + times.get(2).getCheckOut());

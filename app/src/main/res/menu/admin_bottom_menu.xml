@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/adminHome"
+        android:icon="@drawable/fill_selected_home"
+        android:title="Home" />
+    <item
+        android:id="@+id/disUsers"
+        android:icon="@drawable/fill_selected_disabled_user"
+        android:title="Disabled Users" />
+
+    <item
+        android:id="@+id/remTrips"
+        android:icon="@drawable/fill_selected_removed_trip"
+        android:title="Removed Trips" />
+    <item
+        android:id="@+id/profile"
+        android:icon="@drawable/fill_selected_person"
+        android:title="Profile" />
+</menu>

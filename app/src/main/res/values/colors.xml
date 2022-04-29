@@ -8,6 +8,8 @@
     <color name="black">#000000</color>
     <color name="white">#FFFFFFFF</color>
     <color name="myColorPrimary">#0099ff</color>
-    <color name="myColorPrimaryVariant">#008AE6</color>
+    <color name="myColorPrimaryVariant">#0069cb</color>
+    <color name="myColorPrimaryLight">#69c9ff</color>
     <color name="transparent">#00F44336</color>
+    <color name="profile_line">#B2BFBFBF</color>
 </resources>

@@ -1,8 +1,31 @@
 package yilmazturk.alper.myroadfriend_bag_742.Model;
 
+import android.app.Application;
+import android.content.Context;
+import android.content.Intent;
+import android.util.Log;
+import android.widget.Toast;
+
+import androidx.annotation.NonNull;
+
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.AuthResult;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+
+import yilmazturk.alper.myroadfriend_bag_742.LoginActivity;
+import yilmazturk.alper.myroadfriend_bag_742.MainActivity;
+import yilmazturk.alper.myroadfriend_bag_742.RegisterActivity;
+
 public class User {
 
+    private static final String TAG = "User";
+
     private String name, surname, username, email, password, userType;
+    FirebaseAuth auth;
 
     public User() {
     }
@@ -63,4 +86,6 @@ public class User {
     public void setUserType(String userType) {
         this.userType = userType;
     }
+
+
 }

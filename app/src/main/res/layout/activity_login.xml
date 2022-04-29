@@ -26,7 +26,7 @@
         tools:ignore="ContentDescription" />
 
     <TextView
-        android:id="@+id/textView3"
+        android:id="@+id/txtLogin"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="40dp"
@@ -88,8 +88,10 @@
         android:background="@drawable/button"
         android:text="@string/btnLogin"
         android:textColor="@color/white"
+        android:layout_marginTop="65dp"
         app:layout_constraintBottom_toTopOf="@+id/viewBottom"
-        app:layout_constraintEnd_toEndOf="parent" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textInputLayoutPasswordLogin" />
 
     <TextView
         android:id="@+id/textViewGoRegister"

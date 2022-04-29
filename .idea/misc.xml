@@ -4,14 +4,62 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/Users/alper/AndroidStudioProjects/MyRoadFriend_BAG_742/app/src/main/res/drawable-v24/fill_selected_message.xml" value="0.286" />
+        <entry key="..\:/Users/alper/AndroidStudioProjects/MyRoadFriend_BAG_742/app/src/main/res/drawable/fill_selected_disabled_user.xml" value="0.231" />
+        <entry key="..\:/Users/alper/AndroidStudioProjects/MyRoadFriend_BAG_742/app/src/main/res/drawable/fill_selected_home.xml" value="0.231" />
+        <entry key="..\:/Users/alper/AndroidStudioProjects/MyRoadFriend_BAG_742/app/src/main/res/drawable/fill_selected_removed_trip.xml" value="0.231" />
+        <entry key="..\:/Users/alper/AndroidStudioProjects/MyRoadFriend_BAG_742/app/src/main/res/drawable/ic_block_user.xml" value="0.231" />
+        <entry key="..\:/Users/alper/AndroidStudioProjects/MyRoadFriend_BAG_742/app/src/main/res/drawable/ic_block_user_fill.xml" value="0.231" />
+        <entry key="..\:/Users/alper/AndroidStudioProjects/MyRoadFriend_BAG_742/app/src/main/res/drawable/ic_corner.xml" value="0.231" />
+        <entry key="..\:/Users/alper/AndroidStudioProjects/MyRoadFriend_BAG_742/app/src/main/res/drawable/ic_corner_waves.xml" value="0.231" />
+        <entry key="..\:/Users/alper/AndroidStudioProjects/MyRoadFriend_BAG_742/app/src/main/res/drawable/ic_dots.xml" value="0.223" />
+        <entry key="..\:/Users/alper/AndroidStudioProjects/MyRoadFriend_BAG_742/app/src/main/res/drawable/ic_home.xml" value="0.231" />
+        <entry key="..\:/Users/alper/AndroidStudioProjects/MyRoadFriend_BAG_742/app/src/main/res/drawable/ic_home_fill.xml" value="0.231" />
+        <entry key="..\:/Users/alper/AndroidStudioProjects/MyRoadFriend_BAG_742/app/src/main/res/drawable/ic_message.xml" value="0.231" />
+        <entry key="..\:/Users/alper/AndroidStudioProjects/MyRoadFriend_BAG_742/app/src/main/res/drawable/ic_message_fill.xml" value="0.231" />
+        <entry key="..\:/Users/alper/AndroidStudioProjects/MyRoadFriend_BAG_742/app/src/main/res/drawable/ic_profile.xml" value="0.231" />
+        <entry key="..\:/Users/alper/AndroidStudioProjects/MyRoadFriend_BAG_742/app/src/main/res/drawable/ic_profile_fill.xml" value="0.231" />
+        <entry key="..\:/Users/alper/AndroidStudioProjects/MyRoadFriend_BAG_742/app/src/main/res/drawable/ic_profile_top_bar.xml" value="0.231" />
+        <entry key="..\:/Users/alper/AndroidStudioProjects/MyRoadFriend_BAG_742/app/src/main/res/drawable/ic_removed_trip.xml" value="0.231" />
+        <entry key="..\:/Users/alper/AndroidStudioProjects/MyRoadFriend_BAG_742/app/src/main/res/drawable/ic_removed_trip_fill.xml" value="0.231" />
+        <entry key="..\:/Users/alper/AndroidStudioProjects/MyRoadFriend_BAG_742/app/src/main/res/drawable/ic_ring.xml" value="0.231" />
+        <entry key="..\:/Users/alper/AndroidStudioProjects/MyRoadFriend_BAG_742/app/src/main/res/drawable/ic_ring_fill.xml" value="0.2305" />
+        <entry key="..\:/Users/alper/AndroidStudioProjects/MyRoadFriend_BAG_742/app/src/main/res/drawable/ic_round_add.xml" value="0.2085" />
+        <entry key="..\:/Users/alper/AndroidStudioProjects/MyRoadFriend_BAG_742/app/src/main/res/drawable/ic_round_edit_profile.xml" value="0.2275" />
+        <entry key="..\:/Users/alper/AndroidStudioProjects/MyRoadFriend_BAG_742/app/src/main/res/drawable/ic_round_logout.xml" value="0.2305" />
+        <entry key="..\:/Users/alper/AndroidStudioProjects/MyRoadFriend_BAG_742/app/src/main/res/drawable/ic_round_search.xml" value="0.2085" />
+        <entry key="..\:/Users/alper/AndroidStudioProjects/MyRoadFriend_BAG_742/app/src/main/res/drawable/ic_trip.xml" value="0.231" />
+        <entry key="..\:/Users/alper/AndroidStudioProjects/MyRoadFriend_BAG_742/app/src/main/res/drawable/ic_trip_fill.xml" value="0.231" />
+        <entry key="..\:/Users/alper/AndroidStudioProjects/MyRoadFriend_BAG_742/app/src/main/res/drawable/ic_wave.xml" value="0.231" />
         <entry key="..\:/Users/alper/AndroidStudioProjects/MyRoadFriend_BAG_742/app/src/main/res/drawable/round_button.xml" value="0.286" />
         <entry key="..\:/Users/alper/AndroidStudioProjects/MyRoadFriend_BAG_742/app/src/main/res/drawable/selected_button.xml" value="0.286" />
+        <entry key="..\:/Users/alper/AndroidStudioProjects/MyRoadFriend_BAG_742/app/src/main/res/font/chewy.xml" value="0.29635416666666664" />
+        <entry key="..\:/Users/alper/AndroidStudioProjects/MyRoadFriend_BAG_742/app/src/main/res/layout/activity_add_route.xml" value="0.37447916666666664" />
+        <entry key="..\:/Users/alper/AndroidStudioProjects/MyRoadFriend_BAG_742/app/src/main/res/layout/activity_admin.xml" value="0.37447916666666664" />
         <entry key="..\:/Users/alper/AndroidStudioProjects/MyRoadFriend_BAG_742/app/src/main/res/layout/activity_login.xml" value="0.37447916666666664" />
-        <entry key="..\:/Users/alper/AndroidStudioProjects/MyRoadFriend_BAG_742/app/src/main/res/layout/activity_main.xml" value="0.264" />
+        <entry key="..\:/Users/alper/AndroidStudioProjects/MyRoadFriend_BAG_742/app/src/main/res/layout/activity_main.xml" value="0.3687179487179487" />
         <entry key="..\:/Users/alper/AndroidStudioProjects/MyRoadFriend_BAG_742/app/src/main/res/layout/activity_post_trip.xml" value="0.4" />
-        <entry key="..\:/Users/alper/AndroidStudioProjects/MyRoadFriend_BAG_742/app/src/main/res/layout/activity_register.xml" value="0.4" />
+        <entry key="..\:/Users/alper/AndroidStudioProjects/MyRoadFriend_BAG_742/app/src/main/res/layout/activity_register.xml" value="0.264" />
+        <entry key="..\:/Users/alper/AndroidStudioProjects/MyRoadFriend_BAG_742/app/src/main/res/layout/activity_search_trip.xml" value="0.37447916666666664" />
+        <entry key="..\:/Users/alper/AndroidStudioProjects/MyRoadFriend_BAG_742/app/src/main/res/layout/activity_see_route.xml" value="0.37447916666666664" />
         <entry key="..\:/Users/alper/AndroidStudioProjects/MyRoadFriend_BAG_742/app/src/main/res/layout/activity_welcome.xml" value="0.37447916666666664" />
+        <entry key="..\:/Users/alper/AndroidStudioProjects/MyRoadFriend_BAG_742/app/src/main/res/layout/card_view_disable_user.xml" value="0.37447916666666664" />
+        <entry key="..\:/Users/alper/AndroidStudioProjects/MyRoadFriend_BAG_742/app/src/main/res/layout/card_view_my_trip.xml" value="0.37447916666666664" />
+        <entry key="..\:/Users/alper/AndroidStudioProjects/MyRoadFriend_BAG_742/app/src/main/res/layout/card_view_notification.xml" value="0.37447916666666664" />
+        <entry key="..\:/Users/alper/AndroidStudioProjects/MyRoadFriend_BAG_742/app/src/main/res/layout/card_view_remove_trip.xml" value="0.37447916666666664" />
+        <entry key="..\:/Users/alper/AndroidStudioProjects/MyRoadFriend_BAG_742/app/src/main/res/layout/card_view_trip.xml" value="0.37447916666666664" />
+        <entry key="..\:/Users/alper/AndroidStudioProjects/MyRoadFriend_BAG_742/app/src/main/res/layout/fragment_admin_disable_user.xml" value="0.37447916666666664" />
+        <entry key="..\:/Users/alper/AndroidStudioProjects/MyRoadFriend_BAG_742/app/src/main/res/layout/fragment_admin_home.xml" value="0.37447916666666664" />
+        <entry key="..\:/Users/alper/AndroidStudioProjects/MyRoadFriend_BAG_742/app/src/main/res/layout/fragment_admin_remove_trip.xml" value="0.37447916666666664" />
+        <entry key="..\:/Users/alper/AndroidStudioProjects/MyRoadFriend_BAG_742/app/src/main/res/layout/fragment_driver_home.xml" value="0.25794871794871793" />
+        <entry key="..\:/Users/alper/AndroidStudioProjects/MyRoadFriend_BAG_742/app/src/main/res/layout/fragment_edit_profile.xml" value="0.3687179487179487" />
         <entry key="..\:/Users/alper/AndroidStudioProjects/MyRoadFriend_BAG_742/app/src/main/res/layout/fragment_home.xml" value="0.2972222222222222" />
+        <entry key="..\:/Users/alper/AndroidStudioProjects/MyRoadFriend_BAG_742/app/src/main/res/layout/fragment_home_driver.xml" value="0.37447916666666664" />
+        <entry key="..\:/Users/alper/AndroidStudioProjects/MyRoadFriend_BAG_742/app/src/main/res/layout/fragment_home_passenger.xml" value="0.37447916666666664" />
+        <entry key="..\:/Users/alper/AndroidStudioProjects/MyRoadFriend_BAG_742/app/src/main/res/layout/fragment_message.xml" value="0.3687179487179487" />
+        <entry key="..\:/Users/alper/AndroidStudioProjects/MyRoadFriend_BAG_742/app/src/main/res/layout/fragment_notification.xml" value="0.3687179487179487" />
+        <entry key="..\:/Users/alper/AndroidStudioProjects/MyRoadFriend_BAG_742/app/src/main/res/layout/fragment_passenger_home.xml" value="0.37447916666666664" />
+        <entry key="..\:/Users/alper/AndroidStudioProjects/MyRoadFriend_BAG_742/app/src/main/res/layout/fragment_profile.xml" value="0.3687179487179487" />
+        <entry key="..\:/Users/alper/AndroidStudioProjects/MyRoadFriend_BAG_742/app/src/main/res/menu/admin_bottom_menu.xml" value="0.37447916666666664" />
         <entry key="..\:/Users/alper/AndroidStudioProjects/MyRoadFriend_BAG_742/app/src/main/res/menu/bottom_menu.xml" value="0.37447916666666664" />
         <entry key="..\:/Users/alper/AppData/Local/Android/Sdk/platforms/android-31/data/res/layout/simple_spinner_dropdown_item.xml" value="0.37447916666666664" />
         <entry key="..\:/Users/alper/AppData/Local/Android/Sdk/platforms/android-31/data/res/layout/simple_spinner_item.xml" value="0.37447916666666664" />
