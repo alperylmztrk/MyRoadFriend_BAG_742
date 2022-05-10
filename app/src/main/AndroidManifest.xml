@@ -14,6 +14,15 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MyRoadFriend_BAG_742">
         <activity
+            android:name=".SearchTripResultActivity"
+            android:exported="false" />
+        <activity
+            android:name=".SearchTripMapActivity"
+            android:exported="false" />
+        <activity
+            android:name=".MessageActivity"
+            android:exported="false" />
+        <activity
             android:name=".SeeRouteActivity"
             android:exported="false" />
         <activity
@@ -32,7 +41,7 @@
         -->
         <meta-data
             android:name="com.google.android.geo.API_KEY"
-            android:value="YOUR_API_KEY" />
+            android:value="@string/maps_api_key" />
         <meta-data
             android:name="preloaded_fonts"
             android:resource="@array/preloaded_fonts" />

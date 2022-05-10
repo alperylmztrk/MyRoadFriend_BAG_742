@@ -188,6 +188,7 @@ public class PostTripActivity extends AppCompatActivity implements View.OnClickL
                     driver.postTrip(selUniName, userID, days, times, markerPoints);
                     startActivity(new Intent(PostTripActivity.this, MainActivity.class));
                     finish();
+                    Log.i("AAAAAAAAAAAA hepsi",""+AddRouteActivity.getRoutePoints());
                 }
             }
         });

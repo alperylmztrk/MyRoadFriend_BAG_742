@@ -1,5 +1,6 @@
 package yilmazturk.alper.myroadfriend_bag_742;
 
+import android.annotation.SuppressLint;
 import android.app.AlertDialog;
 import android.app.Dialog;
 import android.os.Bundle;
@@ -7,18 +8,20 @@ import android.os.Bundle;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.DialogFragment;
-import androidx.fragment.app.Fragment;
 
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
 import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
@@ -33,6 +36,7 @@ public class EditProfileDialogFragment extends DialogFragment {
     private TextView changeProPhotoTxt;
     private EditText nameEdtTxt, surnameEdtTxt, usernameEdtTxt, emailEdtTxt;
     private Button btnChangePass, btnCancel, btnSave;
+    private FirebaseUser firebaseUser;
 
 
     private User user;
@@ -57,20 +61,29 @@ public class EditProfileDialogFragment extends DialogFragment {
         LayoutInflater inflater = getLayoutInflater();
         View profileEditDialog = inflater.inflate(R.layout.fragment_edit_profile, null);
 
+        firebaseUser= FirebaseAuth.getInstance().getCurrentUser();
 
-        proPhotoImgV = profileEditDialog.findViewById(R.id.imageViewUser);
+        proPhotoImgV = profileEditDialog.findViewById(R.id.imageViewUserEditPro);
         changeProPhotoTxt = profileEditDialog.findViewById(R.id.textViewChangePP);
         nameEdtTxt = profileEditDialog.findViewById(R.id.editTextTextNameEditPro);
         surnameEdtTxt = profileEditDialog.findViewById(R.id.editTextTextSurnameEditPro);
         usernameEdtTxt = profileEditDialog.findViewById(R.id.editTextTextUsernameEditPro);
         emailEdtTxt = profileEditDialog.findViewById(R.id.editTextTextEmailEditPro);
-        btnChangePass = profileEditDialog.findViewById(R.id.btnProChangePass);
+        btnChangePass = profileEditDialog.findViewById(R.id.btnChangePassEditPro);
         btnCancel = profileEditDialog.findViewById(R.id.btnCancelEditPro);
         btnSave = profileEditDialog.findViewById(R.id.btnSaveEditPro);
 
         builder.create().getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_ADJUST_RESIZE);
 
         setTextOfEditTexts();
+
+        btnChangePass.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ChangePasswordDialogFragment changePasswordDialogFragment=new ChangePasswordDialogFragment(userID);
+                changePasswordDialogFragment.show(getActivity().getSupportFragmentManager(),"ChangePassword");
+            }
+        });
 
         btnCancel.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -84,7 +97,6 @@ public class EditProfileDialogFragment extends DialogFragment {
             public void onClick(View v) {
                 updateProfile();
                 getDialog().cancel();
-                Log.i("btnsave", "");
             }
         });
 
@@ -111,6 +123,16 @@ public class EditProfileDialogFragment extends DialogFragment {
         database.child("surname").setValue(surnameEdtTxt.getText().toString());
         database.child("username").setValue(usernameEdtTxt.getText().toString());
         database.child("email").setValue(emailEdtTxt.getText().toString());
+
+        firebaseUser.updateEmail(emailEdtTxt.getText().toString()).addOnCompleteListener(new OnCompleteListener<Void>() {
+            @SuppressLint("LongLogTag")
+            @Override
+            public void onComplete(@NonNull Task<Void> task) {
+                if(task.isSuccessful()){
+                    Log.i(TAG,"User email address updated");
+                }
+            }
+        });
 
     }
 

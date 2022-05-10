@@ -9,6 +9,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
@@ -25,7 +26,8 @@ import yilmazturk.alper.myroadfriend_bag_742.Model.Driver;
 public class DriverHomeFragment extends Fragment {
 
     LinearLayout linearLayoutDriverInfo;
-    TextView nameSurname, uni, days, checkIn, checkOut;
+    TextView nameSurname;
+    Button btnViewProfile;
     FirebaseAuth auth;
     FirebaseUser firebaseUser;
     DatabaseReference database;
@@ -45,6 +47,7 @@ public class DriverHomeFragment extends Fragment {
         String userID = firebaseUser.getUid();
         database = FirebaseDatabase.getInstance().getReference();
 
+
         showDriverInfo(userID);
 
     }
@@ -55,6 +58,18 @@ public class DriverHomeFragment extends Fragment {
         // Inflate the layout for this fragment
 
         View driverHomeFragment = inflater.inflate(R.layout.fragment_driver_home, container, false);
+
+        nameSurname=driverHomeFragment.findViewById(R.id.nameSurnameDHome);
+        btnViewProfile=driverHomeFragment.findViewById(R.id.driverViewProfile);
+
+        btnViewProfile.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.frameLayout, new ProfileFragment()).commit();
+
+            }
+        });
 
         return driverHomeFragment;
     }
@@ -69,7 +84,7 @@ public class DriverHomeFragment extends Fragment {
                 Driver driver = snapshot.getValue(Driver.class);
 
                 String strNameSurname = driver.getName() + " " + driver.getSurname();
-
+                nameSurname.setText(strNameSurname);
 
             }
 

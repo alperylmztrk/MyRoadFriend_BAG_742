@@ -1,16 +1,12 @@
 package yilmazturk.alper.myroadfriend_bag_742;
 
-import android.os.Bundle;
-
 import androidx.annotation.NonNull;
-import androidx.fragment.app.Fragment;
+import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.os.Bundle;
 import android.util.Log;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
 import android.widget.Toast;
 
 import com.google.android.gms.maps.model.LatLng;
@@ -20,12 +16,15 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.google.gson.Gson;
+import com.google.maps.android.SphericalUtil;
 
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.List;
 
 import yilmazturk.alper.myroadfriend_bag_742.Model.Driver;
 import yilmazturk.alper.myroadfriend_bag_742.Model.Route;
@@ -34,35 +33,54 @@ import yilmazturk.alper.myroadfriend_bag_742.Model.Trip;
 import yilmazturk.alper.myroadfriend_bag_742.Model.UniDetail;
 import yilmazturk.alper.myroadfriend_bag_742.Model.UniList;
 
-
-public class PassengerHomeFragment extends Fragment {
+public class SearchTripResultActivity extends AppCompatActivity {
 
     private RecyclerView recyclerView;
     private TripAdapter tripAdapter;
     private ArrayList<Driver> driverList;
-    private ArrayList<String> strDayAndTime;
     private ArrayList<UniDetail> uniDetailList;
     private UniList uniList;
-    private ArrayList<Route> routeList;
+    private ArrayList<String> strDayAndTime;
+    private static String searchedUniName;
     private LinearLayoutManager linearLayoutManager;
-    DatabaseReference database;
+    private ArrayList<Route> uniFoundedRoutes;
+
+    LatLng selectedLocation;
+
+    ArrayList<ArrayList<List<LatLng>>> allRoutePointsList;
+    ArrayList<Route> foundedRoutes;
+
+    private static ArrayList<List<LatLng>> allRoutePoints = new ArrayList<>();
+    private static ArrayList<Route> routeList = new ArrayList<>();
 
 
-    public PassengerHomeFragment() {
-        // Required empty public constructor
+    public static void setSearchedTripInfo(ArrayList<List<LatLng>> allPoints, ArrayList<Route> routes, String uniName) {
+        allRoutePoints = allPoints;
+        routeList = routes;
+        searchedUniName = uniName;
     }
 
 
     @Override
-    public void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_search_trip_result);
+
+        allRoutePointsList = new ArrayList<>();
+        foundedRoutes = new ArrayList<>();
+        uniFoundedRoutes = new ArrayList<>();
+
+        selectedLocation = SearchTripMapActivity.getSelectedLocation();
+        Log.e("selectedLocation", "" + selectedLocation);
 
         driverList = new ArrayList<>();
         strDayAndTime = new ArrayList<>();
-        routeList = new ArrayList<>();
         uniDetailList = new ArrayList<>();
-        linearLayoutManager = new LinearLayoutManager(getActivity());
-        database = FirebaseDatabase.getInstance().getReference();
+        linearLayoutManager = new LinearLayoutManager(this);
+        recyclerView = findViewById(R.id.recyclerViewSearchResults);
+
+        linearLayoutManager.setOrientation(LinearLayoutManager.VERTICAL);
+        recyclerView.setLayoutManager(linearLayoutManager);
 
         try {
             //Load File
@@ -81,75 +99,76 @@ public class PassengerHomeFragment extends Fragment {
             Log.e("jsonFile", "IOerror");
         }
 
+
+        int s = 0;
+
+        for (int i = 0; i < routeList.size(); i++) {
+            Log.w("RotA", "" + routeList.get(i).getRouteID());
+            ArrayList<List<LatLng>> routePointParts = new ArrayList<>();
+            for (int j = 0; j < (routeList.get(i).getWaypoints().size() - 1); j++) {
+
+                routePointParts.add(allRoutePoints.get(s));
+                s++;
+            }
+            allRoutePointsList.add(routePointParts);
+        }
+
+
+        for (int i = 0; i < allRoutePointsList.size(); i++) {
+            for (int j = 0; j < allRoutePointsList.get(i).size(); j++) {
+                for (int n = 0; n < allRoutePointsList.get(i).get(j).size(); n++) {
+                    double distance = SphericalUtil.computeDistanceBetween(selectedLocation, allRoutePointsList.get(i).get(j).get(n));
+                    if (distance / 1000 <= 1) {
+                        foundedRoutes.add(routeList.get(i));
+                        break;
+                    } else {
+
+                    }
+                    Log.i("Route  LATLANG", "" + allRoutePointsList.get(i).get(j).get(n) + "selcetedLocaion= " + selectedLocation + "mesafe= " + distance / 1000 + " km ");
+                }
+            }
+        }
+
+        foundedRoutes = new ArrayList<>(new HashSet<>(foundedRoutes));
+
+        for (int i = 0; i < foundedRoutes.size(); i++) {
+            Log.w("FoundedRouteID", "" + foundedRoutes.get(i).getRouteID());
+        }
+
+        setTripAdapter();
+
     }
 
-    @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        View passengerHomeFragment = inflater.inflate(R.layout.fragment_passenger_home, container, false);
+    private void setTripAdapter() {
 
-        recyclerView = passengerHomeFragment.findViewById(R.id.recyclerViewPassengerHome);
-
-        linearLayoutManager.setOrientation(LinearLayoutManager.VERTICAL);
-        recyclerView.setLayoutManager(linearLayoutManager);
-
-
+        DatabaseReference database = FirebaseDatabase.getInstance().getReference();
         database.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
-
                 DataSnapshot tripSnapshot = snapshot.child("Trips");
-                if (!tripSnapshot.exists()) {
-                    Toast.makeText(getActivity(), "No Trips", Toast.LENGTH_SHORT).show();
+                if (foundedRoutes.isEmpty()) {
+                    Toast.makeText(SearchTripResultActivity.this, "No Trips Founded!", Toast.LENGTH_SHORT).show();
                 } else {
-
-                    for (DataSnapshot routeDS : snapshot.child("Routes").getChildren()) {
-                        String routeID = routeDS.child("routeID").getValue().toString();
-                        String rTripID = routeDS.child("tripID").getValue().toString();
-                        Log.i("ROTA ID", routeID);
-                        Log.i("ROTA trip ID", rTripID);
-                        ArrayList<LatLng> waypointList = new ArrayList<>();
-                        for (DataSnapshot rWayDS : routeDS.child("waypoints").getChildren()) {
-
-                            String lat = rWayDS.child("latitude").getValue().toString();
-                            String lng = rWayDS.child("longitude").getValue().toString();
-
-                            Log.i("ROTA Lat", lat);
-                            Log.i("ROTA Lng", lng);
-
-                            double latitude = Double.parseDouble(lat);
-                            double longitude = Double.parseDouble(lng);
-                            LatLng waypoint = new LatLng(latitude, longitude);
-                            waypointList.add(waypoint);
-                        }
-                        Route route = new Route(routeID, rTripID, waypointList);
-
-                        routeList.add(route);
+                    for (int i = 0; i < foundedRoutes.size(); i++) {
+                        String rTripID = foundedRoutes.get(i).getTripID();
 
                         for (DataSnapshot tds : tripSnapshot.getChildren()) {
                             DataSnapshot rTripDS = tds.child(rTripID);
-                            if (rTripDS.getValue() != null) {
+                            String uniName = tds.getKey();
+                            if (rTripDS.getValue() != null && uniName.equals(searchedUniName)) {
                                 Trip trip = rTripDS.getValue(Trip.class);
-                                String uniName = tds.getKey();
+                                uniFoundedRoutes.add(foundedRoutes.get(i));
 
-                                for (int i = 0; i < uniList.getUniDetailList().size(); i++) {
-                                    if (uniName.equals(uniList.getUniDetailList().get(i).getName())) {
-                                        UniDetail uniDetail = uniList.getUniDetailList().get(i);
+                                for (int j = 0; j < uniList.getUniDetailList().size(); j++) {
+                                    if (uniName.equals(uniList.getUniDetailList().get(j).getName())) {
+                                        UniDetail uniDetail = uniList.getUniDetailList().get(j);
                                         uniDetailList.add(uniDetail);
                                         break;
                                     }
                                 }
                                 String driverID = trip.getDriverID();
-                                Log.i("UNI NAME", "" + uniName);
-                                Log.i("TRIP driverID", "" + tds.child(rTripID).child("driverID").getValue());
-                                Log.i("TRIP driverID", "" + driverID);
                                 DataSnapshot driverSnapshot = snapshot.child("Users").child(driverID);
                                 Driver driver = driverSnapshot.getValue(Driver.class);
-
-                                Log.i("Driver", " " + driver.getName());
-                                Log.i("PassHomeRouteID", "" + route.getRouteID());
-                                Log.i("PassHomeRoute", "" + route.getWaypoints());
 
                                 driverList.add(driver);
 
@@ -165,13 +184,12 @@ public class PassengerHomeFragment extends Fragment {
                                     sbDayAndTime.append(timeDS.getKey() + " " + time.getCheckIn() + "-" + time.getCheckOut());
                                 }
                                 strDayAndTime.add(sbDayAndTime.toString());
+
                             }
                         }
                     }
                 }
-                Log.w("Trip Adapter dayTime", strDayAndTime.toString());
-
-                tripAdapter = new TripAdapter(driverList, uniDetailList, strDayAndTime, routeList);
+                tripAdapter = new TripAdapter(driverList, uniDetailList, strDayAndTime, uniFoundedRoutes);
                 recyclerView.setAdapter(tripAdapter);
             }
 
@@ -181,6 +199,8 @@ public class PassengerHomeFragment extends Fragment {
             }
         });
 
-        return passengerHomeFragment;
+
     }
+
+
 }

@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:map="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".AddRouteActivity">
+    tools:context=".SearchTripMapActivity">
 
     <com.google.android.material.appbar.MaterialToolbar
         android:id="@+id/searchTripTopBar"
@@ -16,60 +17,32 @@
         android:minHeight="?attr/actionBarSize"
         android:theme="?attr/actionBarTheme"
         map:navigationIcon="@drawable/ic_arrow_back"
-        map:title="Create Route"
+        map:title="Search Trip"
         map:titleTextColor="@color/white" />
 
     <fragment
-        android:id="@+id/createRouteMap"
+        android:id="@+id/searchTripMap"
         android:name="com.google.android.gms.maps.SupportMapFragment"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_marginTop="?attr/actionBarSize" />
 
-    <LinearLayout
-        android:layout_width="match_parent"
+    <ImageView
+        android:id="@+id/mapPin"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_gravity="center"
+        android:src="@drawable/location_pin" />
+
+    <Button
+        android:id="@+id/btnUseLocation"
+        android:layout_width="150dp"
         android:layout_height="wrap_content"
         android:layout_gravity="bottom|center"
-        android:layout_margin="40dp"
-        android:gravity="center"
-        android:orientation="horizontal">
-
-        <Button
-            android:id="@+id/btnViewRoute"
-            android:layout_width="120dp"
-            android:layout_height="wrap_content"
-            android:background="@drawable/button"
-            android:text="VIEW ROUTE"
-            android:textColor="@color/white" />
-
-        <Button
-            android:id="@+id/btnSaveRoute"
-            android:layout_width="120dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="40dp"
-            android:background="@drawable/button"
-            android:text="SAVE ROUTE"
-
-            android:textColor="@color/white" />
-    </LinearLayout>
-
+        android:layout_marginBottom="40dp"
+        android:background="@drawable/button"
+        android:text="Use this location"
+        android:textAllCaps="false"
+        android:textColor="@color/white" />
 
 </FrameLayout>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

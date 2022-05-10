@@ -17,6 +17,7 @@ import java.util.HashMap;
 import java.util.List;
 
 import yilmazturk.alper.myroadfriend_bag_742.R;
+import yilmazturk.alper.myroadfriend_bag_742.SeeRouteActivity;
 
 public class PointsParser extends AsyncTask<String, Integer, List<List<HashMap<String, String>>>> {
     TaskLoadedCallback taskCallback;
@@ -26,7 +27,7 @@ public class PointsParser extends AsyncTask<String, Integer, List<List<HashMap<S
     public PointsParser(Context mContext, String directionMode) {
         this.taskCallback = (TaskLoadedCallback) mContext;
         this.directionMode = directionMode;
-        context=mContext;
+        context = mContext;
     }
 
     // Parsing the data in non-ui thread
@@ -75,23 +76,25 @@ public class PointsParser extends AsyncTask<String, Integer, List<List<HashMap<S
             }
             // Adding all the points in the route to LineOptions
             lineOptions.addAll(points);
+
             if (directionMode.equalsIgnoreCase("walking")) {
                 lineOptions.width(10);
                 lineOptions.color(Color.MAGENTA);
             } else {
                 lineOptions.width(18);
-                lineOptions.color(ContextCompat.getColor(context,R.color.myColorPrimaryVariant));
+                lineOptions.color(ContextCompat.getColor(context, R.color.myColorPrimaryVariant));
             }
             Log.d("mylog", "onPostExecute lineoptions decoded");
         }
 
+
         // Drawing polyline in the Google Map for the i-th route
         if (lineOptions != null) {
-            //mMap.addPolyline(lineOptions);
             taskCallback.onTaskDone(lineOptions);
 
         } else {
             Log.d("mylog", "without Polylines drawn");
         }
     }
+
 }

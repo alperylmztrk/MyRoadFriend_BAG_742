@@ -4,6 +4,8 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.FragmentActivity;
 
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -23,6 +25,7 @@ import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 import com.google.android.gms.maps.model.Polyline;
 import com.google.android.gms.maps.model.PolylineOptions;
+import com.google.maps.android.SphericalUtil;
 import com.google.maps.android.ui.IconGenerator;
 
 import java.util.ArrayList;
@@ -39,7 +42,6 @@ public class SeeRouteActivity extends FragmentActivity implements OnMapReadyCall
     private GoogleMap mMap;
     private ActivitySeeRouteBinding binding;
     private static ArrayList<LatLng> markerPoints = new ArrayList<>();
-    private Polyline currentPolyline;
     String markerLetter = "ABCDEFGHIJ";
 
     private TextView dNameSurnameTxt, uniNameTxt, cityNameTxt;
@@ -81,14 +83,19 @@ public class SeeRouteActivity extends FragmentActivity implements OnMapReadyCall
     public void onMapReady(GoogleMap googleMap) {
         mMap = googleMap;
 
+        Log.i("Distance", "" + markerPoints.get(0));
+        Log.i("Distance", "" + markerPoints.get(1));
+
+
+        double distance = SphericalUtil.computeDistanceBetween(markerPoints.get(0), markerPoints.get(1));
+        Log.i("Distance", "" + distance / 1000 + " km");
+
         LatLng turkey = new LatLng(39.069732317424645, 35.4112759901074);
         mMap.addMarker(new MarkerOptions().position(turkey).title("Marker in Turkey"));
         mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(turkey, 10));
 
 
         IconGenerator iconFactory = new IconGenerator(this);
-
-        Log.i("SeeRouteonmap ", "atandı " + markerPoints);
 
         LatLngBounds.Builder builder = new LatLngBounds.Builder();
         for (int i = 0; i < markerPoints.size(); i++) {
@@ -112,8 +119,6 @@ public class SeeRouteActivity extends FragmentActivity implements OnMapReadyCall
                 new FetchURL(SeeRouteActivity.this).execute(url);
             }
         }
-
-
     }
 
     private List<String> getDirectionsUrl(ArrayList<LatLng> markerPoints) {
@@ -126,7 +131,7 @@ public class SeeRouteActivity extends FragmentActivity implements OnMapReadyCall
             String mode = "mode=driving";
             String parameters = "origin=" + strOrigin + "&destination=" + strDest + "&" + mode;
             String output = "json";
-            String url = "https://maps.googleapis.com/maps/api/directions/" + output + "?" + parameters + "&key=YOUR_API_KEY";
+            String url = "https://maps.googleapis.com/maps/api/directions/" + output + "?" + parameters + "&key="+getString(R.string.maps_api_key);
             urls.add(url);
 
             for (int i = 2; i < markerPoints.size(); i++) {
@@ -134,7 +139,7 @@ public class SeeRouteActivity extends FragmentActivity implements OnMapReadyCall
                 strOrigin = strDest;
                 strDest = markerPoints.get(i).latitude + "," + markerPoints.get(i).longitude;
                 parameters = "origin=" + strOrigin + "&destination=" + strDest + "&" + mode;
-                url = "https://maps.googleapis.com/maps/api/directions/" + output + "?" + parameters + "&key=YOUR_API_KEY";
+                url = "https://maps.googleapis.com/maps/api/directions/" + output + "?" + parameters + "&key="+getString(R.string.maps_api_key);
                 urls.add(url);
             }
         }
@@ -143,10 +148,8 @@ public class SeeRouteActivity extends FragmentActivity implements OnMapReadyCall
 
     @Override
     public void onTaskDone(Object... values) {
-
-        if (currentPolyline != null) {
-            //   currentPolyline.remove();
-        }
-        currentPolyline = mMap.addPolyline((PolylineOptions) values[0]);
+        mMap.addPolyline((PolylineOptions) values[0]);
     }
+
+
 }

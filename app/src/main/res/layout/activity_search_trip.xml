@@ -7,7 +7,7 @@
     tools:context=".SearchTripActivity">
 
     <com.google.android.material.appbar.MaterialToolbar
-        android:id="@+id/createRouteTopBar"
+        android:id="@+id/searchTripTopBar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="top"
@@ -28,7 +28,7 @@
         android:spinnerMode="dialog"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/createRouteTopBar" />
+        app:layout_constraintTop_toBottomOf="@+id/searchTripTopBar" />
 
     <TextView
         android:id="@+id/textView6"
@@ -70,6 +70,7 @@
                 android:orientation="vertical">
 
                 <LinearLayout
+                    android:id="@+id/linLayPickUp"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="vertical">
@@ -125,5 +126,6 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/materialCardView" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

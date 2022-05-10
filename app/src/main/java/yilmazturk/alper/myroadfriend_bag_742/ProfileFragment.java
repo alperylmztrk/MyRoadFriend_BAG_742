@@ -10,7 +10,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.ImageButton;
 import android.widget.TextView;
 
 import com.google.firebase.auth.FirebaseAuth;
@@ -62,7 +61,7 @@ public class ProfileFragment extends Fragment {
         btnLogout = profileFragment.findViewById(R.id.btnLogout);
 
         String userID = firebaseUser.getUid();
-        viewProfile(userID);
+        setUserProfile(userID);
 
         btnEdit.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -83,7 +82,7 @@ public class ProfileFragment extends Fragment {
         return profileFragment;
     }
 
-    private void viewProfile(String userID) {
+    private void setUserProfile(String userID) {
         DatabaseReference database = FirebaseDatabase.getInstance().getReference();
         database.child("Users").child(userID).addValueEventListener(new ValueEventListener() {
             @Override

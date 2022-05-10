@@ -12,19 +12,17 @@
 
 
         <ImageView
-            android:id="@+id/imageViewUser"
+            android:id="@+id/imageViewUserEditPro"
             android:layout_width="80dp"
             android:layout_height="80dp"
-
             android:layout_centerHorizontal="true"
-
             android:src="@drawable/user" />
 
         <TextView
             android:id="@+id/textViewChangePP"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@id/imageViewUser"
+            android:layout_below="@id/imageViewUserEditPro"
             android:layout_centerHorizontal="true"
             android:text="Change Profile Photo"
             android:textSize="12sp" />
@@ -110,7 +108,7 @@
 
 
         <Button
-            android:id="@+id/btnProChangePass"
+            android:id="@+id/btnChangePassEditPro"
             android:layout_width="150dp"
             android:layout_height="wrap_content"
             android:layout_below="@id/textInputLayoutEmailEditPro"
@@ -125,7 +123,7 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@id/btnProChangePass"
+            android:layout_below="@id/btnChangePassEditPro"
             android:layout_marginTop="40dp"
             android:layout_marginBottom="30dp"
             android:gravity="center"

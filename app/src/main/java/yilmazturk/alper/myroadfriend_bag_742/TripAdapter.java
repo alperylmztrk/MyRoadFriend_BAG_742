@@ -28,19 +28,17 @@ import yilmazturk.alper.myroadfriend_bag_742.Model.UniList;
 public class TripAdapter extends RecyclerView.Adapter<TripAdapter.ViewHolder> {
 
     private ArrayList<Driver> driverList;
-    private ArrayList<ArrayList<Time>> timeList;
-    private ArrayList<ArrayList<String>> dayList;
+    private ArrayList<String> dayAndTimeList;
     private ArrayList<Route> routeList;
     private ArrayList<UniDetail> uniDetailList;
 
     LayoutInflater inflater;
 
 
-    public TripAdapter(ArrayList<Driver> driverList, ArrayList<UniDetail> uniDetailList, ArrayList<ArrayList<Time>> timeList, ArrayList<ArrayList<String>> dayList, ArrayList<Route> routeList) {
+    public TripAdapter(ArrayList<Driver> driverList, ArrayList<UniDetail> uniDetailList, ArrayList<String> dayAndTimeList, ArrayList<Route> routeList) {
         this.driverList = driverList;
         this.uniDetailList = uniDetailList;
-        this.timeList = timeList;
-        this.dayList = dayList;
+        this.dayAndTimeList = dayAndTimeList;
         this.routeList = routeList;
     }
 
@@ -57,7 +55,7 @@ public class TripAdapter extends RecyclerView.Adapter<TripAdapter.ViewHolder> {
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
 
-        holder.setData(driverList.get(position), uniDetailList.get(position), dayList.get(position), timeList.get(position), routeList.get(position));
+        holder.setData(driverList.get(position), uniDetailList.get(position), dayAndTimeList.get(position), routeList.get(position));
 
     }
 
@@ -94,11 +92,13 @@ public class TripAdapter extends RecyclerView.Adapter<TripAdapter.ViewHolder> {
 
             imgBtnRoute.setOnClickListener(this);
             txtRoute.setOnClickListener(this);
+            imgBtnMsg.setOnClickListener(this);
+            txtMsg.setOnClickListener(this);
 
         }
 
         @SuppressLint("SetTextI18n")
-        private void setData(Driver driver, UniDetail uniDetail, ArrayList<String> days, ArrayList<Time> time, Route route) {
+        private void setData(Driver driver, UniDetail uniDetail, String dayAndTime, Route route) {
 
             this.route = route;
             this.uniDetail = uniDetail;
@@ -106,13 +106,7 @@ public class TripAdapter extends RecyclerView.Adapter<TripAdapter.ViewHolder> {
             nameSurname.setText(driver.getName() + " " + driver.getSurname());
             username.setText(driver.getUsername());
             this.uniName.setText(uniDetail.getName());
-            for (int i = 0; i < days.size(); i++) {
-                dayAndTime.append(days.get(i) + " " + time.get(i).getCheckIn() + "-" + time.get(i).getCheckOut());
-                if (i != days.size() - 1)
-                    dayAndTime.append("\n");
-            }
-
-
+            this.dayAndTime.setText(dayAndTime);
         }
 
         @Override
@@ -120,9 +114,9 @@ public class TripAdapter extends RecyclerView.Adapter<TripAdapter.ViewHolder> {
             switch (view.getId()) {
                 case R.id.imageButtonRoute:
                 case R.id.textViewRoute:
-                    //Rotayı göster
+                    //See Route
                     Log.i("adapter", "" + route.getWaypoints());
-                    String dNameSurname = driver.getName() +" "+ driver.getSurname();
+                    String dNameSurname = driver.getName() + " " + driver.getSurname();
                     SeeRouteActivity.setRouteInfo(route.getWaypoints(), dNameSurname, uniDetail.getName(), uniDetail.getCity());
                     view.getContext().startActivity(new Intent(view.getContext(), SeeRouteActivity.class));
 
@@ -130,6 +124,8 @@ public class TripAdapter extends RecyclerView.Adapter<TripAdapter.ViewHolder> {
                 case R.id.imageButtonMessage:
                 case R.id.textViewMessage:
                     // Send Message
+                    MessageActivity.setReceiver(driver);
+                    view.getContext().startActivity(new Intent(view.getContext(), MessageActivity.class));
 
                     break;
             }

@@ -1,16 +1,13 @@
 package yilmazturk.alper.myroadfriend_bag_742;
 
 import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 import androidx.fragment.app.FragmentActivity;
 
 import android.Manifest;
-import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.location.Location;
 import android.os.Bundle;
-import android.util.FloatProperty;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -35,7 +32,6 @@ import com.google.maps.android.ui.IconGenerator;
 import java.util.ArrayList;
 import java.util.List;
 
-import yilmazturk.alper.myroadfriend_bag_742.Model.UniList;
 import yilmazturk.alper.myroadfriend_bag_742.RouteHelper.FetchURL;
 import yilmazturk.alper.myroadfriend_bag_742.RouteHelper.TaskLoadedCallback;
 import yilmazturk.alper.myroadfriend_bag_742.databinding.ActivityAddRouteBinding;
@@ -63,7 +59,7 @@ public class AddRouteActivity extends FragmentActivity implements OnMapReadyCall
 
         // Obtain the SupportMapFragment and get notified when the map is ready to be used.
         mapFragment = (SupportMapFragment) getSupportFragmentManager()
-                .findFragmentById(R.id.map);
+                .findFragmentById(R.id.createRouteMap);
         mapFragment.getMapAsync(this);
 
         btnViewRoute = findViewById(R.id.btnViewRoute);
@@ -103,8 +99,6 @@ public class AddRouteActivity extends FragmentActivity implements OnMapReadyCall
             ActivityCompat.requestPermissions(AddRouteActivity.this,
                     new String[]{Manifest.permission.ACCESS_FINE_LOCATION}, 44);
         }
-
-
     }
 
     @Override
@@ -119,15 +113,16 @@ public class AddRouteActivity extends FragmentActivity implements OnMapReadyCall
 
     @Override
     public void onMapReady(GoogleMap googleMap) {
+
         mMap = googleMap;
 
-        LatLng turkey = new LatLng(39.069732317424645, 35.4112759901074);
-        mMap.addMarker(new MarkerOptions().position(turkey).title("Marker in Turkey"));
-        mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(turkey, 15));
+        LatLng sukent = new LatLng(39.8513065973451, 32.7050974437213);
+        mMap.addMarker(new MarkerOptions().position(sukent).title("Marker in Turkey"));
+        mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(sukent, 15));
 
         markerPoints = new ArrayList<>();
-        IconGenerator iconFactory = new IconGenerator(this);
 
+        IconGenerator iconFactory = new IconGenerator(this);
 
         mMap.setOnMapClickListener(new GoogleMap.OnMapClickListener() {
             @Override
@@ -184,7 +179,7 @@ public class AddRouteActivity extends FragmentActivity implements OnMapReadyCall
             String mode = "mode=driving";
             String parameters = "origin=" + strOrigin + "&destination=" + strDest + "&" + mode;
             String output = "json";
-            String url = "https://maps.googleapis.com/maps/api/directions/" + output + "?" + parameters + "&key=YOUR_API_KEY";
+            String url = "https://maps.googleapis.com/maps/api/directions/" + output + "?" + parameters + "&key="+getString(R.string.maps_api_key);
             urls.add(url);
 
             for (int i = 2; i < markerPoints.size(); i++) {
@@ -192,12 +187,14 @@ public class AddRouteActivity extends FragmentActivity implements OnMapReadyCall
                 strOrigin = strDest;
                 strDest = markerPoints.get(i).latitude + "," + markerPoints.get(i).longitude;
                 parameters = "origin=" + strOrigin + "&destination=" + strDest + "&" + mode;
-                url = "https://maps.googleapis.com/maps/api/directions/" + output + "?" + parameters + "&key=YOUR_API_KEY";
+                url = "https://maps.googleapis.com/maps/api/directions/" + output + "?" + parameters + "&key="+getString(R.string.maps_api_key);
                 urls.add(url);
             }
         }
         return urls;
     }
+
+    private static ArrayList<List<LatLng>> routePoints=new ArrayList<>();
 
     @Override
     public void onTaskDone(Object... values) {
@@ -206,7 +203,13 @@ public class AddRouteActivity extends FragmentActivity implements OnMapReadyCall
             //   currentPolyline.remove();
         }
         currentPolyline = mMap.addPolyline((PolylineOptions) values[0]);
+        Log.i("rrrrrrrrrrrrrrrr",""+currentPolyline.getPoints());
+        routePoints.add(currentPolyline.getPoints());
+
     }
 
+    public static ArrayList<List<LatLng>> getRoutePoints() {
+        return routePoints;
+    }
 
 }
