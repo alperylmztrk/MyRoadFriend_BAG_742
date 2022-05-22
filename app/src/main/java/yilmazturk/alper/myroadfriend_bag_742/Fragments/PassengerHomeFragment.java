@@ -1,4 +1,4 @@
-package yilmazturk.alper.myroadfriend_bag_742;
+package yilmazturk.alper.myroadfriend_bag_742.Fragments;
 
 import android.os.Bundle;
 
@@ -27,12 +27,14 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
 
+import yilmazturk.alper.myroadfriend_bag_742.Adapters.TripAdapter;
 import yilmazturk.alper.myroadfriend_bag_742.Model.Driver;
 import yilmazturk.alper.myroadfriend_bag_742.Model.Route;
 import yilmazturk.alper.myroadfriend_bag_742.Model.Time;
 import yilmazturk.alper.myroadfriend_bag_742.Model.Trip;
 import yilmazturk.alper.myroadfriend_bag_742.Model.UniDetail;
 import yilmazturk.alper.myroadfriend_bag_742.Model.UniList;
+import yilmazturk.alper.myroadfriend_bag_742.R;
 
 
 public class PassengerHomeFragment extends Fragment {
@@ -51,7 +53,6 @@ public class PassengerHomeFragment extends Fragment {
     public PassengerHomeFragment() {
         // Required empty public constructor
     }
-
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -107,17 +108,12 @@ public class PassengerHomeFragment extends Fragment {
                     for (DataSnapshot routeDS : snapshot.child("Routes").getChildren()) {
                         String routeID = routeDS.child("routeID").getValue().toString();
                         String rTripID = routeDS.child("tripID").getValue().toString();
-                        Log.i("ROTA ID", routeID);
-                        Log.i("ROTA trip ID", rTripID);
+
                         ArrayList<LatLng> waypointList = new ArrayList<>();
                         for (DataSnapshot rWayDS : routeDS.child("waypoints").getChildren()) {
 
                             String lat = rWayDS.child("latitude").getValue().toString();
                             String lng = rWayDS.child("longitude").getValue().toString();
-
-                            Log.i("ROTA Lat", lat);
-                            Log.i("ROTA Lng", lng);
-
                             double latitude = Double.parseDouble(lat);
                             double longitude = Double.parseDouble(lng);
                             LatLng waypoint = new LatLng(latitude, longitude);
@@ -141,25 +137,17 @@ public class PassengerHomeFragment extends Fragment {
                                     }
                                 }
                                 String driverID = trip.getDriverID();
-                                Log.i("UNI NAME", "" + uniName);
-                                Log.i("TRIP driverID", "" + tds.child(rTripID).child("driverID").getValue());
-                                Log.i("TRIP driverID", "" + driverID);
                                 DataSnapshot driverSnapshot = snapshot.child("Users").child(driverID);
                                 Driver driver = driverSnapshot.getValue(Driver.class);
-
-                                Log.i("Driver", " " + driver.getName());
-                                Log.i("PassHomeRouteID", "" + route.getRouteID());
-                                Log.i("PassHomeRoute", "" + route.getWaypoints());
 
                                 driverList.add(driver);
 
                                 StringBuilder sbDayAndTime = new StringBuilder();
                                 String prefix = "";
-                                // Gün kadar çalışıyor
+
                                 for (DataSnapshot timeDS : rTripDS.child("Time").getChildren()) {
 
                                     Time time = timeDS.getValue(Time.class);
-                                    Log.i("Time info", timeDS.getKey() + " " + time.getCheckIn() + "-" + time.getCheckOut());
                                     sbDayAndTime.append(prefix);
                                     prefix = "\n";
                                     sbDayAndTime.append(timeDS.getKey() + " " + time.getCheckIn() + "-" + time.getCheckOut());
@@ -169,8 +157,6 @@ public class PassengerHomeFragment extends Fragment {
                         }
                     }
                 }
-                Log.w("Trip Adapter dayTime", strDayAndTime.toString());
-
                 tripAdapter = new TripAdapter(driverList, uniDetailList, strDayAndTime, routeList);
                 recyclerView.setAdapter(tripAdapter);
             }

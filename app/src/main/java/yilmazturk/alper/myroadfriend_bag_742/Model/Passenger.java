@@ -4,7 +4,6 @@ import yilmazturk.alper.myroadfriend_bag_742.Model.User;
 
 public class Passenger extends User {
 
-
     public Passenger() {
     }
 

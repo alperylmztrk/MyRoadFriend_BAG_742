@@ -27,7 +27,7 @@ public class Driver extends User {
         String tripID = tripRef.push().getKey();
         tripRef.child(tripID).setValue(new Trip(tripID, driverID));
         for (int i = 0; i < days.size(); i++) {
-            Log.i("Time", "FOR");
+
             if (days.get(i).equals("Monday")) {
                 tripRef.child(tripID).child("Time").child(days.get(i)).setValue(times.get(0));
                 Log.i("Time", "Monday");

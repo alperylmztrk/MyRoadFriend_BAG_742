@@ -5,7 +5,7 @@
     <string name="login">LOGIN</string>
     <string name="email">Email</string>
     <string name="password">Password</string>
-    <string name="btnLogin">Logın</string>
+    <string name="btnLogin">LOGIN</string>
     <string name="textBelowBtnLogin">Don\'t have an account? Sign Up</string>
     <string name="register">REGISTER</string>
     <string name="name">Name</string>
@@ -13,13 +13,58 @@
     <string name="username">Username</string>
     <string name="driver">Driver</string>
     <string name="passenger">Passenger</string>
-    <string name="signUpBtn">Sıgn Up</string>
+    <string name="signUpBtn">SIGN UP</string>
     <string name="textBelowBtnSignUp">Already have an account? Sign In</string>
     <string name="my_road_friend">My Road Friend</string>
     <string name="welcome">Welcome</string>
-    <string name="btnRegister">Regıster</string>
-
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="btnRegister">REGISTER</string>
     <string name="title_activity_add_route">AddRouteActivity</string>
+    <string name="type_a_message">Type a message...</string>
+    <string name="select_the_days_and_times_you_go_to_university">Select the days and times you go to university</string>
+    <string name="check_in">Check-in</string>
+    <string name="check_out">Check-out</string>
+    <string name="monday">Monday</string>
+    <string name="_00_00">00:00</string>
+    <string name="tuesday">Tuesday</string>
+    <string name="wednesday">Wednesday</string>
+    <string name="thursday">Thursday</string>
+    <string name="friday">Friday</string>
+    <string name="add_route">Add Route</string>
+    <string name="post">Post</string>
+    <string name="select_location_on_the_map">Select location on the map</string>
+    <string name="enter_pick_up_location">Enter pick up location</string>
+    <string name="destination">Destination</string>
+    <string name="find_your_trip">Find Your Trip</string>
+    <string name="use_this_location">Use this location</string>
+    <string name="user_id">User ID:</string>
+    <string name="enable_user">ENABLE USER</string>
+    <string name="enable_trip">ENABLE TRIP</string>
+    <string name="remove_trip">REMOVE TRIP</string>
+    <string name="disable_user">DISABLE USER</string>
+    <string name="edit_trip">EDIT TRIP</string>
+    <string name="delete_trip">DELETE TRIP</string>
+    <string name="see_route">SEE ROUTE</string>
+    <string name="you_have_a_message_from">You have a message from</string>
+    <string name="send_message">SEND MESSAGE</string>
+    <string name="disabled_users">Disabled Users</string>
+    <string name="users">Users</string>
+    <string name="trips">Trips</string>
+    <string name="old_password">Old Password</string>
+    <string name="new_password">New Password</string>
+    <string name="confirm_password">Confirm Password</string>
+    <string name="cancel">Cancel</string>
+    <string name="change">Change</string>
+    <string name="view_my_profile">VIEW MY PROFILE</string>
+    <string name="my_trips">My Trips</string>
+    <string name="last_message">Last Message</string>
+    <string name="save">Save</string>
+    <string name="change_profile_photo">Change Profile Photo</string>
+    <string name="change_password">Change Password</string>
+    <string name="all_trips">All Trips</string>
+    <string name="notifications">Notifications</string>
+    <string name="messages">Messages</string>
+    <string name="logout">LOGOUT</string>
+    <string name="edit">EDIT</string>
+
+
 </resources>

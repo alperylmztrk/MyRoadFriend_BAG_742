@@ -41,20 +41,19 @@ import yilmazturk.alper.myroadfriend_bag_742.Model.UniList;
 public class PostTripActivity extends AppCompatActivity implements View.OnClickListener, CompoundButton.OnCheckedChangeListener {
 
     Spinner spinnerUni;
-    int spinSelectPos;
-    UniList uniList;
-    List<String> spinnerData;
-    ArrayAdapter<String> dataAdapter;
+    private int spinSelectPos;
+    private UniList uniList;
+    private List<String> spinnerData;
+    private ArrayAdapter<String> dataAdapter;
     SwitchMaterial switchMon, switchTue, switchWed, switchThu, switchFri;
     TextView monInTxt, monOutTxt, tueInTxt, tueOutTxt, wedInTxt, wedOutTxt, thuInTxt, thuOutTxt, friInTxt, friOutTxt;
-    int hour, minute;
+    private int hour, minute;
     Button btnAddRoute, btnPost;
     FirebaseAuth auth;
     FirebaseUser firebaseUser;
-    String selUniName;
+    private String selUniName;
 
     Driver driver;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -88,8 +87,6 @@ public class PostTripActivity extends AppCompatActivity implements View.OnClickL
         }
 
 
-
-
         spinnerData = new ArrayList<>();
 
         for (int i = 0; i < uniList.getUniDetailList().size(); i++) {
@@ -116,8 +113,6 @@ public class PostTripActivity extends AppCompatActivity implements View.OnClickL
                 for (int i = 0; i < uniList.getUniDetailList().size(); i++) {
                     if (spinnerData.get(position).equals(uniList.getUniDetailList().get(i).getName())) {
                         selUniName = uniList.getUniDetailList().get(i).getName();
-                        Log.d("for", uniList.getUniDetailList().get(i).getName() + " City: " + uniList.getUniDetailList().get(i).getCity());
-
                     }
                 }
             }
@@ -181,25 +176,23 @@ public class PostTripActivity extends AppCompatActivity implements View.OnClickL
                     TextView errorText = (TextView) spinnerUni.getSelectedView();
                     errorText.setError("");
                     Toast.makeText(PostTripActivity.this, "Please select your university", Toast.LENGTH_SHORT).show();
+                } else if (times.isEmpty()) {
+                    Toast.makeText(PostTripActivity.this, "Please set time of your trip", Toast.LENGTH_SHORT).show();
                 } else {
                     ArrayList<LatLng> markerPoints;
                     markerPoints = AddRouteActivity.getMarkerPoints();
-                    Log.i("Post Route!!", "" + markerPoints);
                     driver.postTrip(selUniName, userID, days, times, markerPoints);
                     startActivity(new Intent(PostTripActivity.this, MainActivity.class));
                     finish();
-                    Log.i("AAAAAAAAAAAA hepsi",""+AddRouteActivity.getRoutePoints());
                 }
             }
         });
 
     }
 
-
     ArrayList<String> days = new ArrayList<>();
     //0 for monTime 4 for friTime
     ArrayList<Time> times = new ArrayList<>();
-
 
     @Override
     public void onCheckedChanged(CompoundButton compoundButton, boolean isChecked) {
@@ -261,6 +254,11 @@ public class PostTripActivity extends AppCompatActivity implements View.OnClickL
                 }
                 break;
         }
+        times.add(0, new Time(monInTxt.getText().toString(), monOutTxt.getText().toString()));
+        times.add(1, new Time(tueInTxt.getText().toString(), tueOutTxt.getText().toString()));
+        times.add(2, new Time(wedInTxt.getText().toString(), wedOutTxt.getText().toString()));
+        times.add(3, new Time(thuInTxt.getText().toString(), thuOutTxt.getText().toString()));
+        times.add(4, new Time(friInTxt.getText().toString(), friOutTxt.getText().toString()));
     }
 
     String day;
@@ -357,13 +355,6 @@ public class PostTripActivity extends AppCompatActivity implements View.OnClickL
                 times.add(2, new Time(wedInTxt.getText().toString(), wedOutTxt.getText().toString()));
                 times.add(3, new Time(thuInTxt.getText().toString(), thuOutTxt.getText().toString()));
                 times.add(4, new Time(friInTxt.getText().toString(), friOutTxt.getText().toString()));
-
-                Log.i("Timemon", times.get(0).getCheckIn() + " " + times.get(0).getCheckOut());
-                Log.i("Timetue", times.get(1).getCheckIn() + " " + times.get(1).getCheckOut());
-                Log.i("Timewed", times.get(2).getCheckIn() + " " + times.get(2).getCheckOut());
-                Log.i("Timethu", times.get(3).getCheckIn() + " " + times.get(3).getCheckOut());
-                Log.i("Timefri", times.get(4).getCheckIn() + " " + times.get(4).getCheckOut());
-
             }
         };
 
@@ -371,8 +362,6 @@ public class PostTripActivity extends AppCompatActivity implements View.OnClickL
         TimePickerDialog timePickerDialog = new TimePickerDialog(PostTripActivity.this, style, onTimeSetListener, hour, minute, true);
         timePickerDialog.setTitle("Select " + day + " " + check);
         timePickerDialog.show();
-
     }
-
 
 }

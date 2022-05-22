@@ -1,9 +1,7 @@
-package yilmazturk.alper.myroadfriend_bag_742;
+package yilmazturk.alper.myroadfriend_bag_742.Adapters;
 
 import android.annotation.SuppressLint;
-import android.content.Context;
 import android.content.Intent;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,16 +12,14 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.google.android.gms.maps.model.LatLng;
-
 import java.util.ArrayList;
 
+import yilmazturk.alper.myroadfriend_bag_742.ChatActivity;
 import yilmazturk.alper.myroadfriend_bag_742.Model.Driver;
 import yilmazturk.alper.myroadfriend_bag_742.Model.Route;
-import yilmazturk.alper.myroadfriend_bag_742.Model.Time;
-import yilmazturk.alper.myroadfriend_bag_742.Model.Trip;
 import yilmazturk.alper.myroadfriend_bag_742.Model.UniDetail;
-import yilmazturk.alper.myroadfriend_bag_742.Model.UniList;
+import yilmazturk.alper.myroadfriend_bag_742.R;
+import yilmazturk.alper.myroadfriend_bag_742.SeeRouteActivity;
 
 public class TripAdapter extends RecyclerView.Adapter<TripAdapter.ViewHolder> {
 
@@ -33,7 +29,6 @@ public class TripAdapter extends RecyclerView.Adapter<TripAdapter.ViewHolder> {
     private ArrayList<UniDetail> uniDetailList;
 
     LayoutInflater inflater;
-
 
     public TripAdapter(ArrayList<Driver> driverList, ArrayList<UniDetail> uniDetailList, ArrayList<String> dayAndTimeList, ArrayList<Route> routeList) {
         this.driverList = driverList;
@@ -56,7 +51,6 @@ public class TripAdapter extends RecyclerView.Adapter<TripAdapter.ViewHolder> {
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
 
         holder.setData(driverList.get(position), uniDetailList.get(position), dayAndTimeList.get(position), routeList.get(position));
-
     }
 
     @Override
@@ -64,9 +58,9 @@ public class TripAdapter extends RecyclerView.Adapter<TripAdapter.ViewHolder> {
         return driverList.size();
     }
 
-    public static class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
+    public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
 
-        ImageView profilePhoto, imgUni;
+        ImageView profilePhoto;
         TextView nameSurname, username, uniName, dayAndTime, txtRoute, txtMsg;
         ImageButton imgBtnRoute, imgBtnMsg;
         Route route;
@@ -76,7 +70,6 @@ public class TripAdapter extends RecyclerView.Adapter<TripAdapter.ViewHolder> {
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             profilePhoto = itemView.findViewById(R.id.profilePhoto);
-            imgUni = itemView.findViewById(R.id.imgUni);
             nameSurname = itemView.findViewById(R.id.nameSurname);
             username = itemView.findViewById(R.id.username);
             uniName = itemView.findViewById(R.id.uniName);
@@ -89,7 +82,6 @@ public class TripAdapter extends RecyclerView.Adapter<TripAdapter.ViewHolder> {
             uniDetail = new UniDetail();
             driver = new Driver();
 
-
             imgBtnRoute.setOnClickListener(this);
             txtRoute.setOnClickListener(this);
             imgBtnMsg.setOnClickListener(this);
@@ -99,13 +91,12 @@ public class TripAdapter extends RecyclerView.Adapter<TripAdapter.ViewHolder> {
 
         @SuppressLint("SetTextI18n")
         private void setData(Driver driver, UniDetail uniDetail, String dayAndTime, Route route) {
-
             this.route = route;
             this.uniDetail = uniDetail;
             this.driver = driver;
             nameSurname.setText(driver.getName() + " " + driver.getSurname());
             username.setText(driver.getUsername());
-            this.uniName.setText(uniDetail.getName());
+            uniName.setText(uniDetail.getName());
             this.dayAndTime.setText(dayAndTime);
         }
 
@@ -115,22 +106,17 @@ public class TripAdapter extends RecyclerView.Adapter<TripAdapter.ViewHolder> {
                 case R.id.imageButtonRoute:
                 case R.id.textViewRoute:
                     //See Route
-                    Log.i("adapter", "" + route.getWaypoints());
                     String dNameSurname = driver.getName() + " " + driver.getSurname();
                     SeeRouteActivity.setRouteInfo(route.getWaypoints(), dNameSurname, uniDetail.getName(), uniDetail.getCity());
                     view.getContext().startActivity(new Intent(view.getContext(), SeeRouteActivity.class));
-
                     break;
                 case R.id.imageButtonMessage:
                 case R.id.textViewMessage:
                     // Send Message
-                    MessageActivity.setReceiver(driver);
-                    view.getContext().startActivity(new Intent(view.getContext(), MessageActivity.class));
-
+                    ChatActivity.setReceiver(driver);
+                    view.getContext().startActivity(new Intent(view.getContext(), ChatActivity.class));
                     break;
             }
         }
-
     }
-
 }

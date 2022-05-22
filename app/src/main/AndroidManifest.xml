@@ -20,8 +20,9 @@
             android:name=".SearchTripMapActivity"
             android:exported="false" />
         <activity
-            android:name=".MessageActivity"
-            android:exported="false" />
+            android:name=".ChatActivity"
+            android:exported="false"
+            android:windowSoftInputMode="adjustResize"/>
         <activity
             android:name=".SeeRouteActivity"
             android:exported="false" />

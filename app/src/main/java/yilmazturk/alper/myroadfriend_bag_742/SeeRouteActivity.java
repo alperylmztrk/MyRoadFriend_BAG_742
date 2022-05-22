@@ -47,14 +47,12 @@ public class SeeRouteActivity extends FragmentActivity implements OnMapReadyCall
     private TextView dNameSurnameTxt, uniNameTxt, cityNameTxt;
     private static String dNameSurname, uniName, cityName;
 
-
     public static void setRouteInfo(ArrayList<LatLng> markPoint, String dNameSurname1, String uniName1, String cityName1) {
         markerPoints = markPoint;
         dNameSurname = dNameSurname1;
         uniName = uniName1;
         cityName = cityName1;
     }
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -83,17 +81,12 @@ public class SeeRouteActivity extends FragmentActivity implements OnMapReadyCall
     public void onMapReady(GoogleMap googleMap) {
         mMap = googleMap;
 
-        Log.i("Distance", "" + markerPoints.get(0));
-        Log.i("Distance", "" + markerPoints.get(1));
-
-
         double distance = SphericalUtil.computeDistanceBetween(markerPoints.get(0), markerPoints.get(1));
         Log.i("Distance", "" + distance / 1000 + " km");
 
         LatLng turkey = new LatLng(39.069732317424645, 35.4112759901074);
-        mMap.addMarker(new MarkerOptions().position(turkey).title("Marker in Turkey"));
+        //mMap.addMarker(new MarkerOptions().position(turkey).title("Marker in Turkey"));
         mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(turkey, 10));
-
 
         IconGenerator iconFactory = new IconGenerator(this);
 
@@ -131,7 +124,7 @@ public class SeeRouteActivity extends FragmentActivity implements OnMapReadyCall
             String mode = "mode=driving";
             String parameters = "origin=" + strOrigin + "&destination=" + strDest + "&" + mode;
             String output = "json";
-            String url = "https://maps.googleapis.com/maps/api/directions/" + output + "?" + parameters + "&key="+getString(R.string.maps_api_key);
+            String url = "https://maps.googleapis.com/maps/api/directions/" + output + "?" + parameters + "&key=" + getString(R.string.maps_api_key);
             urls.add(url);
 
             for (int i = 2; i < markerPoints.size(); i++) {
@@ -139,7 +132,7 @@ public class SeeRouteActivity extends FragmentActivity implements OnMapReadyCall
                 strOrigin = strDest;
                 strDest = markerPoints.get(i).latitude + "," + markerPoints.get(i).longitude;
                 parameters = "origin=" + strOrigin + "&destination=" + strDest + "&" + mode;
-                url = "https://maps.googleapis.com/maps/api/directions/" + output + "?" + parameters + "&key="+getString(R.string.maps_api_key);
+                url = "https://maps.googleapis.com/maps/api/directions/" + output + "?" + parameters + "&key=" + getString(R.string.maps_api_key);
                 urls.add(url);
             }
         }

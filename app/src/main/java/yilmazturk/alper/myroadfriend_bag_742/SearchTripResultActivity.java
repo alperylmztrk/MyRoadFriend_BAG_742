@@ -7,6 +7,8 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.google.android.gms.maps.model.LatLng;
@@ -26,6 +28,7 @@ import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 
+import yilmazturk.alper.myroadfriend_bag_742.Adapters.TripAdapter;
 import yilmazturk.alper.myroadfriend_bag_742.Model.Driver;
 import yilmazturk.alper.myroadfriend_bag_742.Model.Route;
 import yilmazturk.alper.myroadfriend_bag_742.Model.Time;
@@ -35,6 +38,7 @@ import yilmazturk.alper.myroadfriend_bag_742.Model.UniList;
 
 public class SearchTripResultActivity extends AppCompatActivity {
 
+    private ImageView imgNoData;
     private RecyclerView recyclerView;
     private TripAdapter tripAdapter;
     private ArrayList<Driver> driverList;
@@ -45,7 +49,7 @@ public class SearchTripResultActivity extends AppCompatActivity {
     private LinearLayoutManager linearLayoutManager;
     private ArrayList<Route> uniFoundedRoutes;
 
-    LatLng selectedLocation;
+    private LatLng selectedLocation;
 
     ArrayList<ArrayList<List<LatLng>>> allRoutePointsList;
     ArrayList<Route> foundedRoutes;
@@ -53,25 +57,24 @@ public class SearchTripResultActivity extends AppCompatActivity {
     private static ArrayList<List<LatLng>> allRoutePoints = new ArrayList<>();
     private static ArrayList<Route> routeList = new ArrayList<>();
 
-
     public static void setSearchedTripInfo(ArrayList<List<LatLng>> allPoints, ArrayList<Route> routes, String uniName) {
         allRoutePoints = allPoints;
         routeList = routes;
         searchedUniName = uniName;
     }
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_search_trip_result);
+
+        imgNoData = findViewById(R.id.imgNoData);
 
         allRoutePointsList = new ArrayList<>();
         foundedRoutes = new ArrayList<>();
         uniFoundedRoutes = new ArrayList<>();
 
         selectedLocation = SearchTripMapActivity.getSelectedLocation();
-        Log.e("selectedLocation", "" + selectedLocation);
 
         driverList = new ArrayList<>();
         strDayAndTime = new ArrayList<>();
@@ -103,7 +106,7 @@ public class SearchTripResultActivity extends AppCompatActivity {
         int s = 0;
 
         for (int i = 0; i < routeList.size(); i++) {
-            Log.w("RotA", "" + routeList.get(i).getRouteID());
+
             ArrayList<List<LatLng>> routePointParts = new ArrayList<>();
             for (int j = 0; j < (routeList.get(i).getWaypoints().size() - 1); j++) {
 
@@ -113,7 +116,6 @@ public class SearchTripResultActivity extends AppCompatActivity {
             allRoutePointsList.add(routePointParts);
         }
 
-
         for (int i = 0; i < allRoutePointsList.size(); i++) {
             for (int j = 0; j < allRoutePointsList.get(i).size(); j++) {
                 for (int n = 0; n < allRoutePointsList.get(i).get(j).size(); n++) {
@@ -121,10 +123,7 @@ public class SearchTripResultActivity extends AppCompatActivity {
                     if (distance / 1000 <= 1) {
                         foundedRoutes.add(routeList.get(i));
                         break;
-                    } else {
-
                     }
-                    Log.i("Route  LATLANG", "" + allRoutePointsList.get(i).get(j).get(n) + "selcetedLocaion= " + selectedLocation + "mesafe= " + distance / 1000 + " km ");
                 }
             }
         }
@@ -146,48 +145,48 @@ public class SearchTripResultActivity extends AppCompatActivity {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 DataSnapshot tripSnapshot = snapshot.child("Trips");
-                if (foundedRoutes.isEmpty()) {
-                    Toast.makeText(SearchTripResultActivity.this, "No Trips Founded!", Toast.LENGTH_SHORT).show();
-                } else {
-                    for (int i = 0; i < foundedRoutes.size(); i++) {
-                        String rTripID = foundedRoutes.get(i).getTripID();
 
-                        for (DataSnapshot tds : tripSnapshot.getChildren()) {
-                            DataSnapshot rTripDS = tds.child(rTripID);
-                            String uniName = tds.getKey();
-                            if (rTripDS.getValue() != null && uniName.equals(searchedUniName)) {
-                                Trip trip = rTripDS.getValue(Trip.class);
-                                uniFoundedRoutes.add(foundedRoutes.get(i));
+                for (int i = 0; i < foundedRoutes.size(); i++) {
+                    String rTripID = foundedRoutes.get(i).getTripID();
 
-                                for (int j = 0; j < uniList.getUniDetailList().size(); j++) {
-                                    if (uniName.equals(uniList.getUniDetailList().get(j).getName())) {
-                                        UniDetail uniDetail = uniList.getUniDetailList().get(j);
-                                        uniDetailList.add(uniDetail);
-                                        break;
-                                    }
+                    for (DataSnapshot tds : tripSnapshot.getChildren()) {
+                        DataSnapshot rTripDS = tds.child(rTripID);
+                        String uniName = tds.getKey();
+                        if (rTripDS.getValue() != null && uniName.equals(searchedUniName)) {
+                            Trip trip = rTripDS.getValue(Trip.class);
+                            uniFoundedRoutes.add(foundedRoutes.get(i));
+
+                            for (int j = 0; j < uniList.getUniDetailList().size(); j++) {
+                                if (uniName.equals(uniList.getUniDetailList().get(j).getName())) {
+                                    UniDetail uniDetail = uniList.getUniDetailList().get(j);
+                                    uniDetailList.add(uniDetail);
+                                    break;
                                 }
-                                String driverID = trip.getDriverID();
-                                DataSnapshot driverSnapshot = snapshot.child("Users").child(driverID);
-                                Driver driver = driverSnapshot.getValue(Driver.class);
-
-                                driverList.add(driver);
-
-                                StringBuilder sbDayAndTime = new StringBuilder();
-                                String prefix = "";
-                                // Gün kadar çalışıyor
-                                for (DataSnapshot timeDS : rTripDS.child("Time").getChildren()) {
-
-                                    Time time = timeDS.getValue(Time.class);
-                                    Log.i("Time info", timeDS.getKey() + " " + time.getCheckIn() + "-" + time.getCheckOut());
-                                    sbDayAndTime.append(prefix);
-                                    prefix = "\n";
-                                    sbDayAndTime.append(timeDS.getKey() + " " + time.getCheckIn() + "-" + time.getCheckOut());
-                                }
-                                strDayAndTime.add(sbDayAndTime.toString());
-
                             }
+                            String driverID = trip.getDriverID();
+                            DataSnapshot driverSnapshot = snapshot.child("Users").child(driverID);
+                            Driver driver = driverSnapshot.getValue(Driver.class);
+
+                            driverList.add(driver);
+
+                            StringBuilder sbDayAndTime = new StringBuilder();
+                            String prefix = "";
+
+                            for (DataSnapshot timeDS : rTripDS.child("Time").getChildren()) {
+
+                                Time time = timeDS.getValue(Time.class);
+                                sbDayAndTime.append(prefix);
+                                prefix = "\n";
+                                sbDayAndTime.append(timeDS.getKey() + " " + time.getCheckIn() + "-" + time.getCheckOut());
+                            }
+                            strDayAndTime.add(sbDayAndTime.toString());
                         }
                     }
+                }
+
+                if (uniFoundedRoutes.isEmpty()) {
+                    imgNoData.setVisibility(View.VISIBLE);
+                    Toast.makeText(SearchTripResultActivity.this, "No Trips Founded!", Toast.LENGTH_SHORT).show();
                 }
                 tripAdapter = new TripAdapter(driverList, uniDetailList, strDayAndTime, uniFoundedRoutes);
                 recyclerView.setAdapter(tripAdapter);
@@ -198,9 +197,6 @@ public class SearchTripResultActivity extends AppCompatActivity {
 
             }
         });
-
-
     }
-
 
 }

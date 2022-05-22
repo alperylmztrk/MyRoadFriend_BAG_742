@@ -26,7 +26,7 @@
                 app:srcCompat="@drawable/uni_location" />
 
             <TextView
-                android:id="@+id/uniName"
+                android:id="@+id/myUniName"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
@@ -41,7 +41,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:lineSpacingExtra="2dp"
-            android:text="Monday 12:30-15:20\nThursday 13:30-14:20\nFriday 13:30-16:20"
+            android:text=""
             android:textAlignment="center"
             android:textColor="@color/black" />
 
@@ -58,7 +58,7 @@
                 android:orientation="vertical">
 
                 <ImageButton
-                    android:id="@+id/imageButtonRoute"
+                    android:id="@+id/myImgBtnRoute"
                     android:layout_width="40dp"
                     android:layout_height="40dp"
                     android:layout_gravity="center"
@@ -67,12 +67,12 @@
                     app:srcCompat="@drawable/route" />
 
                 <TextView
-                    android:id="@+id/textViewRoute"
+                    android:id="@+id/myTxtRoute"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:layout_marginTop="2dp"
-                    android:text="SEE  ROUTE"
+                    android:text="@string/see_route"
                     android:textColor="@color/myColorPrimary"
                     android:textSize="12sp" />
             </LinearLayout>
@@ -84,7 +84,7 @@
                 android:orientation="vertical">
 
                 <ImageButton
-                    android:id="@+id/imageButtonMessage"
+                    android:id="@+id/myImgBtnEditTrip"
                     android:layout_width="40dp"
                     android:layout_height="40dp"
                     android:layout_gravity="center"
@@ -93,12 +93,12 @@
                     app:srcCompat="@drawable/edit" />
 
                 <TextView
-                    android:id="@+id/textViewMessage"
+                    android:id="@+id/myTxtEditTrip"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:layout_marginTop="2dp"
-                    android:text="EDIT TRIP"
+                    android:text="@string/edit_trip"
                     android:textColor="@color/myColorPrimary"
                     android:textSize="12sp" />
             </LinearLayout>
@@ -110,7 +110,7 @@
                 android:orientation="vertical">
 
                 <ImageButton
-                    android:id="@+id/imageButtonDelTrip"
+                    android:id="@+id/myImgBtnDelTrip"
                     android:layout_width="40dp"
                     android:layout_height="40dp"
                     android:layout_gravity="center"
@@ -119,16 +119,15 @@
                     app:srcCompat="@drawable/delete" />
 
                 <TextView
-                    android:id="@+id/textViewDelTrip"
+                    android:id="@+id/myTxtDelTrip"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:layout_marginTop="2dp"
-                    android:text="DELETE TRIP"
+                    android:text="@string/delete_trip"
                     android:textColor="@color/myColorPrimary"
                     android:textSize="12sp" />
             </LinearLayout>
-
         </LinearLayout>
     </LinearLayout>
 

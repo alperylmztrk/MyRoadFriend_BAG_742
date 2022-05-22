@@ -27,8 +27,8 @@ public class WelcomeActivity extends AppCompatActivity {
         btnLogin = findViewById(R.id.btnLoginMain);
         btnRegister = findViewById(R.id.btnRegisterMain);
 
-        sharedPref=WelcomeActivity.this.getSharedPreferences("MyRoadFriend",Context.MODE_PRIVATE);
-        isAdmin=sharedPref.getBoolean("isAdmin",false);
+        sharedPref = WelcomeActivity.this.getSharedPreferences("MyRoadFriend", Context.MODE_PRIVATE);
+        isAdmin = sharedPref.getBoolean("isAdmin", false);
 
         btnLogin.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -54,11 +54,10 @@ public class WelcomeActivity extends AppCompatActivity {
 
         user = FirebaseAuth.getInstance().getCurrentUser();
         //check the user is admin
-        if(isAdmin){
+        if (isAdmin) {
             startActivity(new Intent(WelcomeActivity.this, AdminActivity.class));
             finish();
-        }
-        else if (user != null) {
+        } else if (user != null) {
             startActivity(new Intent(WelcomeActivity.this, MainActivity.class));
             finish();
         }

@@ -7,7 +7,7 @@
     tools:context=".AddRouteActivity">
 
     <com.google.android.material.appbar.MaterialToolbar
-        android:id="@+id/searchTripTopBar"
+        android:id="@+id/addRouteTopBar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="top"
@@ -49,27 +49,8 @@
             android:layout_marginStart="40dp"
             android:background="@drawable/button"
             android:text="SAVE ROUTE"
-
             android:textColor="@color/white" />
     </LinearLayout>
 
 
 </FrameLayout>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

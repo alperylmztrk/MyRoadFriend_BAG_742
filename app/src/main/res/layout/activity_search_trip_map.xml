@@ -8,7 +8,7 @@
     tools:context=".SearchTripMapActivity">
 
     <com.google.android.material.appbar.MaterialToolbar
-        android:id="@+id/searchTripTopBar"
+        android:id="@+id/searchTripMapTopBar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="top"
@@ -41,7 +41,7 @@
         android:layout_gravity="bottom|center"
         android:layout_marginBottom="40dp"
         android:background="@drawable/button"
-        android:text="Use this location"
+        android:text="@string/use_this_location"
         android:textAllCaps="false"
         android:textColor="@color/white" />
 

@@ -44,37 +44,31 @@ import yilmazturk.alper.myroadfriend_bag_742.RouteHelper.TaskLoadedCallback;
 public class SearchTripActivity extends AppCompatActivity implements TaskLoadedCallback {
 
     Spinner uniSpinner;
-    int spinSelectPos;
+    private int spinSelectPos;
     TextView txtPickUp, txtUniDest;
-    UniList uniList;
-    List<String> spinnerData;
-    ArrayAdapter<String> dataAdapter;
-    String selUniName;
+    private UniList uniList;
+    private List<String> spinnerData;
+    private ArrayAdapter<String> dataAdapter;
+    private String selUniName;
     LinearLayout linLayPickUp;
     Button btnFindTrip;
     private LatLng selectedLocation;
 
-    ArrayList<Route> routeList = new ArrayList<>();
+    private ArrayList<Route> routeList = new ArrayList<>();
 
     @Override
     protected void onResume() {
         super.onResume();
         selectedLocation = SearchTripMapActivity.getSelectedLocation();
 
-
-        Log.w("Location On Resume",""+selectedLocation);
         Geocoder geocoder;
         List<Address> addresses;
-        geocoder=new Geocoder(this,Locale.getDefault());
+        geocoder = new Geocoder(this, Locale.getDefault());
 
-        if(selectedLocation!=null){
+        if (selectedLocation != null) {
             try {
-                addresses=geocoder.getFromLocation(selectedLocation.latitude,selectedLocation.longitude,1);
-                txtPickUp.setText(addresses.get(0).getThoroughfare()+", "+addresses.get(0).getSubLocality());
-                Log.w("Address",""+addresses.get(0).getAddressLine(0));
-                Log.w("Address",""+addresses.get(0).getSubThoroughfare());
-                Log.w("Address",""+addresses.get(0).getSubLocality());
-                Log.w("Address",""+addresses.get(0));
+                addresses = geocoder.getFromLocation(selectedLocation.latitude, selectedLocation.longitude, 1);
+                txtPickUp.setText(addresses.get(0).getThoroughfare() + ", " + addresses.get(0).getSubLocality());
 
             } catch (IOException e) {
                 e.printStackTrace();
@@ -89,13 +83,10 @@ public class SearchTripActivity extends AppCompatActivity implements TaskLoadedC
         setContentView(R.layout.activity_search_trip);
 
         uniSpinner = findViewById(R.id.searchTripUniSpinner);
-        txtPickUp=findViewById(R.id.textViewPickUpAddress);
+        txtPickUp = findViewById(R.id.textViewPickUpAddress);
         txtUniDest = findViewById(R.id.textViewUniDest);
         linLayPickUp = findViewById(R.id.linLayPickUp);
         btnFindTrip = findViewById(R.id.btnFindTrip);
-
-
-        Log.w("SelLoc",""+selectedLocation);
 
         uniList = new UniList();
         spinnerData = new ArrayList<>();
@@ -142,8 +133,6 @@ public class SearchTripActivity extends AppCompatActivity implements TaskLoadedC
                     if (spinnerData.get(position).equals(uniList.getUniDetailList().get(i).getName())) {
                         selUniName = uniList.getUniDetailList().get(i).getName();
                         txtUniDest.setText(selUniName);
-                        Log.d("SearchTrip", uniList.getUniDetailList().get(i).getName() + " City: " + uniList.getUniDetailList().get(i).getCity());
-
                     }
                 }
             }
@@ -153,8 +142,6 @@ public class SearchTripActivity extends AppCompatActivity implements TaskLoadedC
 
             }
         });
-
-
 
         getRoutePoints();
 
@@ -168,13 +155,10 @@ public class SearchTripActivity extends AppCompatActivity implements TaskLoadedC
         btnFindTrip.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //getRoutePoints();
                 SearchTripResultActivity.setSearchedTripInfo(allRoutePoint, routeList, selUniName);
                 startActivity(new Intent(SearchTripActivity.this, SearchTripResultActivity.class));
-
             }
         });
-
 
     }
 
@@ -185,7 +169,6 @@ public class SearchTripActivity extends AppCompatActivity implements TaskLoadedC
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 for (DataSnapshot routeDS : snapshot.getChildren()) {
-
 
                     String routeID = routeDS.child("routeID").getValue().toString();
                     String rTripID = routeDS.child("tripID").getValue().toString();
@@ -203,9 +186,6 @@ public class SearchTripActivity extends AppCompatActivity implements TaskLoadedC
                         waypointList.add(waypoint);
                     }
                     Route route = new Route(routeID, rTripID, waypointList);
-                    Log.i("RouteID", "" + route.getRouteID());
-                    Log.i("RouteTripID", "" + route.getTripID());
-                    Log.i("Waypoints", "" + route.getWaypoints());
                     routeList.add(route);
 
                     List<String> urls = getDirectionsUrl(route.getWaypoints());
@@ -224,7 +204,6 @@ public class SearchTripActivity extends AppCompatActivity implements TaskLoadedC
             }
         });
 
-
     }
 
     private List<String> getDirectionsUrl(ArrayList<LatLng> markerPoints) {
@@ -237,7 +216,7 @@ public class SearchTripActivity extends AppCompatActivity implements TaskLoadedC
             String mode = "mode=driving";
             String parameters = "origin=" + strOrigin + "&destination=" + strDest + "&" + mode;
             String output = "json";
-            String url = "https://maps.googleapis.com/maps/api/directions/" + output + "?" + parameters + "&key="+getString(R.string.maps_api_key);
+            String url = "https://maps.googleapis.com/maps/api/directions/" + output + "?" + parameters + "&key=" + getString(R.string.maps_api_key);
             urls.add(url);
 
             for (int i = 2; i < markerPoints.size(); i++) {
@@ -245,7 +224,7 @@ public class SearchTripActivity extends AppCompatActivity implements TaskLoadedC
                 strOrigin = strDest;
                 strDest = markerPoints.get(i).latitude + "," + markerPoints.get(i).longitude;
                 parameters = "origin=" + strOrigin + "&destination=" + strDest + "&" + mode;
-                url = "https://maps.googleapis.com/maps/api/directions/" + output + "?" + parameters + "&key="+getString(R.string.maps_api_key);
+                url = "https://maps.googleapis.com/maps/api/directions/" + output + "?" + parameters + "&key=" + getString(R.string.maps_api_key);
                 urls.add(url);
             }
         }
@@ -259,10 +238,8 @@ public class SearchTripActivity extends AppCompatActivity implements TaskLoadedC
 
         PolylineOptions polylineOptions = (PolylineOptions) values[0];
         List<LatLng> routePoints = polylineOptions.getPoints();
-        Log.e("Route Points", "" + routePoints);
 
         allRoutePoint.add(routePoints);
-
 
     }
 

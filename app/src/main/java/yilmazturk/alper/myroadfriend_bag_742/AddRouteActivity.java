@@ -41,7 +41,6 @@ public class AddRouteActivity extends FragmentActivity implements OnMapReadyCall
     private GoogleMap mMap;
     private ActivityAddRouteBinding binding;
     private static ArrayList<LatLng> markerPoints;
-    private static String uniLocation;
     private Polyline currentPolyline;
     private Button btnViewRoute, btnSaveRoute;
     private ArrayList<Marker> markers = new ArrayList<>();
@@ -65,7 +64,6 @@ public class AddRouteActivity extends FragmentActivity implements OnMapReadyCall
         btnViewRoute = findViewById(R.id.btnViewRoute);
         btnSaveRoute = findViewById(R.id.btnSaveRoute);
 
-
         client = LocationServices.getFusedLocationProviderClient(this);
 
         getCurrentLocation();
@@ -86,9 +84,9 @@ public class AddRouteActivity extends FragmentActivity implements OnMapReadyCall
                             @Override
                             public void onMapReady(@NonNull GoogleMap googleMap) {
                                 LatLng latLng = new LatLng(location.getLatitude(), location.getLongitude());
-                                MarkerOptions options = new MarkerOptions().position(latLng).title("I am here");
+                                MarkerOptions options = new MarkerOptions().position(latLng).title("You are here");
 
-                                mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(latLng, 10));
+                                mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(latLng, 15));
                                 mMap.addMarker(options);
                             }
                         });
@@ -116,9 +114,6 @@ public class AddRouteActivity extends FragmentActivity implements OnMapReadyCall
 
         mMap = googleMap;
 
-        LatLng sukent = new LatLng(39.8513065973451, 32.7050974437213);
-        mMap.addMarker(new MarkerOptions().position(sukent).title("Marker in Turkey"));
-        mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(sukent, 15));
 
         markerPoints = new ArrayList<>();
 
@@ -138,7 +133,6 @@ public class AddRouteActivity extends FragmentActivity implements OnMapReadyCall
 
             }
         });
-
 
         btnViewRoute.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -160,7 +154,6 @@ public class AddRouteActivity extends FragmentActivity implements OnMapReadyCall
                 } else {
                     finish();
                 }
-
             }
         });
     }
@@ -203,9 +196,7 @@ public class AddRouteActivity extends FragmentActivity implements OnMapReadyCall
             //   currentPolyline.remove();
         }
         currentPolyline = mMap.addPolyline((PolylineOptions) values[0]);
-        Log.i("rrrrrrrrrrrrrrrr",""+currentPolyline.getPoints());
         routePoints.add(currentPolyline.getPoints());
-
     }
 
     public static ArrayList<List<LatLng>> getRoutePoints() {

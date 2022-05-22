@@ -1,4 +1,4 @@
-package yilmazturk.alper.myroadfriend_bag_742;
+package yilmazturk.alper.myroadfriend_bag_742.Fragments;
 
 import android.annotation.SuppressLint;
 import android.app.AlertDialog;
@@ -26,6 +26,7 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
 import yilmazturk.alper.myroadfriend_bag_742.Model.User;
+import yilmazturk.alper.myroadfriend_bag_742.R;
 
 
 public class EditProfileDialogFragment extends DialogFragment {
@@ -37,11 +38,8 @@ public class EditProfileDialogFragment extends DialogFragment {
     private EditText nameEdtTxt, surnameEdtTxt, usernameEdtTxt, emailEdtTxt;
     private Button btnChangePass, btnCancel, btnSave;
     private FirebaseUser firebaseUser;
-
-
     private User user;
     private String userID;
-
 
     public EditProfileDialogFragment() {
         // Required empty public constructor
@@ -61,7 +59,7 @@ public class EditProfileDialogFragment extends DialogFragment {
         LayoutInflater inflater = getLayoutInflater();
         View profileEditDialog = inflater.inflate(R.layout.fragment_edit_profile, null);
 
-        firebaseUser= FirebaseAuth.getInstance().getCurrentUser();
+        firebaseUser = FirebaseAuth.getInstance().getCurrentUser();
 
         proPhotoImgV = profileEditDialog.findViewById(R.id.imageViewUserEditPro);
         changeProPhotoTxt = profileEditDialog.findViewById(R.id.textViewChangePP);
@@ -80,35 +78,31 @@ public class EditProfileDialogFragment extends DialogFragment {
         btnChangePass.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                ChangePasswordDialogFragment changePasswordDialogFragment=new ChangePasswordDialogFragment(userID);
-                changePasswordDialogFragment.show(getActivity().getSupportFragmentManager(),"ChangePassword");
+                ChangePasswordDialogFragment changePasswordDialogFragment = new ChangePasswordDialogFragment(userID);
+                changePasswordDialogFragment.show(getActivity().getSupportFragmentManager(), "ChangePassword");
             }
         });
 
         btnCancel.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
-                getDialog().cancel();
+                getDialog().dismiss();
             }
         });
         btnSave.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 updateProfile();
-                getDialog().cancel();
+                getDialog().dismiss();
             }
         });
-
 
         builder.setView(profileEditDialog);
 
         return builder.create();
-
     }
 
     private void setTextOfEditTexts() {
-
         nameEdtTxt.setText(user.getName());
         surnameEdtTxt.setText(user.getSurname());
         usernameEdtTxt.setText(user.getUsername());
@@ -122,19 +116,23 @@ public class EditProfileDialogFragment extends DialogFragment {
         database.child("name").setValue(nameEdtTxt.getText().toString());
         database.child("surname").setValue(surnameEdtTxt.getText().toString());
         database.child("username").setValue(usernameEdtTxt.getText().toString());
-        database.child("email").setValue(emailEdtTxt.getText().toString());
 
+
+        DatabaseReference finalDatabase = database;
         firebaseUser.updateEmail(emailEdtTxt.getText().toString()).addOnCompleteListener(new OnCompleteListener<Void>() {
+
             @SuppressLint("LongLogTag")
             @Override
             public void onComplete(@NonNull Task<Void> task) {
-                if(task.isSuccessful()){
-                    Log.i(TAG,"User email address updated");
+                if (task.isSuccessful()) {
+                    finalDatabase.child("email").setValue(emailEdtTxt.getText().toString());
+                    Log.i(TAG, "User email address is updated");
+                } else {
+                    Log.e(TAG, "" + task.getException().toString());
                 }
             }
         });
 
     }
-
 
 }

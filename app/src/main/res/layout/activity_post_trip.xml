@@ -35,7 +35,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="5dp"
         android:layout_marginTop="30dp"
-        android:text="Select the days and times you go to university"
+        android:text="@string/select_the_days_and_times_you_go_to_university"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/postTripUniSpinner" />
 
@@ -43,8 +43,7 @@
         android:id="@+id/tableLayout2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="20dp"
+        android:layout_margin="20dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView4">
 
@@ -57,13 +56,13 @@
                 android:layout_height="wrap_content"
                 android:layout_column="1"
                 android:layout_marginStart="25dp"
-                android:text="Check-in" />
+                android:text="@string/check_in" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="25dp"
-                android:text="Check-out" />
+                android:text="@string/check_out" />
 
         </TableRow>
 
@@ -75,7 +74,7 @@
                 android:id="@+id/switchMon"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Monday"
+                android:text="@string/monday"
                 android:theme="@style/MySwitch"
                 app:switchPadding="10dp" />
 
@@ -84,7 +83,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="25dp"
-                android:text="00:00"
+                android:text="@string/_00_00"
                 android:textColor="@color/black"
                 android:textSize="@dimen/timeTxtSize"
                 android:visibility="invisible" />
@@ -94,7 +93,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="25dp"
-                android:text="00:00"
+                android:text="@string/_00_00"
                 android:textColor="@color/black"
                 android:textSize="@dimen/timeTxtSize"
                 android:visibility="invisible" />
@@ -108,7 +107,7 @@
                 android:id="@+id/switchTue"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Tuesday"
+                android:text="@string/tuesday"
                 android:theme="@style/MySwitch"
                 app:switchPadding="10dp" />
 
@@ -117,7 +116,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="25dp"
-                android:text="00:00"
+                android:text="@string/_00_00"
                 android:textColor="@color/black"
                 android:textSize="@dimen/timeTxtSize"
                 android:visibility="invisible" />
@@ -127,7 +126,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="25dp"
-                android:text="00:00"
+                android:text="@string/_00_00"
                 android:textColor="@color/black"
                 android:textSize="18sp"
                 android:visibility="invisible" />
@@ -142,7 +141,7 @@
                 android:id="@+id/switchWed"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Wednesday"
+                android:text="@string/wednesday"
                 android:theme="@style/MySwitch"
                 app:switchPadding="10dp" />
 
@@ -151,7 +150,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="25dp"
-                android:text="00:00"
+                android:text="@string/_00_00"
                 android:textColor="@color/black"
                 android:textSize="@dimen/timeTxtSize"
                 android:visibility="invisible" />
@@ -161,7 +160,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="25dp"
-                android:text="00:00"
+                android:text="@string/_00_00"
                 android:textColor="@color/black"
                 android:textSize="@dimen/timeTxtSize"
                 android:visibility="invisible" />
@@ -176,7 +175,7 @@
                 android:id="@+id/switchThu"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Thursday"
+                android:text="@string/thursday"
                 android:theme="@style/MySwitch"
                 app:switchPadding="10dp" />
 
@@ -185,7 +184,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="25dp"
-                android:text="00:00"
+                android:text="@string/_00_00"
                 android:textColor="@color/black"
                 android:textSize="@dimen/timeTxtSize"
                 android:visibility="invisible" />
@@ -195,7 +194,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="25dp"
-                android:text="00:00"
+                android:text="@string/_00_00"
                 android:textColor="@color/black"
                 android:textSize="@dimen/timeTxtSize"
                 android:visibility="invisible" />
@@ -210,7 +209,7 @@
                 android:id="@+id/switchFri"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Friday"
+                android:text="@string/friday"
                 android:theme="@style/MySwitch"
                 app:switchPadding="10dp" />
 
@@ -219,7 +218,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="25dp"
-                android:text="00:00"
+                android:text="@string/_00_00"
                 android:textColor="@color/black"
                 android:textSize="@dimen/timeTxtSize"
                 android:visibility="invisible" />
@@ -229,7 +228,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="25dp"
-                android:text="00:00"
+                android:text="@string/_00_00"
                 android:textColor="@color/black"
                 android:textSize="@dimen/timeTxtSize"
                 android:visibility="invisible" />
@@ -244,7 +243,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
         android:background="@drawable/button"
-        android:text="Add Route"
+        android:text="@string/add_route"
         android:textColor="@color/white"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -257,7 +256,7 @@
         android:layout_marginEnd="40dp"
         android:layout_marginBottom="40dp"
         android:background="@drawable/button"
-        android:text="Post"
+        android:text="@string/post"
         android:textColor="@color/white"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />

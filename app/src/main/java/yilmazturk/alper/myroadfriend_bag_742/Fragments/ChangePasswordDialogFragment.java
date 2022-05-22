@@ -1,4 +1,4 @@
-package yilmazturk.alper.myroadfriend_bag_742;
+package yilmazturk.alper.myroadfriend_bag_742.Fragments;
 
 import android.annotation.SuppressLint;
 import android.app.AlertDialog;
@@ -25,6 +25,8 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+
+import yilmazturk.alper.myroadfriend_bag_742.R;
 
 
 public class ChangePasswordDialogFragment extends DialogFragment {
@@ -89,7 +91,7 @@ public class ChangePasswordDialogFragment extends DialogFragment {
                                         if (newPass.equals(confirmPass)) {
                                             if (newPass.length() >= 6) {
                                                 updatePassword(newPass);
-                                                getDialog().cancel();
+                                                getDialog().dismiss();
                                             } else {
                                                 Toast.makeText(getActivity(), "Password must be at least 6 characters ", Toast.LENGTH_LONG).show();
                                             }

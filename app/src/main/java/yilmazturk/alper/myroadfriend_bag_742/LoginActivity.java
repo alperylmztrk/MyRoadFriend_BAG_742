@@ -34,7 +34,6 @@ public class LoginActivity extends AppCompatActivity {
     FirebaseAuth authLogin;
     Boolean isAdmin = false;
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -88,7 +87,6 @@ public class LoginActivity extends AppCompatActivity {
                                 public void onDataChange(@NonNull DataSnapshot snapshot) {
                                     for (DataSnapshot ads : snapshot.getChildren()) {
                                         String adminEmail = ads.child("email").getValue().toString();
-                                        Log.i("user email", "" + firebaseUser.getEmail());
                                         if (firebaseUser.getEmail().equals(adminEmail)) {
                                             isAdmin = true;
                                             //specify and save that the user is an admin

@@ -10,6 +10,6 @@
     <color name="myColorPrimary">#0099ff</color>
     <color name="myColorPrimaryVariant">#0069cb</color>
     <color name="myColorPrimaryLight">#69c9ff</color>
-    <color name="transparent">#00F44336</color>
+    <color name="transparent">#00FFFFFF</color>
     <color name="profile_line">#B2BFBFBF</color>
 </resources>

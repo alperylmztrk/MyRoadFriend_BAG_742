@@ -7,36 +7,41 @@ import android.os.Bundle;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
+import yilmazturk.alper.myroadfriend_bag_742.Fragments.AdminDisableUserFragment;
+import yilmazturk.alper.myroadfriend_bag_742.Fragments.AdminHomeFragment;
+import yilmazturk.alper.myroadfriend_bag_742.Fragments.AdminRemoveTripFragment;
+import yilmazturk.alper.myroadfriend_bag_742.Fragments.ProfileFragment;
+
 public class AdminActivity extends AppCompatActivity {
     BottomNavigationView adminBottomNavView;
-    Fragment selectedFragment=null;
+    Fragment selectedFragment = null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_admin);
 
-        adminBottomNavView=findViewById(R.id.adminBottomNavigation);
+        adminBottomNavView = findViewById(R.id.adminBottomNavigation);
 
-        getSupportFragmentManager().beginTransaction().replace(R.id.adminFrameLayout,new AdminHomeFragment()).commit();
+        getSupportFragmentManager().beginTransaction().replace(R.id.adminFrameLayout, new AdminHomeFragment()).commit();
 
         adminBottomNavView.setOnItemSelectedListener(item -> {
-            switch (item.getItemId()){
-                case R.id.home:
-                    selectedFragment=new AdminHomeFragment();
+            switch (item.getItemId()) {
+                case R.id.adminHome:
+                    selectedFragment = new AdminHomeFragment();
                     break;
                 case R.id.disUsers:
-                    selectedFragment=new AdminDisableUserFragment();
+                    selectedFragment = new AdminDisableUserFragment();
                     break;
                 case R.id.remTrips:
-                    selectedFragment=new AdminRemoveTripFragment();
+                    selectedFragment = new AdminRemoveTripFragment();
                     break;
                 case R.id.profile:
-                    selectedFragment=new ProfileFragment();
+                    selectedFragment = new ProfileFragment();
                     break;
             }
-            if(selectedFragment!=null){
-                getSupportFragmentManager().beginTransaction().replace(R.id.adminFrameLayout,selectedFragment).commit();
+            if (selectedFragment != null) {
+                getSupportFragmentManager().beginTransaction().replace(R.id.adminFrameLayout, selectedFragment).commit();
             }
             return true;
         });

@@ -7,35 +7,40 @@
     app:cardCornerRadius="20dp"
     app:cardElevation="5dp">
 
-
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:layout_margin="10dp">
+        android:layout_margin="10dp"
+        android:orientation="vertical">
 
         <TextView
-            android:id="@+id/textViewUID"
+            android:id="@+id/textViewAdminHomeUID"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Trip ID: " />
+            android:text="" />
 
         <TextView
-            android:id="@+id/textView16"
+            android:id="@+id/textViewAdminUsrNameSurname"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="User ID: " />
+            android:text="" />
+
+        <TextView
+            android:id="@+id/textViewAdminUsrType"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="" />
 
         <Button
-            android:id="@+id/button3"
+            android:id="@+id/btnDisableUser"
             android:layout_width="200dp"
+            android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_marginTop="10dp"
-            android:layout_height="wrap_content"
             android:background="@drawable/button"
-            android:textColor="@color/white"
             android:backgroundTint="#FA0000"
-            android:text="REMOVE TRIP" />
+            android:text="@string/disable_user"
+            android:textColor="@color/white" />
     </LinearLayout>
 
 </com.google.android.material.card.MaterialCardView>

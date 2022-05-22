@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    tools:context=".EditProfileDialogFragment">
+    tools:context=".Fragments.EditProfileDialogFragment">
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -24,7 +24,7 @@
             android:layout_height="wrap_content"
             android:layout_below="@id/imageViewUserEditPro"
             android:layout_centerHorizontal="true"
-            android:text="Change Profile Photo"
+            android:text="@string/change_profile_photo"
             android:textSize="12sp" />
 
         <com.google.android.material.textfield.TextInputLayout
@@ -116,7 +116,7 @@
             android:layout_gravity="center"
             android:layout_marginTop="20dp"
             android:background="@drawable/button"
-            android:text="Change Password"
+            android:text="@string/change_password"
             android:textAllCaps="false"
             android:textColor="@color/white" />
 
@@ -135,7 +135,7 @@
                 android:layout_height="wrap_content"
                 android:background="@drawable/button"
                 android:backgroundTint="#FA0000"
-                android:text="Cancel"
+                android:text="@string/cancel"
                 android:textColor="@color/white" />
 
             <Button
@@ -144,8 +144,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="60dp"
                 android:background="@drawable/button"
-                android:text="Save"
-
+                android:text="@string/save"
                 android:textColor="@color/white" />
 
         </LinearLayout>

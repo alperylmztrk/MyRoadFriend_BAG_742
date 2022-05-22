@@ -1,4 +1,4 @@
-package yilmazturk.alper.myroadfriend_bag_742;
+package yilmazturk.alper.myroadfriend_bag_742.Fragments;
 
 import android.os.Bundle;
 
@@ -8,13 +8,14 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-public class AdminHomeFragment extends Fragment {
+import yilmazturk.alper.myroadfriend_bag_742.R;
 
 
-    public AdminHomeFragment() {
+public class AdminRemoveTripFragment extends Fragment {
+
+    public AdminRemoveTripFragment() {
         // Required empty public constructor
     }
-
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -26,9 +27,6 @@ public class AdminHomeFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View adminHomeFragment = inflater.inflate(R.layout.fragment_admin_home, container, false);
-
-
-        return adminHomeFragment;
+        return inflater.inflate(R.layout.fragment_admin_remove_trip, container, false);
     }
 }

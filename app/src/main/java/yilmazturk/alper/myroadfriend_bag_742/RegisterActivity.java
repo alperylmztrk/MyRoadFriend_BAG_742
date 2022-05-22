@@ -52,11 +52,9 @@ public class RegisterActivity extends AppCompatActivity {
         textViewGoLogin = findViewById(R.id.textViewGoLogin);
         radioGroup = findViewById(R.id.radioGroupRegister);
 
-
         btnSignUp.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
 
                 String strName = editTextName.getText().toString();
                 String strSurname = editTextSurname.getText().toString();
@@ -67,12 +65,10 @@ public class RegisterActivity extends AppCompatActivity {
                 radioBtn = findViewById(selectedRadioBtnID);
                 String strUserType = radioBtn.getText().toString();
 
-
                 createAccount(strName, strSurname, strUsername, strEmail, strPassword, strUserType);
 
             }
         });
-
 
         textViewGoLogin.setOnClickListener(new View.OnClickListener() {
             @Override

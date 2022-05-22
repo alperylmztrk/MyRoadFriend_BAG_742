@@ -38,11 +38,9 @@ public class SearchTripMapActivity extends FragmentActivity implements OnMapRead
     private Button btnUseLocation;
     FusedLocationProviderClient client;
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
 
         binding = ActivitySearchTripMapBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
@@ -58,7 +56,6 @@ public class SearchTripMapActivity extends FragmentActivity implements OnMapRead
 
         getCurrentLocation();
 
-
     }
 
     private void getCurrentLocation() {
@@ -71,14 +68,15 @@ public class SearchTripMapActivity extends FragmentActivity implements OnMapRead
                 @Override
                 public void onSuccess(Location location) {
                     if (location != null) {
+
                         mapFragment.getMapAsync(new OnMapReadyCallback() {
                             @Override
                             public void onMapReady(@NonNull GoogleMap googleMap) {
                                 LatLng latLng = new LatLng(location.getLatitude(), location.getLongitude());
-                                MarkerOptions options = new MarkerOptions().position(latLng).title("I am here");
+                                MarkerOptions options = new MarkerOptions().position(latLng).title("You are here");
 
                                 mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(latLng, 15));
-                                mMap.addMarker(options);
+                                //mMap.addMarker(options);
                             }
                         });
                     }
@@ -100,29 +98,27 @@ public class SearchTripMapActivity extends FragmentActivity implements OnMapRead
         }
     }
 
-
     @Override
     public void onMapReady(@NonNull GoogleMap googleMap) {
         mMap = googleMap;
 
-        LatLng sukent = new LatLng(39.8513065973451, 32.7050974437213);
-        //mMap.addMarker(new MarkerOptions().position(sukent).title("Marker in Turkey"));
-       // mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(sukent, 15));
-
+        if (ActivityCompat.checkSelfPermission(SearchTripMapActivity.this,
+                Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED) {
+            mMap.setMyLocationEnabled(true);
+        }
 
         btnUseLocation.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
                 selectedLocation = mMap.getCameraPosition().target;
-                Log.i("PinPosition", "" + selectedLocation);
                 finish();
 
             }
         });
     }
 
-    public static LatLng getSelectedLocation(){
+    public static LatLng getSelectedLocation() {
         return selectedLocation;
     }
 

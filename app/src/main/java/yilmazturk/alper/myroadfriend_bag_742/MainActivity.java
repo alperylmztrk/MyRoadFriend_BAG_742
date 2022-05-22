@@ -4,11 +4,8 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 
-import android.content.Context;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
@@ -21,6 +18,11 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+import yilmazturk.alper.myroadfriend_bag_742.Fragments.DriverHomeFragment;
+import yilmazturk.alper.myroadfriend_bag_742.Fragments.MessageFragment;
+import yilmazturk.alper.myroadfriend_bag_742.Fragments.NotificationFragment;
+import yilmazturk.alper.myroadfriend_bag_742.Fragments.PassengerHomeFragment;
+import yilmazturk.alper.myroadfriend_bag_742.Fragments.ProfileFragment;
 import yilmazturk.alper.myroadfriend_bag_742.Model.User;
 
 public class MainActivity extends AppCompatActivity {
@@ -31,7 +33,6 @@ public class MainActivity extends AppCompatActivity {
     FirebaseAuth auth;
     FirebaseUser firebaseUser;
     Boolean isDriver;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -73,13 +74,11 @@ public class MainActivity extends AppCompatActivity {
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if(isDriver){
+                if (isDriver) {
                     startActivity(new Intent(MainActivity.this, PostTripActivity.class));
-                }else{
+                } else {
                     startActivity(new Intent(MainActivity.this, SearchTripActivity.class));
                 }
-
-
             }
         });
 
@@ -96,11 +95,11 @@ public class MainActivity extends AppCompatActivity {
                 User user = snapshot.getValue(User.class);
                 String userType = user.getUserType();
                 if (userType.equals("Passenger")) {
-                    isDriver=false;
+                    isDriver = false;
                     fab.setImageResource(R.drawable.ic_round_search);
                     getSupportFragmentManager().beginTransaction().replace(R.id.frameLayout, new PassengerHomeFragment()).commit();
                 } else {
-                    isDriver=true;
+                    isDriver = true;
                     getSupportFragmentManager().beginTransaction().replace(R.id.frameLayout, new DriverHomeFragment()).commit();
                 }
             }
@@ -138,6 +137,5 @@ public class MainActivity extends AppCompatActivity {
 
 
     }
-
 
 }

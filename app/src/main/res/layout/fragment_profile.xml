@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ProfileFragment">
+    tools:context=".Fragments.ProfileFragment">
 
     <View
         android:id="@+id/profileTopBar"
@@ -49,7 +49,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="10dp"
                 android:layout_toEndOf="@id/nameImageView"
-                android:text="Name"
+                android:text="@string/name"
                 android:textColor="@color/black"
                 android:textSize="16sp"
                 android:textStyle="bold" />
@@ -61,7 +61,7 @@
                 android:layout_alignParentBottom="true"
                 android:layout_marginStart="20dp"
                 android:layout_toEndOf="@id/nameImageView"
-                android:text="Alper"
+                android:text=""
                 android:textColor="@color/black"
                 android:textSize="14sp" />
 
@@ -92,7 +92,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="10dp"
                 android:layout_toEndOf="@id/surnameImageView"
-                android:text="Surname"
+                android:text="@string/surname"
                 android:textColor="@color/black"
                 android:textSize="16sp"
                 android:textStyle="bold" />
@@ -105,7 +105,7 @@
                 android:layout_alignParentBottom="true"
                 android:layout_marginStart="20dp"
                 android:layout_toEndOf="@id/surnameImageView"
-                android:text="Yılmaztürk"
+                android:text=""
                 android:textColor="@color/black"
                 android:textSize="14sp" />
 
@@ -118,6 +118,7 @@
             android:background="@color/profile_line" />
 
         <RelativeLayout
+            android:id="@+id/rltvLayUsernamePro"
             android:layout_width="match_parent"
             android:layout_height="42dp"
             android:layout_marginTop="20dp">
@@ -128,7 +129,6 @@
                 android:layout_height="40dp"
                 android:layout_alignParentStart="true"
                 android:layout_alignParentTop="true"
-
                 android:src="@drawable/pro_name" />
 
             <TextView
@@ -136,7 +136,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="10dp"
                 android:layout_toEndOf="@id/usernameImageView"
-                android:text="Username"
+                android:text="@string/username"
                 android:textColor="@color/black"
                 android:textSize="16sp"
                 android:textStyle="bold" />
@@ -148,13 +148,14 @@
                 android:layout_alignParentBottom="true"
                 android:layout_marginStart="20dp"
                 android:layout_toEndOf="@id/usernameImageView"
-                android:text="alperylmztrk"
+                android:text=""
                 android:textColor="@color/black"
                 android:textSize="14sp" />
 
         </RelativeLayout>
 
         <View
+            android:id="@+id/usernameLinePro"
             android:layout_width="match_parent"
             android:layout_height="2dp"
             android:layout_marginTop="5dp"
@@ -179,7 +180,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="10dp"
                 android:layout_toEndOf="@id/proEmailImageView"
-                android:text="Email"
+                android:text="@string/email"
                 android:textColor="@color/black"
                 android:textSize="16sp"
                 android:textStyle="bold" />
@@ -191,7 +192,7 @@
                 android:layout_alignParentBottom="true"
                 android:layout_marginStart="20dp"
                 android:layout_toEndOf="@id/proEmailImageView"
-                android:text="yilmazturk.alper@student.atilim.edu.tr"
+                android:text=""
                 android:textColor="@color/black"
                 android:textSize="14sp" />
 
@@ -218,24 +219,25 @@
         android:orientation="horizontal">
 
         <Button
-            android:id="@+id/btnProEdit"
+            android:id="@+id/btnLogout"
             android:layout_width="120dp"
             android:layout_height="wrap_content"
             android:background="@drawable/button"
-            android:drawableTop="@drawable/ic_round_edit_profile"
-            android:text="EDIT"
+            android:backgroundTint="#FA0000"
+            android:drawableTop="@drawable/ic_round_logout"
+            android:text="@string/logout"
             android:textColor="@color/white" />
 
         <Button
-            android:id="@+id/btnLogout"
+            android:id="@+id/btnProEdit"
             android:layout_width="120dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="50dp"
             android:background="@drawable/button"
-            android:drawableTop="@drawable/ic_round_logout"
-            android:backgroundTint="#FA0000"
-            android:text="LOGOUT"
+            android:drawableTop="@drawable/ic_round_edit_profile"
+            android:text="@string/edit"
             android:textColor="@color/white" />
+
     </LinearLayout>
 
 

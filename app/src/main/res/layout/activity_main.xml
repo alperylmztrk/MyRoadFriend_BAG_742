@@ -11,16 +11,15 @@
         android:id="@+id/frameLayout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginBottom="?attr/actionBarSize"
-        />
+        android:layout_marginBottom="?attr/actionBarSize" />
 
     <com.google.android.material.bottomappbar.BottomAppBar
         android:id="@+id/bottomAppBar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="bottom"
-        app:contentInsetStart="0dp"
         app:contentInsetLeft="0dp"
+        app:contentInsetStart="0dp"
         app:fabCradleRoundedCornerRadius="20dp">
 
         <com.google.android.material.bottomnavigation.BottomNavigationView
@@ -29,8 +28,7 @@
             android:layout_height="match_parent"
             android:background="@color/transparent"
             app:elevation="0dp"
-            app:menu="@menu/bottom_menu"/>
-
+            app:menu="@menu/bottom_menu" />
 
     </com.google.android.material.bottomappbar.BottomAppBar>
 

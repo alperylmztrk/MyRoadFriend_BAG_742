@@ -26,30 +26,27 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_marginStart="10dp"
+            android:maxLines="1"
+            android:text="@string/you_have_a_message_from" />
+
+        <TextView
+            android:id="@+id/textViewNotiNameSurname"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
             android:layout_weight="1"
-            android:maxLines="2"
+            android:maxLines="1"
+            android:layout_marginEnd="5dp"
+            android:text="" />
 
-            android:text="You have a message from Gamze Şimşek" />
-
-        <LinearLayout
+        <TextView
+            android:id="@+id/textViewNotiTime"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:gravity="center"
-            android:orientation="vertical">
+            android:layout_gravity="center"
+            android:text=""
+            android:textSize="12sp" />
 
-            <ImageButton
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:background="@color/transparent"
-                android:src="@drawable/ic_dots" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="5m"
-                android:textSize="12sp" />
-
-        </LinearLayout>
     </LinearLayout>
 
 
