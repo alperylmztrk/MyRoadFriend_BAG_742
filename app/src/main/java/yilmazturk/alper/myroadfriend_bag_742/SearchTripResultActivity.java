@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Context;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -42,12 +43,14 @@ public class SearchTripResultActivity extends AppCompatActivity {
     private RecyclerView recyclerView;
     private TripAdapter tripAdapter;
     private ArrayList<Driver> driverList;
+    private ArrayList<String> strDriverImageList;
     private ArrayList<UniDetail> uniDetailList;
     private UniList uniList;
     private ArrayList<String> strDayAndTime;
     private static String searchedUniName;
     private LinearLayoutManager linearLayoutManager;
     private ArrayList<Route> uniFoundedRoutes;
+    Context context;
 
     private LatLng selectedLocation;
 
@@ -70,6 +73,8 @@ public class SearchTripResultActivity extends AppCompatActivity {
 
         imgNoData = findViewById(R.id.imgNoData);
 
+        context = getApplicationContext();
+
         allRoutePointsList = new ArrayList<>();
         foundedRoutes = new ArrayList<>();
         uniFoundedRoutes = new ArrayList<>();
@@ -77,6 +82,7 @@ public class SearchTripResultActivity extends AppCompatActivity {
         selectedLocation = SearchTripMapActivity.getSelectedLocation();
 
         driverList = new ArrayList<>();
+        strDriverImageList = new ArrayList<>();
         strDayAndTime = new ArrayList<>();
         uniDetailList = new ArrayList<>();
         linearLayoutManager = new LinearLayoutManager(this);
@@ -165,6 +171,12 @@ public class SearchTripResultActivity extends AppCompatActivity {
                             }
                             String driverID = trip.getDriverID();
                             DataSnapshot driverSnapshot = snapshot.child("Users").child(driverID);
+                            if (driverSnapshot.hasChild("image")) {
+                                String strImage = driverSnapshot.child("image").getValue().toString();
+                                strDriverImageList.add(strImage);
+                            } else {
+                                strDriverImageList.add(null);
+                            }
                             Driver driver = driverSnapshot.getValue(Driver.class);
 
                             driverList.add(driver);
@@ -188,7 +200,7 @@ public class SearchTripResultActivity extends AppCompatActivity {
                     imgNoData.setVisibility(View.VISIBLE);
                     Toast.makeText(SearchTripResultActivity.this, "No Trips Founded!", Toast.LENGTH_SHORT).show();
                 }
-                tripAdapter = new TripAdapter(driverList, uniDetailList, strDayAndTime, uniFoundedRoutes);
+                tripAdapter = new TripAdapter(driverList, strDriverImageList, uniDetailList, strDayAndTime, uniFoundedRoutes, context);
                 recyclerView.setAdapter(tripAdapter);
             }
 

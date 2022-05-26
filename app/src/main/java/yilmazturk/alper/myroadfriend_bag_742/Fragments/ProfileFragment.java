@@ -16,6 +16,7 @@ import android.widget.Button;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
@@ -24,6 +25,7 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+import de.hdodenhof.circleimageview.CircleImageView;
 import yilmazturk.alper.myroadfriend_bag_742.Model.Admin;
 import yilmazturk.alper.myroadfriend_bag_742.Model.User;
 import yilmazturk.alper.myroadfriend_bag_742.R;
@@ -31,6 +33,7 @@ import yilmazturk.alper.myroadfriend_bag_742.WelcomeActivity;
 
 public class ProfileFragment extends Fragment {
 
+    CircleImageView proPhoto;
     Button btnEdit, btnLogout;
     TextView nameTxt, surnameTxt, usernameTxt, emailTxt;
     FirebaseAuth auth;
@@ -65,6 +68,7 @@ public class ProfileFragment extends Fragment {
         // Inflate the layout for this fragment
         View profileFragment = inflater.inflate(R.layout.fragment_profile, container, false);
 
+        proPhoto=profileFragment.findViewById(R.id.proImage);
         nameTxt = profileFragment.findViewById(R.id.proName);
         surnameTxt = profileFragment.findViewById(R.id.proSurname);
         usernameTxt = profileFragment.findViewById(R.id.proUsername);
@@ -144,6 +148,10 @@ public class ProfileFragment extends Fragment {
                 surnameTxt.setText(user.getSurname());
                 usernameTxt.setText(user.getUsername());
                 emailTxt.setText(user.getEmail());
+                if (snapshot.hasChild("image")) {
+                    String strImage = snapshot.child("image").getValue().toString();
+                    Glide.with(getActivity()).load(strImage).into(proPhoto);
+                }
             }
 
             @Override

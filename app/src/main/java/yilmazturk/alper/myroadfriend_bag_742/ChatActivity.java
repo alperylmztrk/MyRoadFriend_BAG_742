@@ -14,6 +14,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.bumptech.glide.Glide;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
@@ -28,6 +29,7 @@ import java.util.Date;
 import java.util.List;
 import java.util.Locale;
 
+import de.hdodenhof.circleimageview.CircleImageView;
 import yilmazturk.alper.myroadfriend_bag_742.Adapters.ChatAdapter;
 import yilmazturk.alper.myroadfriend_bag_742.Model.Chat;
 import yilmazturk.alper.myroadfriend_bag_742.Model.User;
@@ -39,7 +41,8 @@ public class ChatActivity extends AppCompatActivity {
     RecyclerView recyclerView;
     ChatAdapter chatAdapter;
     List<Chat> chatList;
-    private ImageView btnBack, userImg;
+    private ImageView btnBack;
+    private CircleImageView userImage;
     private TextView nameSurname, username;
     private EditText messageEditTxt;
     private ImageButton btnSend;
@@ -61,7 +64,7 @@ public class ChatActivity extends AppCompatActivity {
         setContentView(R.layout.activity_chat);
 
         btnBack = findViewById(R.id.backBtn);
-        userImg = findViewById(R.id.proPhotoChat);
+        userImage = findViewById(R.id.proPhotoChat);
 
         nameSurname = findViewById(R.id.nameSurnameChat);
         username = findViewById(R.id.usernameChat);
@@ -126,6 +129,10 @@ public class ChatActivity extends AppCompatActivity {
                     User user = uds.getValue(User.class);
                     if (user.getEmail().equals(receiver.getEmail())) {
                         receiverID = uds.getKey();
+                        if (uds.hasChild("image")) {
+                            String strImage = uds.child("image").getValue().toString();
+                            Glide.with(ChatActivity.this).load(strImage).into(userImage);
+                        }
                         break;
                     }
                 }

@@ -1,15 +1,16 @@
 package yilmazturk.alper.myroadfriend_bag_742.Adapters;
 
 import android.annotation.SuppressLint;
-import android.util.Log;
+import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
+
+import com.bumptech.glide.Glide;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -17,19 +18,24 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.Locale;
 
+import de.hdodenhof.circleimageview.CircleImageView;
 import yilmazturk.alper.myroadfriend_bag_742.Model.User;
 import yilmazturk.alper.myroadfriend_bag_742.R;
 
 public class NotificationAdapter extends RecyclerView.Adapter<NotificationAdapter.ViewHolder> {
 
     private ArrayList<User> senderList;
+    private ArrayList<String> strSenderImageList;
     private ArrayList<String> dateAndTimeList;
+    private Context context;
 
     LayoutInflater inflater;
 
-    public NotificationAdapter(ArrayList<User> senderList, ArrayList<String> dateAndTimeList) {
+    public NotificationAdapter(ArrayList<User> senderList, ArrayList<String> strSenderImageList, ArrayList<String> dateAndTimeList, Context context) {
         this.senderList = senderList;
+        this.strSenderImageList = strSenderImageList;
         this.dateAndTimeList = dateAndTimeList;
+        this.context = context;
     }
 
     @NonNull
@@ -44,7 +50,7 @@ public class NotificationAdapter extends RecyclerView.Adapter<NotificationAdapte
 
     @Override
     public void onBindViewHolder(@NonNull NotificationAdapter.ViewHolder holder, int position) {
-        holder.setData(senderList.get(position), dateAndTimeList.get(position));
+        holder.setData(senderList.get(position), strSenderImageList.get(position), dateAndTimeList.get(position));
     }
 
     @Override
@@ -54,19 +60,23 @@ public class NotificationAdapter extends RecyclerView.Adapter<NotificationAdapte
 
     public class ViewHolder extends RecyclerView.ViewHolder {
 
-        ImageView proPhoto;
+        CircleImageView senderImage;
         TextView senderNameAndSurname, txtTime;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
 
             senderNameAndSurname = itemView.findViewById(R.id.textViewNotiNameSurname);
+            senderImage = itemView.findViewById(R.id.proPhotoNotification);
             txtTime = itemView.findViewById(R.id.textViewNotiTime);
         }
 
         @SuppressLint("SetTextI18n")
-        private void setData(User user, String dateAndTime) {
-            senderNameAndSurname.setText(user.getName() + " " + user.getSurname());
+        private void setData(User sender, String strSenderImage, String dateAndTime) {
+            senderNameAndSurname.setText(sender.getName() + " " + sender.getSurname());
+            if (strSenderImage != null) {
+                Glide.with(context).load(strSenderImage).into(senderImage);
+            }
             calculatePassedTime(dateAndTime);
         }
 

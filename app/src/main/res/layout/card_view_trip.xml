@@ -20,12 +20,12 @@
             android:layout_marginTop="10dp"
             android:orientation="horizontal">
 
-            <ImageView
-                android:id="@+id/profilePhoto"
-                android:layout_width="33dp"
-                android:layout_height="33dp"
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/profilePhotoTrip"
+                android:layout_width="35dp"
+                android:layout_height="35dp"
                 android:layout_gravity="center"
-                app:srcCompat="@drawable/user" />
+                android:src="@drawable/user" />
 
             <LinearLayout
                 android:layout_width="wrap_content"

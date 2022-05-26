@@ -30,11 +30,11 @@
             android:gravity="center"
             android:orientation="vertical">
 
-            <ImageView
+            <de.hdodenhof.circleimageview.CircleImageView
                 android:id="@+id/proPhotoChat"
                 android:layout_width="40dp"
                 android:layout_height="40dp"
-                app:srcCompat="@drawable/user" />
+                android:src="@drawable/user" />
 
             <TextView
                 android:id="@+id/nameSurnameChat"

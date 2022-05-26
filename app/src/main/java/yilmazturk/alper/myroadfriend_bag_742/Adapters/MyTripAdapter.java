@@ -31,16 +31,18 @@ public class MyTripAdapter extends RecyclerView.Adapter<MyTripAdapter.ViewHolder
     private ArrayList<Route> myRouteList;
     private ArrayList<UniDetail> myUniDetailList;
     private Driver currentDriver;
+    private String strDriverImage;
     FragmentActivity activity;
 
     LayoutInflater inflater;
 
-    public MyTripAdapter(ArrayList<Trip> tripList, ArrayList<String> myDayAndTimeList, ArrayList<Route> myRouteList, ArrayList<UniDetail> myUniDetailList, Driver currentDriver, FragmentActivity activity) {
+    public MyTripAdapter(ArrayList<Trip> tripList, ArrayList<String> myDayAndTimeList, ArrayList<Route> myRouteList, ArrayList<UniDetail> myUniDetailList, Driver currentDriver, String strDriverImage, FragmentActivity activity) {
         this.tripList = tripList;
         this.myDayAndTimeList = myDayAndTimeList;
         this.myRouteList = myRouteList;
         this.myUniDetailList = myUniDetailList;
         this.currentDriver = currentDriver;
+        this.strDriverImage = strDriverImage;
         this.activity = activity;
     }
 
@@ -115,7 +117,7 @@ public class MyTripAdapter extends RecyclerView.Adapter<MyTripAdapter.ViewHolder
                 case R.id.myTxtRoute:
                     //See Route
                     String dNameSurname = currentDriver.getName() + " " + currentDriver.getSurname();
-                    SeeRouteActivity.setRouteInfo(route.getWaypoints(), dNameSurname, uniDetail.getName(), uniDetail.getCity());
+                    SeeRouteActivity.setRouteInfo(route.getWaypoints(), strDriverImage, dNameSurname, uniDetail.getName(), uniDetail.getCity());
                     view.getContext().startActivity(new Intent(view.getContext(), SeeRouteActivity.class));
                     break;
                 case R.id.myImgBtnEditTrip:

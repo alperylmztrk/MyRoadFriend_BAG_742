@@ -1,5 +1,6 @@
 package yilmazturk.alper.myroadfriend_bag_742.Fragments;
 
+import android.content.Context;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -42,12 +43,14 @@ public class PassengerHomeFragment extends Fragment {
     private RecyclerView recyclerView;
     private TripAdapter tripAdapter;
     private ArrayList<Driver> driverList;
+    private ArrayList<String> strDriverImageList;
     private ArrayList<String> strDayAndTime;
     private ArrayList<UniDetail> uniDetailList;
     private UniList uniList;
     private ArrayList<Route> routeList;
     private LinearLayoutManager linearLayoutManager;
     DatabaseReference database;
+    Context context;
 
 
     public PassengerHomeFragment() {
@@ -59,9 +62,11 @@ public class PassengerHomeFragment extends Fragment {
         super.onCreate(savedInstanceState);
 
         driverList = new ArrayList<>();
+        strDriverImageList = new ArrayList<>();
         strDayAndTime = new ArrayList<>();
         routeList = new ArrayList<>();
         uniDetailList = new ArrayList<>();
+        context = getContext();
         linearLayoutManager = new LinearLayoutManager(getActivity());
         database = FirebaseDatabase.getInstance().getReference();
 
@@ -139,8 +144,14 @@ public class PassengerHomeFragment extends Fragment {
                                 String driverID = trip.getDriverID();
                                 DataSnapshot driverSnapshot = snapshot.child("Users").child(driverID);
                                 Driver driver = driverSnapshot.getValue(Driver.class);
-
                                 driverList.add(driver);
+
+                                if (driverSnapshot.hasChild("image")) {
+                                    String strImage = driverSnapshot.child("image").getValue().toString();
+                                    strDriverImageList.add(strImage);
+                                } else {
+                                    strDriverImageList.add(null);
+                                }
 
                                 StringBuilder sbDayAndTime = new StringBuilder();
                                 String prefix = "";
@@ -157,7 +168,7 @@ public class PassengerHomeFragment extends Fragment {
                         }
                     }
                 }
-                tripAdapter = new TripAdapter(driverList, uniDetailList, strDayAndTime, routeList);
+                tripAdapter = new TripAdapter(driverList, strDriverImageList, uniDetailList, strDayAndTime, routeList, context);
                 recyclerView.setAdapter(tripAdapter);
             }
 

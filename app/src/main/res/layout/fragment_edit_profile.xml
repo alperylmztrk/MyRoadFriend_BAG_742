@@ -11,7 +11,7 @@
         android:layout_height="wrap_content">
 
 
-        <ImageView
+        <de.hdodenhof.circleimageview.CircleImageView
             android:id="@+id/imageViewUserEditPro"
             android:layout_width="80dp"
             android:layout_height="80dp"
@@ -25,6 +25,7 @@
             android:layout_below="@id/imageViewUserEditPro"
             android:layout_centerHorizontal="true"
             android:text="@string/change_profile_photo"
+            android:textColor="@color/myColorPrimaryVariant"
             android:textSize="12sp" />
 
         <com.google.android.material.textfield.TextInputLayout

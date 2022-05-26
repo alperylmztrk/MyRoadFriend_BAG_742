@@ -44,7 +44,7 @@
     <string name="edit_trip">EDIT TRIP</string>
     <string name="delete_trip">DELETE TRIP</string>
     <string name="see_route">SEE ROUTE</string>
-    <string name="you_have_a_message_from">You have a message from</string>
+    <string name="you_have_a_message_from">You have a message from\u0020</string>
     <string name="send_message">SEND MESSAGE</string>
     <string name="disabled_users">Disabled Users</string>
     <string name="users">Users</string>

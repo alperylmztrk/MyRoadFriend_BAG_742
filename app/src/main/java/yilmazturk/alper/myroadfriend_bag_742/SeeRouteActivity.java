@@ -13,6 +13,7 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.bumptech.glide.Glide;
 import com.google.android.gms.maps.CameraUpdate;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
@@ -31,6 +32,7 @@ import com.google.maps.android.ui.IconGenerator;
 import java.util.ArrayList;
 import java.util.List;
 
+import de.hdodenhof.circleimageview.CircleImageView;
 import yilmazturk.alper.myroadfriend_bag_742.Model.UniList;
 import yilmazturk.alper.myroadfriend_bag_742.RouteHelper.FetchURL;
 import yilmazturk.alper.myroadfriend_bag_742.RouteHelper.TaskLoadedCallback;
@@ -42,13 +44,15 @@ public class SeeRouteActivity extends FragmentActivity implements OnMapReadyCall
     private GoogleMap mMap;
     private ActivitySeeRouteBinding binding;
     private static ArrayList<LatLng> markerPoints = new ArrayList<>();
-    String markerLetter = "ABCDEFGHIJ";
+    private String markerLetter = "ABCDEFGHIJ";
 
     private TextView dNameSurnameTxt, uniNameTxt, cityNameTxt;
-    private static String dNameSurname, uniName, cityName;
+    private CircleImageView driverImage;
+    private static String strDriverImage, dNameSurname, uniName, cityName;
 
-    public static void setRouteInfo(ArrayList<LatLng> markPoint, String dNameSurname1, String uniName1, String cityName1) {
+    public static void setRouteInfo(ArrayList<LatLng> markPoint, String strDriverImg, String dNameSurname1, String uniName1, String cityName1) {
         markerPoints = markPoint;
+        strDriverImage = strDriverImg;
         dNameSurname = dNameSurname1;
         uniName = uniName1;
         cityName = cityName1;
@@ -66,10 +70,14 @@ public class SeeRouteActivity extends FragmentActivity implements OnMapReadyCall
                 .findFragmentById(R.id.seeRouteMap);
         mapFragment.getMapAsync(this);
 
+        driverImage = findViewById(R.id.proPhotoSeeRoute);
         dNameSurnameTxt = findViewById(R.id.dNameSurnameSeeRoute);
         uniNameTxt = findViewById(R.id.uniNameSeeRoute);
         cityNameTxt = findViewById(R.id.cityNameSeeRoute);
 
+        if (strDriverImage != null) {
+            Glide.with(getApplicationContext()).load(strDriverImage).into(driverImage);
+        }
         dNameSurnameTxt.setText(dNameSurname);
         uniNameTxt.setText(uniName);
         cityNameTxt.setText(cityName);

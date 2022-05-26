@@ -1,5 +1,6 @@
 package yilmazturk.alper.myroadfriend_bag_742.Fragments;
 
+import android.content.Context;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -30,12 +31,14 @@ import yilmazturk.alper.myroadfriend_bag_742.R;
 public class NotificationFragment extends Fragment {
 
     private ArrayList<User> senderList;
+    private ArrayList<String> strSenderImageList;
     private ArrayList<String> dateAndTimeList;
     private RecyclerView recyclerView;
     private NotificationAdapter notificationAdapter;
     private FirebaseUser firebaseUser;
     private FirebaseAuth auth;
     private LinearLayoutManager linearLayoutManager;
+    Context context;
 
 
     public NotificationFragment() {
@@ -48,8 +51,10 @@ public class NotificationFragment extends Fragment {
         super.onCreate(savedInstanceState);
 
         senderList = new ArrayList<>();
+        strSenderImageList = new ArrayList<>();
         dateAndTimeList = new ArrayList<>();
         linearLayoutManager = new LinearLayoutManager(getActivity());
+        context = getContext();
 
         auth = FirebaseAuth.getInstance();
         firebaseUser = auth.getCurrentUser();
@@ -90,10 +95,18 @@ public class NotificationFragment extends Fragment {
                         DataSnapshot senderSnapshot = snapshot.child("Users").child(chat.getSenderID());
                         User sender = senderSnapshot.getValue(User.class);
                         senderList.add(sender);
+
+                        if (senderSnapshot.hasChild("image")) {
+                            String strImage = senderSnapshot.child("image").getValue().toString();
+                            strSenderImageList.add(strImage);
+                        } else {
+                            strSenderImageList.add(null);
+                        }
+
                         dateAndTimeList.add(chat.getDate() + " " + chat.getTime());
                     }
                 }
-                notificationAdapter = new NotificationAdapter(senderList, dateAndTimeList);
+                notificationAdapter = new NotificationAdapter(senderList, strSenderImageList, dateAndTimeList, context);
                 recyclerView.setAdapter(notificationAdapter);
             }
 

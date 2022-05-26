@@ -15,6 +15,7 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.bumptech.glide.Glide;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -31,6 +32,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
 
+import de.hdodenhof.circleimageview.CircleImageView;
 import yilmazturk.alper.myroadfriend_bag_742.Adapters.MyTripAdapter;
 import yilmazturk.alper.myroadfriend_bag_742.Model.Chat;
 import yilmazturk.alper.myroadfriend_bag_742.Model.Driver;
@@ -56,6 +58,8 @@ public class DriverHomeFragment extends Fragment {
 
     private TextView lastMsgSenderUsername, lastMsgDate, lastMsgTime, lastMsgText;
 
+    CircleImageView driverImage;
+    private String strImage;
     TextView nameSurname;
     Button btnViewProfile;
     FirebaseAuth auth;
@@ -98,6 +102,7 @@ public class DriverHomeFragment extends Fragment {
         View driverHomeFragment = inflater.inflate(R.layout.fragment_driver_home, container, false);
 
         recyclerView = driverHomeFragment.findViewById(R.id.recyclerViewDriverHome);
+        driverImage = driverHomeFragment.findViewById(R.id.photoDriver);
         nameSurname = driverHomeFragment.findViewById(R.id.nameSurnameDHome);
         btnViewProfile = driverHomeFragment.findViewById(R.id.driverViewProfile);
         lastMsgSenderUsername = driverHomeFragment.findViewById(R.id.lastMsgSenderDriverHome);
@@ -128,8 +133,12 @@ public class DriverHomeFragment extends Fragment {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
 
-                Driver driver = snapshot.getValue(Driver.class);
+                if (snapshot.hasChild("image")) {
+                    strImage = snapshot.child("image").getValue().toString();
+                    Glide.with(getContext()).load(strImage).into(driverImage);
+                }
 
+                Driver driver = snapshot.getValue(Driver.class);
                 String strNameSurname = driver.getName() + " " + driver.getSurname();
                 nameSurname.setText(strNameSurname);
             }
@@ -239,7 +248,7 @@ public class DriverHomeFragment extends Fragment {
                     }
                 }
 
-                myTripAdapter = new MyTripAdapter(tripList, strDayAndTime, currentDriverRouteList, uniDetailList, currentDriver, getActivity());
+                myTripAdapter = new MyTripAdapter(tripList, strDayAndTime, currentDriverRouteList, uniDetailList, currentDriver, strImage, getActivity());
                 recyclerView.setAdapter(myTripAdapter);
             }
 
