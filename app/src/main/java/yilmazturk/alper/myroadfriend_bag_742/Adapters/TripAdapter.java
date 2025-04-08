@@ -115,21 +115,17 @@ public class TripAdapter extends RecyclerView.Adapter<TripAdapter.ViewHolder> {
 
         @Override
         public void onClick(View view) {
-            switch (view.getId()) {
-                case R.id.imageButtonRoute:
-                case R.id.textViewRoute:
-                    //See Route
-                    String dNameSurname = driver.getName() + " " + driver.getSurname();
-                    SeeRouteActivity.setRouteInfo(route.getWaypoints(), strDriverImage, dNameSurname, uniDetail.getName(), uniDetail.getCity());
-                    view.getContext().startActivity(new Intent(view.getContext(), SeeRouteActivity.class));
-                    break;
-                case R.id.imageButtonMessage:
-                case R.id.textViewMessage:
-                    // Send Message
-                    ChatActivity.setReceiver(driver);
-                    view.getContext().startActivity(new Intent(view.getContext(), ChatActivity.class));
-                    break;
+            if (view.getId() == R.id.imageButtonRoute || view.getId() == R.id.textViewRoute) {
+                // See Route
+                String dNameSurname = driver.getName() + " " + driver.getSurname();
+                SeeRouteActivity.setRouteInfo(route.getWaypoints(), strDriverImage, dNameSurname, uniDetail.getName(), uniDetail.getCity());
+                view.getContext().startActivity(new Intent(view.getContext(), SeeRouteActivity.class));
+            } else if (view.getId() == R.id.imageButtonMessage || view.getId() == R.id.textViewMessage) {
+                // Send Message
+                ChatActivity.setReceiver(driver);
+                view.getContext().startActivity(new Intent(view.getContext(), ChatActivity.class));
             }
+
         }
     }
 }

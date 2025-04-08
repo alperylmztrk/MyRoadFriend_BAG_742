@@ -38,8 +38,6 @@ import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.StorageTask;
-import com.theartofdev.edmodo.cropper.CropImage;
-import com.theartofdev.edmodo.cropper.CropImageView;
 
 import de.hdodenhof.circleimageview.CircleImageView;
 import yilmazturk.alper.myroadfriend_bag_742.Model.User;
@@ -113,8 +111,8 @@ public class EditProfileDialogFragment extends DialogFragment {
             @Override
             public void onClick(View v) {
                 //CropImage.activity().setAspectRatio(1, 1).start(getContext(),EditProfileDialogFragment.this);
-                Intent intent = CropImage.activity().setCropShape(CropImageView.CropShape.OVAL).getIntent(requireContext());
-                launcher.launch(intent);
+            //    Intent intent = CropImage.activity().setCropShape(CropImageView.CropShape.OVAL).getIntent(requireContext());
+            //    launcher.launch(intent);
             }
         });
 
@@ -149,11 +147,11 @@ public class EditProfileDialogFragment extends DialogFragment {
     private final ActivityResultLauncher launcher = registerForActivityResult(new ActivityResultContracts.StartActivityForResult(),
             result -> {
                 if (result.getResultCode() == Activity.RESULT_OK && result.getData() != null) {
-                    CropImage.ActivityResult cropResult = CropImage.getActivityResult(result.getData());
+                //    CropImage.ActivityResult cropResult = CropImage.getActivityResult(result.getData());
 
-                    imageUri = cropResult.getUri();
+              //      imageUri = cropResult.getUri();
 
-                    proPhotoImgV.setImageURI(imageUri);
+                //    proPhotoImgV.setImageURI(imageUri);
                 } else {
                     Toast.makeText(getActivity(), "Error, Try again", Toast.LENGTH_SHORT).show();
                 }

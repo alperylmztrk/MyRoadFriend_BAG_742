@@ -112,34 +112,30 @@ public class MyTripAdapter extends RecyclerView.Adapter<MyTripAdapter.ViewHolder
 
         @Override
         public void onClick(View view) {
-            switch (view.getId()) {
-                case R.id.myImgBtnRoute:
-                case R.id.myTxtRoute:
-                    //See Route
-                    String dNameSurname = currentDriver.getName() + " " + currentDriver.getSurname();
-                    SeeRouteActivity.setRouteInfo(route.getWaypoints(), strDriverImage, dNameSurname, uniDetail.getName(), uniDetail.getCity());
-                    view.getContext().startActivity(new Intent(view.getContext(), SeeRouteActivity.class));
-                    break;
-                case R.id.myImgBtnEditTrip:
-                case R.id.myTxtEditTrip:
-                    //Edit Trip
-                    EditMyTripDialogFragment editMyTripDialogFragment = new EditMyTripDialogFragment(trip);
-                    editMyTripDialogFragment.show(activity.getSupportFragmentManager(), "UpdateMyTrip");
-                    break;
-                case R.id.myImgBtnDelTrip:
-                case R.id.myTxtDelTrip:
-                    //Delete Route
-                    AlertDialog.Builder alertDialog = new AlertDialog.Builder(activity, R.style.AlertDialogCustom);
-                    alertDialog.setTitle("Delete Trip!")
-                            .setMessage("Are you sure you really want to delete this trip?").setPositiveButton("Yes", new DialogInterface.OnClickListener() {
-                        @Override
-                        public void onClick(DialogInterface dialog, int which) {
-                            DriverHomeFragment driverHomeFragment = new DriverHomeFragment();
-                            driverHomeFragment.deleteTrip(trip, route);
-                            activity.recreate();
-                        }
-                    }).setNegativeButton("No", null).show();
-                    break;
+            if (view.getId() == R.id.myImgBtnRoute || view.getId() == R.id.myTxtRoute) {
+                // See Route
+                String dNameSurname = currentDriver.getName() + " " + currentDriver.getSurname();
+                SeeRouteActivity.setRouteInfo(route.getWaypoints(), strDriverImage, dNameSurname, uniDetail.getName(), uniDetail.getCity());
+                view.getContext().startActivity(new Intent(view.getContext(), SeeRouteActivity.class));
+            } else if (view.getId() == R.id.myImgBtnEditTrip || view.getId() == R.id.myTxtEditTrip) {
+                // Edit Trip
+                EditMyTripDialogFragment editMyTripDialogFragment = new EditMyTripDialogFragment(trip);
+                editMyTripDialogFragment.show(activity.getSupportFragmentManager(), "UpdateMyTrip");
+            } else if (view.getId() == R.id.myImgBtnDelTrip || view.getId() == R.id.myTxtDelTrip) {
+                // Delete Route
+                AlertDialog.Builder alertDialog = new AlertDialog.Builder(activity, R.style.AlertDialogCustom);
+                alertDialog.setTitle("Delete Trip!")
+                        .setMessage("Are you sure you really want to delete this trip?")
+                        .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                DriverHomeFragment driverHomeFragment = new DriverHomeFragment();
+                                driverHomeFragment.deleteTrip(trip, route);
+                                activity.recreate();
+                            }
+                        })
+                        .setNegativeButton("No", null)
+                        .show();
             }
         }
     }

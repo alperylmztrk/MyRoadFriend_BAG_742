@@ -49,21 +49,16 @@ public class MainActivity extends AppCompatActivity {
 
         bottomNavigationView.setOnItemSelectedListener(item -> {
 
-            switch (item.getItemId()) {
-
-                case R.id.home:
-                    startHomeFragment();
-                    break;
-                case R.id.messages:
-                    selectedFragment = new MessageFragment();
-                    break;
-                case R.id.notifications:
-                    selectedFragment = new NotificationFragment();
-                    break;
-                case R.id.profile:
-                    selectedFragment = new ProfileFragment();
-                    break;
+            if (item.getItemId() == R.id.home) {
+                startHomeFragment();
+            } else if (item.getItemId() == R.id.messages) {
+                selectedFragment = new MessageFragment();
+            } else if (item.getItemId() == R.id.notifications) {
+                selectedFragment = new NotificationFragment();
+            } else if (item.getItemId() == R.id.profile) {
+                selectedFragment = new ProfileFragment();
             }
+
             if (selectedFragment != null) {
                 getSupportFragmentManager().beginTransaction().replace(R.id.frameLayout, selectedFragment).commit();
             }

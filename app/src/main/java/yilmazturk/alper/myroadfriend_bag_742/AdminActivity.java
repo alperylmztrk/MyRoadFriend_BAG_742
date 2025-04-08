@@ -26,20 +26,16 @@ public class AdminActivity extends AppCompatActivity {
         getSupportFragmentManager().beginTransaction().replace(R.id.adminFrameLayout, new AdminHomeFragment()).commit();
 
         adminBottomNavView.setOnItemSelectedListener(item -> {
-            switch (item.getItemId()) {
-                case R.id.adminHome:
-                    selectedFragment = new AdminHomeFragment();
-                    break;
-                case R.id.disUsers:
-                    selectedFragment = new AdminDisableUserFragment();
-                    break;
-                case R.id.remTrips:
-                    selectedFragment = new AdminRemoveTripFragment();
-                    break;
-                case R.id.profile:
-                    selectedFragment = new ProfileFragment();
-                    break;
+            if (item.getItemId() == R.id.adminHome) {
+                selectedFragment = new AdminHomeFragment();
+            } else if (item.getItemId() == R.id.disUsers) {
+                selectedFragment = new AdminDisableUserFragment();
+            } else if (item.getItemId() == R.id.remTrips) {
+                selectedFragment = new AdminRemoveTripFragment();
+            } else if (item.getItemId() == R.id.profile) {
+                selectedFragment = new ProfileFragment();
             }
+
             if (selectedFragment != null) {
                 getSupportFragmentManager().beginTransaction().replace(R.id.adminFrameLayout, selectedFragment).commit();
             }

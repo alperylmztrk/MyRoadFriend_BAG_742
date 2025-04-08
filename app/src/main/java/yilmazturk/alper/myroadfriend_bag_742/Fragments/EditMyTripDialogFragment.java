@@ -217,63 +217,59 @@ public class EditMyTripDialogFragment extends DialogFragment implements View.OnC
     @Override
     public void onCheckedChanged(CompoundButton compoundButton, boolean isChecked) {
 
-        switch (compoundButton.getId()) {
-            case R.id.editTripSwitchMon:
-                if (isChecked) {
-                    days.add(switchMon.getText().toString());
-                    monInTxt.setVisibility(View.VISIBLE);
-                    monOutTxt.setVisibility(View.VISIBLE);
-                } else {
-                    days.remove("Monday");
-                    monInTxt.setVisibility(View.INVISIBLE);
-                    monOutTxt.setVisibility(View.INVISIBLE);
-                }
-                break;
-            case R.id.editTripSwitchTue:
-                if (isChecked) {
-                    days.add(switchTue.getText().toString());
-                    tueInTxt.setVisibility(View.VISIBLE);
-                    tueOutTxt.setVisibility(View.VISIBLE);
-                } else {
-                    days.remove(switchTue.getText().toString());
-                    tueInTxt.setVisibility(View.INVISIBLE);
-                    tueOutTxt.setVisibility(View.INVISIBLE);
-                }
-                break;
-            case R.id.editTripSwitchWed:
-                if (isChecked) {
-                    days.add(switchWed.getText().toString());
-                    wedInTxt.setVisibility(View.VISIBLE);
-                    wedOutTxt.setVisibility(View.VISIBLE);
-                } else {
-                    days.remove(switchWed.getText().toString());
-                    wedInTxt.setVisibility(View.INVISIBLE);
-                    wedOutTxt.setVisibility(View.INVISIBLE);
-                }
-                break;
-            case R.id.editTripSwitchThu:
-                if (isChecked) {
-                    days.add(switchThu.getText().toString());
-                    thuInTxt.setVisibility(View.VISIBLE);
-                    thuOutTxt.setVisibility(View.VISIBLE);
-                } else {
-                    days.remove(switchThu.getText().toString());
-                    thuInTxt.setVisibility(View.INVISIBLE);
-                    thuOutTxt.setVisibility(View.INVISIBLE);
-                }
-                break;
-            case R.id.editTripSwitchFri:
-                if (isChecked) {
-                    days.add(switchFri.getText().toString());
-                    friInTxt.setVisibility(View.VISIBLE);
-                    friOutTxt.setVisibility(View.VISIBLE);
-                } else {
-                    days.remove(switchFri.getText().toString());
-                    friInTxt.setVisibility(View.INVISIBLE);
-                    friOutTxt.setVisibility(View.INVISIBLE);
-                }
-                break;
+        if (compoundButton.getId() == R.id.editTripSwitchMon) {
+            if (isChecked) {
+                days.add("Monday");
+                monInTxt.setVisibility(View.VISIBLE);
+                monOutTxt.setVisibility(View.VISIBLE);
+            } else {
+                days.remove("Monday");
+                monInTxt.setVisibility(View.INVISIBLE);
+                monOutTxt.setVisibility(View.INVISIBLE);
+            }
+        } else if (compoundButton.getId() == R.id.editTripSwitchTue) {
+            if (isChecked) {
+                days.add("Tuesday");
+                tueInTxt.setVisibility(View.VISIBLE);
+                tueOutTxt.setVisibility(View.VISIBLE);
+            } else {
+                days.remove("Tuesday");
+                tueInTxt.setVisibility(View.INVISIBLE);
+                tueOutTxt.setVisibility(View.INVISIBLE);
+            }
+        } else if (compoundButton.getId() == R.id.editTripSwitchWed) {
+            if (isChecked) {
+                days.add("Wednesday");
+                wedInTxt.setVisibility(View.VISIBLE);
+                wedOutTxt.setVisibility(View.VISIBLE);
+            } else {
+                days.remove("Wednesday");
+                wedInTxt.setVisibility(View.INVISIBLE);
+                wedOutTxt.setVisibility(View.INVISIBLE);
+            }
+        } else if (compoundButton.getId() == R.id.editTripSwitchThu) {
+            if (isChecked) {
+                days.add("Thursday");
+                thuInTxt.setVisibility(View.VISIBLE);
+                thuOutTxt.setVisibility(View.VISIBLE);
+            } else {
+                days.remove("Thursday");
+                thuInTxt.setVisibility(View.INVISIBLE);
+                thuOutTxt.setVisibility(View.INVISIBLE);
+            }
+        } else if (compoundButton.getId() == R.id.editTripSwitchFri) {
+            if (isChecked) {
+                days.add("Friday");
+                friInTxt.setVisibility(View.VISIBLE);
+                friOutTxt.setVisibility(View.VISIBLE);
+            } else {
+                days.remove("Friday");
+                friInTxt.setVisibility(View.INVISIBLE);
+                friOutTxt.setVisibility(View.INVISIBLE);
+            }
         }
+
+
         times.add(0, new Time(monInTxt.getText().toString(), monOutTxt.getText().toString()));
         times.add(1, new Time(tueInTxt.getText().toString(), tueOutTxt.getText().toString()));
         times.add(2, new Time(wedInTxt.getText().toString(), wedOutTxt.getText().toString()));
@@ -287,48 +283,38 @@ public class EditMyTripDialogFragment extends DialogFragment implements View.OnC
 
     @Override
     public void onClick(View view) {
-        switch (view.getId()) {
-            case R.id.editTripMonCheckIn:
-                day = "monday";
-                check = "check-in";
-                break;
-            case R.id.editTripMonCheckOut:
-                day = "monday";
-                check = "check-out";
-                break;
-            case R.id.editTripTueCheckIn:
-                day = "tuesday";
-                check = "check-in";
-                break;
-            case R.id.editTripTueCheckOut:
-                day = "tuesday";
-                check = "check-out";
-                break;
-            case R.id.editTripWedCheckIn:
-                day = "wednesday";
-                check = "check-in";
-                break;
-            case R.id.editTripWedCheckOut:
-                day = "wednesday";
-                check = "check-out";
-                break;
-            case R.id.editTripThuCheckIn:
-                day = "thursday";
-                check = "check-in";
-                break;
-            case R.id.editTripThuCheckOut:
-                day = "thursday";
-                check = "check-out";
-                break;
-            case R.id.editTripFriCheckIn:
-                day = "friday";
-                check = "check-in";
-                break;
-            case R.id.editTripFriCheckOut:
-                day = "friday";
-                check = "check-out";
-                break;
+        if (view.getId() == R.id.editTripMonCheckIn) {
+            day = "monday";
+            check = "check-in";
+        } else if (view.getId() == R.id.editTripMonCheckOut) {
+            day = "monday";
+            check = "check-out";
+        } else if (view.getId() == R.id.editTripTueCheckIn) {
+            day = "tuesday";
+            check = "check-in";
+        } else if (view.getId() == R.id.editTripTueCheckOut) {
+            day = "tuesday";
+            check = "check-out";
+        } else if (view.getId() == R.id.editTripWedCheckIn) {
+            day = "wednesday";
+            check = "check-in";
+        } else if (view.getId() == R.id.editTripWedCheckOut) {
+            day = "wednesday";
+            check = "check-out";
+        } else if (view.getId() == R.id.editTripThuCheckIn) {
+            day = "thursday";
+            check = "check-in";
+        } else if (view.getId() == R.id.editTripThuCheckOut) {
+            day = "thursday";
+            check = "check-out";
+        } else if (view.getId() == R.id.editTripFriCheckIn) {
+            day = "friday";
+            check = "check-in";
+        } else if (view.getId() == R.id.editTripFriCheckOut) {
+            day = "friday";
+            check = "check-out";
         }
+
 
         TimePickerDialog.OnTimeSetListener onTimeSetListener = new TimePickerDialog.OnTimeSetListener() {
 
@@ -338,38 +324,28 @@ public class EditMyTripDialogFragment extends DialogFragment implements View.OnC
                 hour = selectedHour;
                 minute = selectedMinute;
 
-                switch (view.getId()) {
-                    case R.id.editTripMonCheckIn:
-                        monInTxt.setText(String.format(Locale.getDefault(), "%02d:%02d", hour, minute));
-                        break;
-                    case R.id.editTripMonCheckOut:
-                        monOutTxt.setText(String.format(Locale.getDefault(), "%02d:%02d", hour, minute));
-                        break;
-                    case R.id.editTripTueCheckIn:
-                        tueInTxt.setText(String.format(Locale.getDefault(), "%02d:%02d", hour, minute));
-                        break;
-                    case R.id.editTripTueCheckOut:
-                        tueOutTxt.setText(String.format(Locale.getDefault(), "%02d:%02d", hour, minute));
-                        break;
-                    case R.id.editTripWedCheckIn:
-                        wedInTxt.setText(String.format(Locale.getDefault(), "%02d:%02d", hour, minute));
-                        break;
-                    case R.id.editTripWedCheckOut:
-                        wedOutTxt.setText(String.format(Locale.getDefault(), "%02d:%02d", hour, minute));
-                        break;
-                    case R.id.editTripThuCheckIn:
-                        thuInTxt.setText(String.format(Locale.getDefault(), "%02d:%02d", hour, minute));
-                        break;
-                    case R.id.editTripThuCheckOut:
-                        thuOutTxt.setText(String.format(Locale.getDefault(), "%02d:%02d", hour, minute));
-                        break;
-                    case R.id.editTripFriCheckIn:
-                        friInTxt.setText(String.format(Locale.getDefault(), "%02d:%02d", hour, minute));
-                        break;
-                    case R.id.editTripFriCheckOut:
-                        friOutTxt.setText(String.format(Locale.getDefault(), "%02d:%02d", hour, minute));
-                        break;
+                if (view.getId() == R.id.editTripMonCheckIn) {
+                    monInTxt.setText(String.format(Locale.getDefault(), "%02d:%02d", hour, minute));
+                } else if (view.getId() == R.id.editTripMonCheckOut) {
+                    monOutTxt.setText(String.format(Locale.getDefault(), "%02d:%02d", hour, minute));
+                } else if (view.getId() == R.id.editTripTueCheckIn) {
+                    tueInTxt.setText(String.format(Locale.getDefault(), "%02d:%02d", hour, minute));
+                } else if (view.getId() == R.id.editTripTueCheckOut) {
+                    tueOutTxt.setText(String.format(Locale.getDefault(), "%02d:%02d", hour, minute));
+                } else if (view.getId() == R.id.editTripWedCheckIn) {
+                    wedInTxt.setText(String.format(Locale.getDefault(), "%02d:%02d", hour, minute));
+                } else if (view.getId() == R.id.editTripWedCheckOut) {
+                    wedOutTxt.setText(String.format(Locale.getDefault(), "%02d:%02d", hour, minute));
+                } else if (view.getId() == R.id.editTripThuCheckIn) {
+                    thuInTxt.setText(String.format(Locale.getDefault(), "%02d:%02d", hour, minute));
+                } else if (view.getId() == R.id.editTripThuCheckOut) {
+                    thuOutTxt.setText(String.format(Locale.getDefault(), "%02d:%02d", hour, minute));
+                } else if (view.getId() == R.id.editTripFriCheckIn) {
+                    friInTxt.setText(String.format(Locale.getDefault(), "%02d:%02d", hour, minute));
+                } else if (view.getId() == R.id.editTripFriCheckOut) {
+                    friOutTxt.setText(String.format(Locale.getDefault(), "%02d:%02d", hour, minute));
                 }
+
 
                 times.add(0, new Time(monInTxt.getText().toString(), monOutTxt.getText().toString()));
                 times.add(1, new Time(tueInTxt.getText().toString(), tueOutTxt.getText().toString()));
